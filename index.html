@@ -78,6 +78,12 @@
       input::placeholder, textarea::placeholder { color: #91a9c8 !important; }
       .shadow-card { box-shadow: 0 18px 50px rgba(0, 6, 20, .25); }
       .shadow-glow { box-shadow: 0 12px 36px rgba(40, 120, 240, .28); }
+      .photo-glow {
+        background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(103, 232, 249, .72), rgba(37, 99, 235, .32) 35%, transparent 72%);
+        opacity: .25;
+        transition: opacity .3s ease;
+      }
+      .photo-card.is-glowing .photo-glow { opacity: .95; }
       .reveal { animation: rise-in .75s cubic-bezier(.2,.75,.25,1) both; }
       .reveal-delay { animation-delay: .12s; }
       .typing-cursor::after { content: ""; display: inline-block; height: 1em; margin-left: .12em; border-right: 2px solid #70b7ff; vertical-align: -.12em; animation: cursor-blink .8s steps(2, start) infinite; }
@@ -145,8 +151,8 @@
               <span class="inline-flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-cyan-500"></span> Fokus: Network &amp; Web</span>
             </div>
           </div>
-          <div class="reveal reveal-delay relative mx-auto w-full max-w-[390px] lg:mr-8">
-            <div class="absolute -inset-5 rounded-[2.5rem] bg-blue-500/20 blur-2xl"></div>
+          <div class="photo-card reveal reveal-delay relative mx-auto w-full max-w-[390px] lg:mr-8">
+            <div class="photo-glow absolute -inset-5 rounded-[2.5rem] blur-2xl"></div>
             <div class="absolute -right-7 top-16 h-24 w-24 rounded-full border border-cyan-200/25"></div>
             <div class="absolute -left-8 bottom-28 h-16 w-16 rounded-full border border-blue-200/30"></div>
             <div class="relative overflow-hidden rounded-[2rem] border border-blue-200/30 bg-gradient-to-br from-blue-400/30 via-blue-900 to-[#06152b] p-2 shadow-[0_28px_90px_rgba(0,8,28,.55)]">
@@ -476,6 +482,21 @@
 
       const menuToggle = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
+
+      const photoCard = document.querySelector(".photo-card");
+      if (photoCard && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        photoCard.addEventListener("pointermove", (event) => {
+          const bounds = photoCard.getBoundingClientRect();
+          const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+          const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+          photoCard.style.setProperty("--glow-x", `${x}%`);
+          photoCard.style.setProperty("--glow-y", `${y}%`);
+          photoCard.classList.add("is-glowing");
+        });
+        photoCard.addEventListener("pointerleave", () => {
+          photoCard.classList.remove("is-glowing");
+        });
+      }
 
       menuToggle.addEventListener("click", () => {
         const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
