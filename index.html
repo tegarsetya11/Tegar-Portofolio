@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071a35">
+    <meta name="description" content="Portofolio Tegar Setya Andiputra — Junior Technical Support, Network, dan Web Specialist.">
+    <title>Tegar Setya Andiputra — Technical Support & Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#10213f",
+              muted: "#60708b",
+              blue: { 50: "#eef6ff", 100: "#dcecff", 500: "#2878f0", 600: "#1764df", 700: "#1554bd" },
+              cyan: { 400: "#36c7e8", 500: "#18a9ce" }
+            },
+            fontFamily: {
+              sans: ["DM Sans", "sans-serif"],
+              display: ["Manrope", "sans-serif"]
+            },
+            boxShadow: {
+              card: "0 18px 50px rgba(29, 78, 145, .08)",
+              glow: "0 12px 36px rgba(40, 120, 240, .2)"
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root { color-scheme: dark; scroll-behavior: smooth; }
+      body { background: #071a35; color: #eff6ff; }
+      .grid-paper {
+        background-image: linear-gradient(rgba(102, 177, 255, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(102, 177, 255, .07) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .hero-orb { background: radial-gradient(circle, rgba(76, 166, 255, .28), rgba(76, 166, 255, 0) 68%); }
+      header { border-color: rgba(116, 177, 255, .2) !important; background-color: rgba(7, 26, 53, .9) !important; }
+      #home { background: radial-gradient(ellipse at 82% 30%, rgba(25, 102, 210, .25), transparent 48%), linear-gradient(145deg, #071a35 4%, #0b2850 100%); }
+      #about, #projects, #experience { background-color: #0a2344 !important; border-color: rgba(116, 177, 255, .14) !important; }
+      #skills, #contact { background-color: #071a35 !important; }
+      footer { background-color: #06152b !important; }
+      footer > div { border-color: rgba(116, 177, 255, .18) !important; }
+      .text-ink { color: #eff6ff !important; }
+      .text-muted { color: #b4c7e1 !important; }
+      .text-blue-600, .text-blue-700 { color: #70b7ff !important; }
+      .text-cyan-700 { color: #75def4 !important; }
+      .text-emerald-800, .text-emerald-700 { color: #9be7b4 !important; }
+      .text-indigo-700 { color: #becbff !important; }
+      .bg-ink { background-color: #06152b !important; }
+      [class~="bg-white"] { background-color: #102f56 !important; }
+      #about img[alt*="Badan Nasional"] { border-radius: .5rem; background-color: #fff; }
+      [class~="bg-white/85"] { background-color: rgba(8, 29, 57, .9) !important; }
+      [class~="bg-white/80"] { background-color: rgba(14, 47, 86, .8) !important; }
+      [class~="bg-white/10"] { background-color: rgba(167, 205, 255, .12) !important; }
+      [class~="bg-blue-50"], [class~="bg-blue-50/70"], [class~="bg-blue-50/80"], [class~="bg-blue-50/40"] { background-color: #12365f !important; }
+      [class~="bg-blue-100"] { background-color: #1b4778 !important; }
+      [class~="bg-cyan-50"] { background-color: #10405a !important; }
+      [class~="bg-indigo-50"] { background-color: #263a68 !important; }
+      [class~="border-blue-50"], [class~="border-blue-100"] { border-color: rgba(124, 181, 247, .25) !important; }
+      [class~="border-blue-200"] { border-color: rgba(124, 181, 247, .38) !important; }
+      [class~="border-emerald-200"] { border-color: rgba(110, 231, 183, .38) !important; }
+      [class~="bg-gradient-to-br"] { background-image: linear-gradient(135deg, #123968 0%, #0a2344 100%) !important; }
+      [class~="bg-blue-50/40"]::placeholder { color: #91a9c8; }
+      input, textarea { color: #eff6ff; }
+      input::placeholder, textarea::placeholder { color: #91a9c8 !important; }
+      .shadow-card { box-shadow: 0 18px 50px rgba(0, 6, 20, .25); }
+      .shadow-glow { box-shadow: 0 12px 36px rgba(40, 120, 240, .28); }
+      .reveal { animation: rise-in .75s cubic-bezier(.2,.75,.25,1) both; }
+      .reveal-delay { animation-delay: .12s; }
+      .typing-cursor::after { content: ""; display: inline-block; height: 1em; margin-left: .12em; border-right: 2px solid #70b7ff; vertical-align: -.12em; animation: cursor-blink .8s steps(2, start) infinite; }
+      @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes pulse-dot { 50% { box-shadow: 0 0 0 7px rgba(34, 197, 94, .12); } }
+      @keyframes cursor-blink { to { visibility: hidden; } }
+      .status-dot { animation: pulse-dot 1.8s ease-out infinite; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body class="font-sans text-ink antialiased">
+    <!-- Navigasi utama -->
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-blue-100/70 bg-white/85 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8" aria-label="Navigasi utama">
+        <a href="#home" class="group flex items-center gap-3" aria-label="Tegar Setya, ke halaman utama">
+          <img src="assets/logo-tegar.png" alt="Logo Tegar" class="h-11 w-11 rounded-xl bg-white object-contain shadow-glow">
+          <span class="hidden font-display text-sm font-extrabold tracking-tight sm:block">Tegar Setya<span class="text-white">. A</span></span>
+        </a>
+        <button id="menu-toggle" class="grid h-10 w-10 place-items-center rounded-xl border border-blue-100 text-ink md:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="hidden items-center gap-7 md:flex">
+          <a class="text-sm font-semibold text-muted transition hover:text-blue-600" href="#home">Home</a>
+          <a class="text-sm font-semibold text-muted transition hover:text-blue-600" href="#about">About</a>
+          <a class="text-sm font-semibold text-muted transition hover:text-blue-600" href="#skills">Skills</a>
+          <a class="text-sm font-semibold text-muted transition hover:text-blue-600" href="#projects">Projects</a>
+          <a class="text-sm font-semibold text-muted transition hover:text-blue-600" href="#experience">Experience</a>
+          <a class="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-blue-700" href="#contact">Hubungi Saya <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-blue-50 bg-white px-5 pb-5 pt-2 md:hidden">
+        <div class="mx-auto flex max-w-7xl flex-col">
+          <a class="mobile-link rounded-lg px-3 py-2.5 text-sm font-semibold text-muted hover:bg-blue-50 hover:text-blue-600" href="#home">Home</a>
+          <a class="mobile-link rounded-lg px-3 py-2.5 text-sm font-semibold text-muted hover:bg-blue-50 hover:text-blue-600" href="#about">About</a>
+          <a class="mobile-link rounded-lg px-3 py-2.5 text-sm font-semibold text-muted hover:bg-blue-50 hover:text-blue-600" href="#skills">Skills</a>
+          <a class="mobile-link rounded-lg px-3 py-2.5 text-sm font-semibold text-muted hover:bg-blue-50 hover:text-blue-600" href="#projects">Projects</a>
+          <a class="mobile-link rounded-lg px-3 py-2.5 text-sm font-semibold text-muted hover:bg-blue-50 hover:text-blue-600" href="#experience">Experience</a>
+          <a class="mobile-link mt-2 rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-bold text-white" href="#contact">Hubungi Saya <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="relative isolate overflow-hidden pt-32 sm:pt-40">
+        <div class="grid-paper absolute inset-0 -z-20"></div>
+        <div class="hero-orb absolute -right-44 top-8 -z-10 h-[34rem] w-[34rem]"></div>
+        <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 sm:px-8 sm:pb-28 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+          <div class="reveal">
+            <div class="mb-7 inline-flex items-center gap-2.5 rounded-full border border-emerald-200 bg-white/85 px-4 py-2 text-xs font-bold tracking-wide text-emerald-800 shadow-sm sm:text-sm">
+              <span class="status-dot h-2 w-2 rounded-full bg-emerald-500"></span>
+              Available for Projects &amp; Tech Support
+            </div>
+            <p class="mb-3 font-display text-sm font-bold uppercase tracking-[.2em] text-blue-600">Halo, saya</p>
+            <h1 class="max-w-3xl font-display text-4xl font-extrabold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-6xl">Tegar Setya <span class="text-blue-600">Andiputra</span></h1>
+            <p class="mt-5 min-h-[3.5rem] font-display text-lg font-bold text-ink sm:min-h-[2rem] sm:text-xl"><span id="typing-title" class="typing-cursor" aria-label="Junior Technical Support & Network / Web Specialist">Junior Technical Support &amp; Network / Web Specialist</span></p>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">Menggabungkan keahlian infrastruktur jaringan, troubleshooting sistem, dan pengembangan solusi web interaktif.</p>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#projects" class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-glow transition hover:-translate-y-1 hover:bg-blue-700">Lihat Proyek <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-blue-100 pt-6 text-sm font-semibold text-muted">
+              <span class="inline-flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span> TJKT — SMK Negeri 1 Pracimantoro</span>
+              <span class="inline-flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-cyan-500"></span> Fokus: Network &amp; Web</span>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay relative mx-auto w-full max-w-[390px] lg:mr-8">
+            <div class="absolute -inset-5 rounded-[2.5rem] bg-blue-500/20 blur-2xl"></div>
+            <div class="absolute -right-7 top-16 h-24 w-24 rounded-full border border-cyan-200/25"></div>
+            <div class="absolute -left-8 bottom-28 h-16 w-16 rounded-full border border-blue-200/30"></div>
+            <div class="relative overflow-hidden rounded-[2rem] border border-blue-200/30 bg-gradient-to-br from-blue-400/30 via-blue-900 to-[#06152b] p-2 shadow-[0_28px_90px_rgba(0,8,28,.55)]">
+              <div class="relative overflow-hidden rounded-[1.55rem] bg-[#102b4e]">
+                <img src="assets/tegar-portrait.jpg" alt="Foto Tegar Setya Andiputra" class="h-[430px] w-full object-cover object-[center_27%] sm:h-[490px]">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#06152b]/95 via-[#06152b]/10 to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                  <p class="text-xs font-bold uppercase tracking-[.2em] text-cyan-200">Network · Support · Web</p>
+                  <p class="mt-2 font-display text-2xl font-extrabold text-white sm:text-3xl">Tegar Setya</p>
+                  <p class="mt-1 text-sm font-medium text-blue-100">Junior Technical Support</p>
+                  <div class="mt-5 h-px w-full bg-white/20"></div>
+                  <p class="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#0b2444]/75 px-3.5 py-2 text-xs font-semibold text-white backdrop-blur">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    BNSP · Junior Technical Support
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tentang saya -->
+      <section id="about" class="scroll-mt-24 border-y border-blue-50 bg-white py-20 sm:py-24">
+        <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[.2em] text-blue-600">Tentang Saya</p>
+            <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Teknologi yang dekat dengan kebutuhan sehari-hari.</h2>
+          </div>
+          <div>
+            <p class="text-base leading-8 text-muted">Saya siswa TJKT di SMK Negeri 1 Pracimantoro yang tertarik pada teknologi jaringan, troubleshooting perangkat keras dan lunak, serta pengembangan aplikasi digital. Saya senang belajar lewat praktik dan membuat solusi yang mudah digunakan.</p>
+            <div class="mt-7 flex items-start gap-4 rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
+              <div class="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-white p-1 shadow-sm sm:h-20 sm:w-20">
+                <img src="assets/logo-bnsp.png" alt="Logo Badan Nasional Sertifikasi Profesi (BNSP)" class="h-full w-full object-contain">
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-display text-base font-extrabold">BNSP — Okupasi Junior Technical Support</h3>
+                  <span class="rounded-full border border-emerald-200 bg-white px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-700">Tersertifikasi</span>
+                </div>
+                <p class="mt-2 text-sm leading-6 text-muted">Sertifikasi kompetensi di bidang dukungan teknis perangkat dan sistem komputer. Sertifikat diperoleh pada tahun 2026.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Keahlian teknis -->
+      <section id="skills" class="scroll-mt-24 py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <div class="mx-auto max-w-2xl text-center">
+            <p class="text-xs font-extrabold uppercase tracking-[.2em] text-blue-600">Keahlian</p>
+            <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Fondasi teknis, siap terus berkembang.</h2>
+            <p class="mt-4 text-base leading-7 text-muted">Kombinasi keterampilan untuk merawat infrastruktur dan membangun pengalaman digital.</p>
+          </div>
+          <div class="mt-12 grid gap-5 md:grid-cols-3">
+            <article class="group rounded-2xl border border-blue-100 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-glow sm:p-7">
+              <div class="grid h-12 w-12 place-items-center rounded-xl bg-blue-50 text-blue-600">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path stroke-linecap="round" d="M8 21h8m-4-4v4M7 9h.01M11 9h6m-10 4h10"/></svg>
+              </div>
+              <h3 class="mt-5 font-display text-lg font-extrabold">Jaringan &amp; Hardware</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">Menjaga perangkat dan jaringan tetap siap digunakan.</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700">Konfigurasi jaringan</span>
+                <span class="rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700">Troubleshooting</span>
+                <span class="rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700">Maintenance sistem</span>
+              </div>
+            </article>
+            <article class="group rounded-2xl border border-blue-100 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-glow sm:p-7">
+              <div class="grid h-12 w-12 place-items-center rounded-xl bg-cyan-50 text-cyan-500">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></svg>
+              </div>
+              <h3 class="mt-5 font-display text-lg font-extrabold">Web Development</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">Menyusun antarmuka web dan menghubungkannya dengan layanan digital.</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-700">HTML5</span>
+                <span class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-700">CSS3</span>
+                <span class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-700">JavaScript</span>
+                <span class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-700">Tailwind CSS</span>
+                <span class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-700">REST API</span>
+              </div>
+            </article>
+            <article class="group rounded-2xl border border-blue-100 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-glow sm:p-7">
+              <div class="grid h-12 w-12 place-items-center rounded-xl bg-indigo-50 text-indigo-600">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3m15.36-6.36-12.72 12.72m12.72 0L5.64 5.64"/><circle cx="12" cy="12" r="8.5"/></svg>
+              </div>
+              <h3 class="mt-5 font-display text-lg font-extrabold">Deployment &amp; Tools</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">Menerapkan proyek dan mempermudah akses dari berbagai perangkat.</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">Vercel</span>
+                <span class="rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">Git &amp; GitHub</span>
+                <span class="rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">WhatsApp deep link</span>
+                <span class="rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">Web Share API</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proyek pilihan -->
+      <section id="projects" class="scroll-mt-24 border-y border-blue-50 bg-white py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div>
+              <p class="text-xs font-extrabold uppercase tracking-[.2em] text-blue-600">Portofolio Proyek</p>
+              <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Proyek yang Pernah Dikerjakan</h2>
+            </div>
+            <p class="max-w-md text-sm leading-6 text-muted">Berikut proyek digital yang saya kembangkan untuk memudahkan akses informasi dan layanan bagi masyarakat.</p>
+          </div>
+          <div class="mt-10 grid gap-6">
+            <article class="overflow-hidden rounded-[1.75rem] border border-blue-100 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-glow">
+              <div class="relative overflow-hidden bg-ink px-7 py-8 sm:px-10 sm:py-10">
+                <div class="absolute -right-8 -top-24 h-64 w-64 rounded-full border border-cyan-300/20"></div>
+                <div class="absolute -right-1 top-0 h-48 w-48 rounded-full border border-blue-300/20"></div>
+                <div class="relative flex flex-wrap items-center justify-between gap-4">
+                  <span class="rounded-full border border-cyan-200/25 bg-cyan-300/10 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[.16em] text-cyan-200">Proyek Unggulan</span>
+                  <span class="inline-flex items-center gap-2 text-xs font-semibold text-blue-100"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Live project</span>
+                </div>
+                <div class="relative mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
+                  <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-white/70 bg-white shadow-[0_10px_32px_rgba(0,0,0,.25)] sm:h-28 sm:w-28">
+                    <img src="assets/logo-praci-siaga.png" alt="Logo Praci Siaga" class="absolute left-1/2 top-1/2 h-auto w-[190px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[220px]">
+                  </div>
+                  <div class="max-w-2xl">
+                    <p class="mb-2 text-xs font-bold uppercase tracking-[.18em] text-blue-200">PRACI SIAGA · Layanan Darurat</p>
+                    <h3 class="font-display text-2xl font-extrabold text-white sm:text-3xl">Akses bantuan penting, lebih mudah.</h3>
+                    <p class="mt-3 max-w-xl text-sm leading-7 text-blue-100/80">Portal layanan darurat untuk membantu warga Pracimantoro mengakses kontak instansi penting seperti Kepolisian, Puskesmas, Pemadam Kebakaran, PMI, BPBD, dan SAR.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-7 sm:p-10">
+                <div class="grid gap-4 sm:grid-cols-3">
+                  <div class="rounded-xl bg-blue-50/80 p-4">
+                    <p class="text-xs font-extrabold text-blue-700">Akses langsung</p>
+                    <p class="mt-1 text-xs leading-5 text-muted">Panggilan dan pesan via WhatsApp deep link.</p>
+                  </div>
+                  <div class="rounded-xl bg-blue-50/80 p-4">
+                    <p class="text-xs font-extrabold text-blue-700">Pelaporan cepat</p>
+                    <p class="mt-1 text-xs leading-5 text-muted">Membantu warga menemukan jalur bantuan.</p>
+                  </div>
+                  <div class="rounded-xl bg-blue-50/80 p-4">
+                    <p class="text-xs font-extrabold text-blue-700">Siap diakses</p>
+                    <p class="mt-1 text-xs leading-5 text-muted">Deployment aplikasi melalui Vercel.</p>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="rounded-lg border border-blue-100 px-3 py-1.5 text-xs font-semibold text-muted">JavaScript</span>
+                  <span class="rounded-lg border border-blue-100 px-3 py-1.5 text-xs font-semibold text-muted">HTML / CSS</span>
+                  <span class="rounded-lg border border-blue-100 px-3 py-1.5 text-xs font-semibold text-muted">WhatsApp API</span>
+                  <span class="rounded-lg border border-blue-100 px-3 py-1.5 text-xs font-semibold text-muted">Vercel</span>
+                </div>
+                <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <a href="https://praci-siaga-official-website.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-700">Live Demo <span aria-hidden="true">↗</span></a>
+                  <a href="https://github.com/tegarsetya11/PRACI-SIAGA-APP" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 px-5 py-3 text-sm font-bold text-ink transition hover:border-blue-400 hover:bg-blue-50">Source Code <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Pengalaman dan kepemimpinan -->
+      <section id="experience" class="scroll-mt-24 py-20 sm:py-24">
+        <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.78fr_1.22fr]">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[.2em] text-blue-600">Pengalaman &amp; Kepemimpinan</p>
+            <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Bertumbuh lewat tanggung jawab dan kerja sama.</h2>
+            <p class="mt-4 text-base leading-7 text-muted">Pengalaman organisasi membentuk disiplin, kepemimpinan, dan kemampuan bekerja bersama.</p>
+          </div>
+          <div class="relative space-y-7 before:absolute before:bottom-5 before:left-[11px] before:top-3 before:w-px before:bg-blue-200">
+            <article class="relative pl-10">
+              <span class="absolute left-0 top-1.5 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-blue-500 ring-1 ring-blue-200"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">Paskibra</p>
+              <h3 class="mt-1 font-display text-lg font-extrabold">Paskibra Tingkat Kecamatan</h3>
+              <ul class="mt-3 space-y-3 border-l-2 border-blue-100 pl-4">
+                <li>
+                  <h4 class="text-sm font-bold">Paskibra 79 Giritontro — 2024</h4>
+                  <p class="mt-1 text-sm leading-6 text-muted">Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.</p>
+                </li>
+                <li>
+                  <h4 class="text-sm font-bold">Paskibra 80 Pracimantoro — 2025</h4>
+                  <p class="mt-1 text-sm leading-6 text-muted">Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.</p>
+                </li>
+              </ul>
+            </article>
+            <article class="relative pl-10">
+              <span class="absolute left-0 top-1.5 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-cyan-500 ring-1 ring-cyan-200"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">2022–2023</p>
+              <h3 class="mt-1 font-display text-lg font-extrabold">Ketua OSIS SMP</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.</p>
+            </article>
+            <article class="relative pl-10">
+              <span class="absolute left-0 top-1.5 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-indigo-500 ring-1 ring-indigo-200"></span>
+              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">PRAMUKA</p>
+              <ul class="mt-3 space-y-4 border-l-2 border-indigo-100 pl-4">
+                <li>
+                  <h3 class="font-display text-base font-extrabold">Pramuka Penggalang</h3>
+                  <h4 class="mt-2 text-sm font-bold">DIANPINRU — Korwil Surakarta</h4>
+                  <p class="mt-1 text-sm leading-6 text-muted">Mengikuti pelatihan kepemimpinan regu untuk mengembangkan jiwa kepemimpinan, kedisiplinan, dan karakter.</p>
+                </li>
+                <li>
+                  <h3 class="font-display text-base font-extrabold">Pramuka Penegak</h3>
+                  <ul class="mt-2 space-y-3">
+                    <li>
+                      <h4 class="text-sm font-bold">JOTA-JOTI 2024</h4>
+                      <p class="mt-1 text-sm leading-6 text-muted">Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.</p>
+                    </li>
+                    <li>
+                      <h4 class="text-sm font-bold">JOTA-JOTI 2025</h4>
+                      <p class="mt-1 text-sm leading-6 text-muted">Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.</p>
+                    </li>
+                    <li>
+                      <h4 class="text-sm font-bold">SOLIDARITAS 25 — Kwarcab Demak</h4>
+                      <p class="mt-1 text-sm leading-6 text-muted">Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.</p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontak -->
+      <section id="contact" class="scroll-mt-24 border-t border-blue-50 bg-white py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+          <div class="overflow-hidden rounded-[2rem] bg-ink shadow-card">
+            <div class="grid lg:grid-cols-[1fr_.85fr]">
+              <div class="relative overflow-hidden px-7 py-10 sm:px-10 sm:py-12">
+                <div class="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl"></div>
+                <div class="relative">
+                  <p class="text-xs font-extrabold uppercase tracking-[.2em] text-cyan-300">Kontak</p>
+                  <h2 class="mt-3 max-w-lg font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Punya ide atau butuh bantuan teknis?</h2>
+                  <p class="mt-4 max-w-lg text-sm leading-7 text-blue-100/80">Kirim pesan, saya akan senang mendengar tentang proyek atau kebutuhan dukungan teknis Anda.</p>
+                  <div class="mt-8 space-y-4">
+                    <a class="flex items-center gap-3 text-sm font-semibold text-white transition hover:text-cyan-200" href="mailto:tegarsetyaandiputra1128@gmail.com">
+                      <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-cyan-200"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="m4 7 8 6 8-6"/></svg></span>
+                      tegarsetyaandiputra1128@gmail.com
+                    </a>
+                    <a class="flex items-center gap-3 text-sm font-semibold text-white transition hover:text-cyan-200" href="https://wa.me/6285134548198" target="_blank" rel="noopener noreferrer">
+                      <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-cyan-200"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20 11.5a7.5 7.5 0 0 1-11.2 6.5L4 19l1.1-4.2A7.5 7.5 0 1 1 20 11.5Z"/><path stroke-linecap="round" d="M9 9.5c.5 2 1.5 3 3.5 4"/></svg></span>
+                      WhatsApp · +62 851-3454-8198
+                    </a>
+                    <a class="flex items-center gap-3 text-sm font-semibold text-white transition hover:text-cyan-200" href="https://github.com/tegarsetya11" target="_blank" rel="noopener noreferrer">
+                      <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-cyan-200"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.2-.4-3.8 1.4a13 13 0 0 0-6.9 0C5.4 1.2 4.2 1.6 4.2 1.6a4.8 4.8 0 0 0-.1 3.6 5.2 5.2 0 0 0-1.4 3.6c0 5.2 3.1 6.4 6.1 6.7a3.4 3.4 0 0 0-.9 2.6V22"/></svg></span>
+                      GitHub · @tegarsetya11
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-7 sm:p-10">
+                <h3 class="font-display text-xl font-extrabold">Kirim pesan</h3>
+                <p class="mt-2 text-sm leading-6 text-muted">Form ini akan membuka aplikasi email Anda dengan pesan yang sudah disiapkan.</p>
+                <form id="contact-form" class="mt-6 space-y-4">
+                  <div>
+                    <label for="name" class="mb-1.5 block text-xs font-bold text-ink">Nama</label>
+                    <input id="name" name="name" autocomplete="name" required maxlength="100" class="w-full rounded-xl border border-blue-100 bg-blue-50/40 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100" placeholder="Nama Anda">
+                  </div>
+                  <div>
+                    <label for="email" class="mb-1.5 block text-xs font-bold text-ink">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" class="w-full rounded-xl border border-blue-100 bg-blue-50/40 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100" placeholder="nama@email.com">
+                  </div>
+                  <div>
+                    <label for="message" class="mb-1.5 block text-xs font-bold text-ink">Pesan</label>
+                    <textarea id="message" name="message" rows="4" required maxlength="3000" class="w-full resize-y rounded-xl border border-blue-100 bg-blue-50/40 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100" placeholder="Ceritakan kebutuhan atau ide Anda..."></textarea>
+                  </div>
+                  <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3.5 text-sm font-bold text-white shadow-glow transition hover:bg-blue-700">Buka Email <span aria-hidden="true">↗</span></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 border-t border-blue-50 px-5 py-6 text-center text-xs font-medium text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-left">
+        <p>© 2026 Tegar Setya Andiputra. Semua hak dilindungi.</p>
+        <p>Dirancang dan dikembangkan dengan semangat inovasi dan teknologi.</p>
+      </div>
+    </footer>
+
+    <script>
+      const typingTitle = document.getElementById("typing-title");
+      const fullTitle = typingTitle.textContent;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!prefersReducedMotion) {
+        typingTitle.textContent = "";
+        let typedCharacters = 0;
+        const typeNextCharacter = () => {
+          typedCharacters += 1;
+          typingTitle.textContent = fullTitle.slice(0, typedCharacters);
+          if (typedCharacters < fullTitle.length) {
+            window.setTimeout(typeNextCharacter, 48);
+          } else {
+            typingTitle.classList.remove("typing-cursor");
+          }
+        };
+        window.setTimeout(typeNextCharacter, 450);
+      } else {
+        typingTitle.classList.remove("typing-cursor");
+      }
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        menuToggle.setAttribute("aria-label", isExpanded ? "Buka menu" : "Tutup menu");
+        mobileMenu.classList.toggle("hidden", isExpanded);
+      });
+
+      mobileMenu.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Buka menu");
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      document.getElementById("contact-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (!form.reportValidity()) return;
+
+        const formData = new FormData(form);
+        const subject = `Pesan portofolio dari ${formData.get("name")}`;
+        const body = `Nama: ${formData.get("name")}\nEmail: ${formData.get("email")}\n\n${formData.get("message")}`;
+        const mailto = new URL("mailto:tegarsetyaandiputra1128@gmail.com");
+        mailto.searchParams.set("subject", subject);
+        mailto.searchParams.set("body", body);
+        window.location.href = mailto.toString();
+      });
+    </script>
+  </body>
+</html>
