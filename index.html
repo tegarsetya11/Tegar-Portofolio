@@ -58,10 +58,14 @@
       [class~="bg-white/85"] { background-color: rgba(8, 29, 57, .9) !important; }
       [class~="bg-white/80"] { background-color: rgba(14, 47, 86, .8) !important; }
       [class~="bg-white/10"] { background-color: rgba(167, 205, 255, .12) !important; }
-      [class~="bg-blue-50"], [class~="bg-blue-50/70"], [class~="bg-blue-50/80"], [class~="bg-blue-50/40"] { background-color: #12365f !important; }
+      [class~="bg-blue-50"], [class~="bg-blue-50/70"], [class~="bg-blue-50/80"], [class~="bg-blue-50/40"], [class~="bg-blue-50/60"] { background-color: #12365f !important; }
       [class~="bg-blue-100"] { background-color: #1b4778 !important; }
       [class~="bg-cyan-50"] { background-color: #10405a !important; }
       [class~="bg-indigo-50"] { background-color: #263a68 !important; }
+      [class~="bg-indigo-50/40"] { background-color: #12365f !important; }
+      #experience .experience-card { background-color: #0b2442 !important; border-color: rgba(116, 177, 255, .28) !important; color: #eff6ff; }
+      #experience .experience-panel { background-color: #12365f !important; border-color: rgba(124, 181, 247, .3) !important; color: #eff6ff; }
+      #experience .experience-item { background-color: #1b4778 !important; border-color: rgba(124, 181, 247, .32) !important; color: #eff6ff; }
       [class~="border-blue-50"], [class~="border-blue-100"] { border-color: rgba(124, 181, 247, .25) !important; }
       [class~="border-blue-200"] { border-color: rgba(124, 181, 247, .38) !important; }
       [class~="border-emerald-200"] { border-color: rgba(110, 231, 183, .38) !important; }
@@ -310,55 +314,78 @@
             <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Bertumbuh lewat tanggung jawab dan kerja sama.</h2>
             <p class="mt-4 text-base leading-7 text-muted">Pengalaman organisasi membentuk disiplin, kepemimpinan, dan kemampuan bekerja bersama.</p>
           </div>
-          <div class="relative space-y-7 before:absolute before:bottom-5 before:left-[11px] before:top-3 before:w-px before:bg-blue-200">
+          <div class="relative space-y-6 before:absolute before:bottom-8 before:left-[11px] before:top-8 before:w-px before:bg-gradient-to-b before:from-blue-200 before:via-cyan-200 before:to-indigo-200">
             <article class="relative pl-10">
-              <span class="absolute left-0 top-1.5 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-blue-500 ring-1 ring-blue-200"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">Paskibra</p>
-              <h3 class="mt-1 font-display text-lg font-extrabold">Paskibra Tingkat Kecamatan</h3>
-              <ul class="mt-3 space-y-3 border-l-2 border-blue-100 pl-4">
-                <li>
-                  <h4 class="text-sm font-bold">Paskibra 79 Giritontro — 2024</h4>
-                  <p class="mt-1 text-sm leading-6 text-muted">Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.</p>
-                </li>
-                <li>
-                  <h4 class="text-sm font-bold">Paskibra 80 Pracimantoro — 2025</h4>
-                  <p class="mt-1 text-sm leading-6 text-muted">Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.</p>
-                </li>
-              </ul>
+              <span class="absolute left-0 top-6 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-blue-500 ring-1 ring-blue-200"></span>
+              <div class="experience-card rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card sm:p-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <p class="text-xs font-extrabold uppercase tracking-[.16em] text-blue-600">Paskibra</p>
+                  <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">2024–2025</span>
+                </div>
+                <h3 class="mt-2 font-display text-lg font-extrabold">Paskibra Tingkat Kecamatan</h3>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div class="experience-panel rounded-xl border border-blue-100 bg-blue-50/60 p-4">
+                    <h4 class="text-sm font-bold">Paskibra 79 Giritontro</h4>
+                    <p class="mt-1 text-xs font-semibold text-blue-700">2024 · HUT ke-79 RI</p>
+                    <p class="mt-2 text-sm leading-6 text-muted">Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.</p>
+                  </div>
+                  <div class="experience-panel rounded-xl border border-blue-100 bg-blue-50/60 p-4">
+                    <h4 class="text-sm font-bold">Paskibra 80 Pracimantoro</h4>
+                    <p class="mt-1 text-xs font-semibold text-blue-700">2025 · HUT ke-80 RI</p>
+                    <p class="mt-2 text-sm leading-6 text-muted">Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.</p>
+                  </div>
+                </div>
+              </div>
             </article>
             <article class="relative pl-10">
-              <span class="absolute left-0 top-1.5 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-cyan-500 ring-1 ring-cyan-200"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">2022–2023</p>
-              <h3 class="mt-1 font-display text-lg font-extrabold">Ketua OSIS SMP</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.</p>
+              <span class="absolute left-0 top-6 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-cyan-500 ring-1 ring-cyan-200"></span>
+              <div class="experience-card rounded-2xl border border-cyan-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card sm:p-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <p class="text-xs font-extrabold uppercase tracking-[.16em] text-cyan-700">Organisasi Sekolah</p>
+                  <span class="rounded-full bg-cyan-50 px-3 py-1 text-xs font-bold text-cyan-700">2022–2023</span>
+                </div>
+                <h3 class="mt-2 font-display text-lg font-extrabold">Ketua OSIS SMP</h3>
+                <p class="mt-2 text-sm leading-6 text-muted">Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.</p>
+              </div>
             </article>
             <article class="relative pl-10">
-              <span class="absolute left-0 top-1.5 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-indigo-500 ring-1 ring-indigo-200"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">PRAMUKA</p>
-              <ul class="mt-3 space-y-4 border-l-2 border-indigo-100 pl-4">
-                <li>
-                  <h3 class="font-display text-base font-extrabold">Pramuka Penggalang</h3>
-                  <h4 class="mt-2 text-sm font-bold">DIANPINRU — Korwil Surakarta</h4>
-                  <p class="mt-1 text-sm leading-6 text-muted">Mengikuti pelatihan kepemimpinan regu untuk mengembangkan jiwa kepemimpinan, kedisiplinan, dan karakter.</p>
-                </li>
-                <li>
-                  <h3 class="font-display text-base font-extrabold">Pramuka Penegak</h3>
-                  <ul class="mt-2 space-y-3">
-                    <li>
-                      <h4 class="text-sm font-bold">JOTA-JOTI 2024</h4>
-                      <p class="mt-1 text-sm leading-6 text-muted">Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.</p>
-                    </li>
-                    <li>
-                      <h4 class="text-sm font-bold">JOTA-JOTI 2025</h4>
-                      <p class="mt-1 text-sm leading-6 text-muted">Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.</p>
-                    </li>
-                    <li>
-                      <h4 class="text-sm font-bold">SOLIDARITAS 25 — Kwarcab Demak</h4>
-                      <p class="mt-1 text-sm leading-6 text-muted">Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.</p>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              <span class="absolute left-0 top-6 grid h-6 w-6 place-items-center rounded-full border-4 border-white bg-indigo-500 ring-1 ring-indigo-200"></span>
+              <div class="experience-card rounded-2xl border border-indigo-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card sm:p-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <p class="text-xs font-extrabold uppercase tracking-[.16em] text-indigo-700">PRAMUKA</p>
+                  <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700">Penggalang &amp; Penegak</span>
+                </div>
+                <div class="mt-4 grid gap-4">
+                  <section class="experience-panel rounded-xl border border-indigo-100 bg-indigo-50/40 p-4 sm:p-5">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="font-display text-base font-extrabold">Pramuka Penggalang</h3>
+                      <span class="rounded-full bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-700">Kepemimpinan</span>
+                    </div>
+                    <h4 class="mt-3 text-sm font-bold">DIANPINRU — Korwil Surakarta</h4>
+                    <p class="mt-1 text-sm leading-6 text-muted">Mengikuti pelatihan kepemimpinan regu untuk mengembangkan jiwa kepemimpinan, kedisiplinan, dan karakter.</p>
+                  </section>
+                  <section class="experience-panel rounded-xl border border-indigo-100 bg-indigo-50/40 p-4 sm:p-5">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="font-display text-base font-extrabold">Pramuka Penegak</h3>
+                      <span class="rounded-full bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-700">Kegiatan</span>
+                    </div>
+                    <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                      <li class="experience-item rounded-lg border border-white bg-white p-3.5">
+                        <h4 class="text-sm font-bold">JOTA-JOTI 2024</h4>
+                        <p class="mt-1 text-sm leading-6 text-muted">Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.</p>
+                      </li>
+                      <li class="experience-item rounded-lg border border-white bg-white p-3.5">
+                        <h4 class="text-sm font-bold">JOTA-JOTI 2025</h4>
+                        <p class="mt-1 text-sm leading-6 text-muted">Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.</p>
+                      </li>
+                      <li class="experience-item rounded-lg border border-white bg-white p-3.5 sm:col-span-2">
+                        <h4 class="text-sm font-bold">SOLIDARITAS 25 — Kwarcab Demak</h4>
+                        <p class="mt-1 text-sm leading-6 text-muted">Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.</p>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
             </article>
           </div>
         </div>
