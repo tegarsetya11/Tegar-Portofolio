@@ -669,11 +669,9 @@ export default function Home() {
       {/* ===== FOOTER ===== */}
       <footer>
         <div className="footer-left">
-          <strong style={{color:'var(--blue-light)'}}>Tegar Setya Andiputra</strong>
-          <span style={{margin:'0 8px'}}>·</span>
-          Junior Technical Support · Network · Web Specialist
+          © 2026 Tegar Setya Andiputra. Semua hak dilindungi.
         </div>
-        <div className="footer-right">© 2026 · TSA Portfolio</div>
+        <div className="footer-right">Dirancang dan dikembangkan dengan semangat inovasi dan teknologi.</div>
       </footer>
 
       {/* Floating Music Toggle Button */}
