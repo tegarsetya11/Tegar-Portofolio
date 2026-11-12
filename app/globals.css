@@ -239,7 +239,7 @@ section {
 .glitch-text {
   position: relative;
   display: inline-block;
-  color: #55B8FF;
+  color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -301,9 +301,9 @@ section {
   display: inline-block;
   width: 2px;
   height: 1.15em;
-  background: #55B8FF;
+  background: #ffffff;
   margin-left: 6px;
-  box-shadow: 0 0 8px #55B8FF, 0 0 16px rgba(85, 184, 255, 0.6);
+  box-shadow: 0 0 8px #ffffff, 0 0 16px rgba(255, 255, 255, 0.6);
   animation: cursorBlink 0.8s infinite;
 }
 
