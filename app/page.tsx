@@ -541,54 +541,114 @@ export default function Home() {
         </div>
         <div className="timeline">
 
+          {/* 1. Paskibra 80 Pracimantoro */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
-              <div className="timeline-period">2024 — Sekarang</div>
-              <div className="timeline-title">Siswa Aktif TJKT</div>
-              <div className="timeline-org">SMK Negeri 1 Pracimantoro · Wonogiri, Jawa Tengah</div>
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2025 · HUT ke-80 RI</span>
+                <span className="timeline-cat-pill">Paskibra</span>
+              </div>
+              <div className="timeline-title">Paskibra 80 Pracimantoro</div>
+              <div className="timeline-org">Paskibra Tingkat Kecamatan Pracimantoro</div>
               <div className="timeline-desc">
-                Mendalami Teknik Jaringan Komputer dan Telekomunikasi. Belajar instalasi jaringan, 
-                routing, switching, troubleshooting, dan pengembangan web.
+                Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.
               </div>
             </div>
           </div>
 
+          {/* 2. Paskibra 79 Giritontro */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
-              <div className="timeline-period">2024</div>
-              <div className="timeline-title">BNSP Certification</div>
-              <div className="timeline-org">Badan Nasional Sertifikasi Profesi (BNSP)</div>
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2024 · HUT ke-79 RI</span>
+                <span className="timeline-cat-pill">Paskibra</span>
+              </div>
+              <div className="timeline-title">Paskibra 79 Giritontro</div>
+              <div className="timeline-org">Paskibra Tingkat Kecamatan Giritontro</div>
               <div className="timeline-desc">
-                Lulus uji kompetensi dan mendapatkan sertifikasi nasional sebagai 
-                Junior Technical Support dari Badan Nasional Sertifikasi Profesi.
+                Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.
               </div>
             </div>
           </div>
 
+          {/* 3. JOTA-JOTI 2025 */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
-              <div className="timeline-period">2024</div>
-              <div className="timeline-title">Web Developer — Praci Siaga</div>
-              <div className="timeline-org">Proyek Sekolah · SMK Negeri 1 Pracimantoro</div>
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2025 · Kegiatan</span>
+                <span className="timeline-cat-pill">Pramuka Penegak</span>
+              </div>
+              <div className="timeline-title">JOTA-JOTI 2025</div>
+              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
               <div className="timeline-desc">
-                Mengembangkan website sistem informasi siaga bencana Pracimantoro 
-                menggunakan HTML, CSS, JavaScript, PHP, dan MySQL.
+                Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
               </div>
             </div>
           </div>
 
+          {/* 4. SOLIDARITAS 25 */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
-              <div className="timeline-period">2023</div>
-              <div className="timeline-title">Web Developer — E-Lintas</div>
-              <div className="timeline-org">Proyek Sekolah · SMK Negeri 1 Pracimantoro</div>
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2025 · Kegiatan</span>
+                <span className="timeline-cat-pill">Pramuka Penegak</span>
+              </div>
+              <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
+              <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
               <div className="timeline-desc">
-                Membangun sistem informasi manajemen lalu lintas berbasis web 
-                dengan PHP, MySQL, dan Bootstrap.
+                Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.
+              </div>
+            </div>
+          </div>
+
+          {/* 5. JOTA-JOTI 2024 */}
+          <div className="timeline-item">
+            <div className="timeline-dot"/>
+            <div className="timeline-card">
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2024 · Kegiatan</span>
+                <span className="timeline-cat-pill">Pramuka Penegak</span>
+              </div>
+              <div className="timeline-title">JOTA-JOTI 2024</div>
+              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
+              <div className="timeline-desc">
+                Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
+              </div>
+            </div>
+          </div>
+
+          {/* 6. DIANPINRU */}
+          <div className="timeline-item">
+            <div className="timeline-dot"/>
+            <div className="timeline-card">
+              <div className="timeline-badge-row">
+                <span className="timeline-period">Kepemimpinan</span>
+                <span className="timeline-cat-pill" style={{color:'#c084fc', borderColor:'rgba(192,132,252,0.3)', background:'rgba(192,132,252,0.12)'}}>Pramuka Penggalang</span>
+              </div>
+              <div className="timeline-title">DIANPINRU — Korwil Surakarta</div>
+              <div className="timeline-org">Korwil Surakarta · Pelatihan Kepemimpinan Regu</div>
+              <div className="timeline-desc">
+                Mengikuti pelatihan kepemimpinan regu untuk mengembangkan jiwa kepemimpinan, kedisiplinan, dan karakter.
+              </div>
+            </div>
+          </div>
+
+          {/* 7. Ketua OSIS SMP */}
+          <div className="timeline-item">
+            <div className="timeline-dot"/>
+            <div className="timeline-card">
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2022 — 2023</span>
+                <span className="timeline-cat-pill" style={{color:'#34d399', borderColor:'rgba(52,211,153,0.3)', background:'rgba(52,211,153,0.12)'}}>Organisasi Sekolah</span>
+              </div>
+              <div className="timeline-title">Ketua OSIS SMP</div>
+              <div className="timeline-org">Organisasi Siswa Intra Sekolah (OSIS)</div>
+              <div className="timeline-desc">
+                Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.
               </div>
             </div>
           </div>
