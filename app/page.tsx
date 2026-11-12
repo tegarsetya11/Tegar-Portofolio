@@ -368,7 +368,7 @@ export default function Home() {
       {/* ===== SKILLS ===== */}
       <section id="skills">
         <div className="skills-hero-header reveal">
-          <span className="skills-badge">KEAHLIAN</span>
+          <span className="skills-badge">SKILLS</span>
           <h2 className="skills-title">Fondasi teknis, siap terus berkembang.</h2>
           <p className="skills-subtitle">
             Kombinasi keterampilan untuk merawat infrastruktur dan membangun pengalaman digital.
