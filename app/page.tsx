@@ -11,6 +11,26 @@ export default function Home() {
   const lastF1PlayedRef = useRef<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // Typewriter & Glitch Effect for Role
+  const [typedRole, setTypedRole] = useState('');
+  const fullRole = 'Junior Technical Support · Network · Web Specialist';
+
+  useEffect(() => {
+    let index = 0;
+    const startTimeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        index++;
+        setTypedRole(fullRole.slice(0, index));
+        if (index >= fullRole.length) {
+          clearInterval(interval);
+        }
+      }, 45);
+      return () => clearInterval(interval);
+    }, 600);
+
+    return () => clearTimeout(startTimeout);
+  }, []);
+
   const playF1Radio = () => {
     const now = Date.now();
     // Cooldown 2 detik agar tidak spam / double play
@@ -231,7 +251,12 @@ export default function Home() {
               Tegar Setya<br/>
               <span>Andiputra</span>
             </h1>
-            <p className="hero-role">Junior Technical Support · Network · Web Specialist</p>
+            <p className="hero-role">
+              <span className="glitch-text" data-text={typedRole || fullRole}>
+                {typedRole}
+              </span>
+              <span className="typewriter-cursor" />
+            </p>
             <p className="hero-desc">
               Siswa SMK Negeri 1 Pracimantoro jurusan Teknik Jaringan Komputer dan Telekomunikasi. 
               Bersertifikat BNSP, berpengalaman dalam troubleshooting jaringan, support teknis, dan pengembangan web.
