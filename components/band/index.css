@@ -5,6 +5,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: scale(1);
+    transform: scale(1.15);
     transform-origin: center;
   }
+
+@media (max-width: 768px) {
+  .responsive-wrapper {
+    height: 50vh !important;
+    min-height: 300px;
+    transform: scale(1);
+  }
+}

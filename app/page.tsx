@@ -304,8 +304,19 @@ export default function Home() {
               </div>
               <div className="f1-panel reveal reveal-delay-4">
                 <div className="f1-panel-label">Certification</div>
-                <div style={{display:'flex',alignItems:'center',gap:'8px',marginTop:'4px'}}>
-                  <img src="/assets/logo-bnsp.png" alt="BNSP" style={{height:'28px',objectFit:'contain'}}/>
+                <div style={{display:'flex',alignItems:'center',gap:'10px',marginTop:'4px'}}>
+                  <div style={{
+                    background:'#ffffff',
+                    borderRadius:'8px',
+                    padding:'5px 8px',
+                    display:'flex',
+                    alignItems:'center',
+                    justifyContent:'center',
+                    flexShrink: 0,
+                    boxShadow:'0 2px 8px rgba(0,0,0,0.3)'
+                  }}>
+                    <img src="/assets/logo-bnsp.png" alt="BNSP" style={{height:'26px',objectFit:'contain',display:'block'}}/>
+                  </div>
                   <div>
                     <div className="f1-panel-value" style={{fontSize:'0.8rem'}}>BNSP Certified</div>
                     <div style={{fontSize:'0.7rem',color:'var(--blue-cyan)'}}>Junior Technical Support</div>
@@ -558,45 +569,100 @@ export default function Home() {
           <h2 className="section-title">Contact</h2>
           <div className="section-line"/>
         </div>
+
+        {/* Subhead pindahan dari panel status */}
+        <div className="contact-subhead reveal" style={{marginBottom:'32px'}}>
+          <div style={{
+            display:'inline-flex',
+            alignItems:'center',
+            gap:'8px',
+            background:'rgba(22,119,255,0.12)',
+            border:'1px solid rgba(85,184,255,0.3)',
+            borderRadius:'100px',
+            padding:'5px 14px',
+            marginBottom:'12px'
+          }}>
+            <span style={{
+              width:'8px',
+              height:'8px',
+              background:'#00ff88',
+              borderRadius:'50%',
+              boxShadow:'0 0 8px #00ff88',
+              animation:'pulse 2s infinite'
+            }}/>
+            <span style={{fontSize:'12px',fontWeight:'700',color:'#55B8FF',letterSpacing:'1px',textTransform:'uppercase'}}>
+              Available for Projects
+            </span>
+          </div>
+          <p style={{fontSize:'1rem',color:'var(--text-secondary)',maxWidth:'680px',lineHeight:'1.6',margin:0}}>
+            Saya terbuka untuk kolaborasi proyek, magang, freelance, dan peluang belajar baru di bidang teknologi.
+          </p>
+        </div>
+
         <div className="contact-grid">
-          <div className="contact-info">
-            <a href="https://wa.me/6285134548198" target="_blank" rel="noreferrer" className="contact-link reveal">
-              <span className="contact-link-icon">📱</span>
+          <a href="https://wa.me/6285134548198" target="_blank" rel="noreferrer" className="contact-link reveal">
+            <div className="contact-link-left">
+              <span className="contact-link-icon">
+                <img src="/assets/logo-whatsapp.png" alt="WhatsApp" style={{width:'36px',height:'36px',objectFit:'contain'}}/>
+              </span>
               <div>
                 <div className="contact-link-label">WhatsApp</div>
                 <div className="contact-link-val">+62 851-3454-8198</div>
               </div>
-            </a>
-            <a href="mailto:tegarsetyaandiputra128@gmail.com" className="contact-link reveal reveal-delay-1">
-              <span className="contact-link-icon">✉️</span>
+            </div>
+            <span className="contact-action-btn">
+              Hubungi Sekarang
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="mailto:tegarsetyaandiputra128@gmail.com" className="contact-link reveal reveal-delay-1">
+            <div className="contact-link-left">
+              <span className="contact-link-icon">
+                <img src="/assets/logo-gmail.png" alt="Email" style={{width:'36px',height:'36px',objectFit:'contain'}}/>
+              </span>
               <div>
                 <div className="contact-link-label">Email</div>
                 <div className="contact-link-val">tegarsetyaandiputra128@gmail.com</div>
               </div>
-            </a>
-            <a href="https://www.instagram.com/tegar__s.a/" target="_blank" rel="noreferrer" className="contact-link reveal reveal-delay-2">
-              <span className="contact-link-icon">📸</span>
+            </div>
+            <span className="contact-action-btn">
+              Hubungi Sekarang
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="https://www.instagram.com/tegar__s.a/" target="_blank" rel="noreferrer" className="contact-link reveal reveal-delay-2">
+            <div className="contact-link-left">
+              <span className="contact-link-icon">
+                <img src="/assets/logo-instagram.png" alt="Instagram" style={{width:'36px',height:'36px',objectFit:'contain'}}/>
+              </span>
               <div>
                 <div className="contact-link-label">Instagram</div>
                 <div className="contact-link-val">@tegar__s.a</div>
               </div>
-            </a>
-            <a href="https://www.tiktok.com/@tegar.s.a" target="_blank" rel="noreferrer" className="contact-link reveal reveal-delay-3">
-              <span className="contact-link-icon">🎵</span>
+            </div>
+            <span className="contact-action-btn">
+              Lihat Profil Akun
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="https://www.tiktok.com/@tegar.s.a" target="_blank" rel="noreferrer" className="contact-link reveal reveal-delay-3">
+            <div className="contact-link-left">
+              <span className="contact-link-icon">
+                <img src="/assets/logo-tiktok.png" alt="TikTok" style={{width:'36px',height:'36px',objectFit:'contain'}}/>
+              </span>
               <div>
                 <div className="contact-link-label">TikTok</div>
                 <div className="contact-link-val">@tegar.s.a</div>
               </div>
-            </a>
-          </div>
-          <div className="contact-status reveal reveal-delay-1">
-            <div className="status-dot-big"/>
-            <h3>Available for Projects</h3>
-            <p>Saya terbuka untuk kolaborasi proyek, magang, freelance, dan peluang belajar baru di bidang teknologi.</p>
-            <a href="https://wa.me/6285134548198" target="_blank" rel="noreferrer" className="btn-primary" style={{marginTop:'8px',pointerEvents:'all'}}>
-              Hubungi via WhatsApp
-            </a>
-          </div>
+            </div>
+            <span className="contact-action-btn">
+              Lihat Profil Akun
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
         </div>
       </section>
 

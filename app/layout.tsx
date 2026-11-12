@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Tegar Setya Andiputra — Junior Technical Support & Web Specialist',
   description: 'Portofolio Tegar Setya Andiputra — Junior Technical Support, Network, dan Web Specialist dari SMK Negeri 1 Pracimantoro.',
+  icons: {
+    icon: '/assets/favicon.jpg',
+    shortcut: '/assets/favicon.jpg',
+    apple: '/assets/favicon.jpg',
+  },
 }
 
 export default function RootLayout({
