@@ -304,22 +304,22 @@ export default function Home() {
               </div>
               <div className="f1-panel reveal reveal-delay-4">
                 <div className="f1-panel-label">Certification</div>
-                <div style={{display:'flex',alignItems:'center',gap:'10px',marginTop:'4px'}}>
+                <div style={{display:'flex',alignItems:'center',gap:'12px',marginTop:'6px'}}>
                   <div style={{
                     background:'#ffffff',
-                    borderRadius:'8px',
-                    padding:'5px 8px',
+                    borderRadius:'10px',
+                    padding:'6px 10px',
                     display:'flex',
                     alignItems:'center',
                     justifyContent:'center',
                     flexShrink: 0,
-                    boxShadow:'0 2px 8px rgba(0,0,0,0.3)'
+                    boxShadow:'0 2px 10px rgba(0,0,0,0.25)'
                   }}>
-                    <img src="/assets/logo-bnsp.png" alt="BNSP" style={{height:'26px',objectFit:'contain',display:'block'}}/>
+                    <img src="/assets/logo-bnsp.png" alt="BNSP" style={{height:'38px',objectFit:'contain',display:'block'}}/>
                   </div>
                   <div>
-                    <div className="f1-panel-value" style={{fontSize:'0.8rem'}}>BNSP Certified</div>
-                    <div style={{fontSize:'0.7rem',color:'var(--blue-cyan)'}}>Junior Technical Support</div>
+                    <div className="f1-panel-value" style={{fontSize:'0.9rem'}}>BNSP Certified</div>
+                    <div style={{fontSize:'0.75rem',color:'var(--blue-cyan)'}}>Junior Technical Support</div>
                   </div>
                 </div>
               </div>
