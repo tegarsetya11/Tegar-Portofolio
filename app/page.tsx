@@ -222,9 +222,9 @@ export default function Home() {
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
           <span>About</span>
         </a>
-        <a href="#contact">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span>Contact</span>
+        <a href="#skills">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+          <span>Skills</span>
         </a>
         <a href="#project">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
@@ -233,6 +233,10 @@ export default function Home() {
         <a href="#experience">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.1 15.9 0 13.33 0c-1.33 0-2.6.5-3.53 1.42L8 3.17 6.2 1.37C5.27.5 4 0 2.67 0 1.1 0 0 1.1 0 2.67c0 .45.11.89.18 1.33H0v2h20c1.1 0 2 .9 2 2v2H2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
           <span>Experience</span>
+        </a>
+        <a href="#contact">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>Contact</span>
         </a>
       </nav>
 
@@ -363,72 +367,77 @@ export default function Home() {
 
       {/* ===== SKILLS ===== */}
       <section id="skills">
-        <div className="section-header reveal">
-          <span className="section-num">03</span>
-          <h2 className="section-title">Skills</h2>
-          <div className="section-line"/>
+        <div className="skills-hero-header reveal">
+          <span className="skills-badge">KEAHLIAN</span>
+          <h2 className="skills-title">Fondasi teknis, siap terus berkembang.</h2>
+          <p className="skills-subtitle">
+            Kombinasi keterampilan untuk merawat infrastruktur dan membangun pengalaman digital.
+          </p>
         </div>
 
-        {/* Networking & Hardware */}
-        <div className="skills-category">
-          <div className="skills-cat-title reveal">Networking & Hardware</div>
-          <div className="skills-grid">
-            {[
-              {icon:'🌐',name:'Cisco Packet Tracer',cat:'Network Sim'},
-              {icon:'🔌',name:'Mikrotik',cat:'Router OS'},
-              {icon:'📡',name:'Jaringan Komputer',cat:'Networking'},
-              {icon:'🖥️',name:'Troubleshooting',cat:'Technical Support'},
-              {icon:'⚡',name:'Kabel Jaringan',cat:'Hardware'},
-              {icon:'🔧',name:'Perakitan PC',cat:'Hardware'},
-            ].map((s,i)=>(
-              <div key={i} className={`skill-card reveal reveal-delay-${(i%4)+1}`}>
-                <span className="skill-icon">{s.icon}</span>
-                <div className="skill-name">{s.name}</div>
-                <div className="skill-cat">{s.cat}</div>
-              </div>
-            ))}
+        <div className="skills-cards-grid">
+          {/* Card 1: Jaringan & Hardware */}
+          <div className="skill-feature-card reveal">
+            <div className="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 className="skill-card-title">Jaringan & Hardware</h3>
+            <p className="skill-card-desc">
+              Menjaga perangkat dan jaringan tetap siap digunakan.
+            </p>
+            <div className="skill-pills">
+              <span className="skill-pill">Konfigurasi jaringan</span>
+              <span className="skill-pill">Troubleshooting</span>
+              <span className="skill-pill">Maintenance sistem</span>
+            </div>
           </div>
-        </div>
 
-        {/* Web Development */}
-        <div className="skills-category">
-          <div className="skills-cat-title reveal">Web Development</div>
-          <div className="skills-grid">
-            {[
-              {icon:'🌍',name:'HTML',cat:'Markup'},
-              {icon:'🎨',name:'CSS',cat:'Styling'},
-              {icon:'⚙️',name:'JavaScript',cat:'Programming'},
-              {icon:'🐘',name:'PHP',cat:'Backend'},
-              {icon:'🗄️',name:'MySQL',cat:'Database'},
-              {icon:'⚛️',name:'React',cat:'Framework'},
-              {icon:'▲',name:'Next.js',cat:'Framework'},
-              {icon:'💨',name:'Tailwind CSS',cat:'Styling'},
-            ].map((s,i)=>(
-              <div key={i} className={`skill-card reveal reveal-delay-${(i%4)+1}`}>
-                <span className="skill-icon">{s.icon}</span>
-                <div className="skill-name">{s.name}</div>
-                <div className="skill-cat">{s.cat}</div>
-              </div>
-            ))}
+          {/* Card 2: Web Development */}
+          <div className="skill-feature-card reveal reveal-delay-1">
+            <div className="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 className="skill-card-title">Web Development</h3>
+            <p className="skill-card-desc">
+              Menyusun antarmuka web dan menghubungkannya dengan layanan digital.
+            </p>
+            <div className="skill-pills">
+              <span className="skill-pill">HTML5</span>
+              <span className="skill-pill">CSS3</span>
+              <span className="skill-pill">JavaScript</span>
+              <span className="skill-pill">Tailwind CSS</span>
+              <span className="skill-pill">REST API</span>
+            </div>
           </div>
-        </div>
 
-        {/* Tools */}
-        <div className="skills-category">
-          <div className="skills-cat-title reveal">Tools & Others</div>
-          <div className="skills-grid">
-            {[
-              {icon:'📂',name:'Git & GitHub',cat:'Version Control'},
-              {icon:'🐧',name:'Linux',cat:'OS'},
-              {icon:'🖌️',name:'Figma',cat:'Design'},
-              {icon:'📊',name:'Microsoft Office',cat:'Productivity'},
-            ].map((s,i)=>(
-              <div key={i} className={`skill-card reveal reveal-delay-${(i%4)+1}`}>
-                <span className="skill-icon">{s.icon}</span>
-                <div className="skill-name">{s.name}</div>
-                <div className="skill-cat">{s.cat}</div>
-              </div>
-            ))}
+          {/* Card 3: Deployment & Tools */}
+          <div className="skill-feature-card reveal reveal-delay-2">
+            <div className="skill-icon-box" style={{color:'#a78bfa', background:'rgba(167, 139, 250, 0.15)', borderColor:'rgba(167, 139, 250, 0.3)'}}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="2" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/>
+              </svg>
+            </div>
+            <h3 className="skill-card-title">Deployment & Tools</h3>
+            <p className="skill-card-desc">
+              Menerapkan proyek dan mempermudah akses dari berbagai perangkat.
+            </p>
+            <div className="skill-pills">
+              <span className="skill-pill">Vercel</span>
+              <span className="skill-pill">Git & GitHub</span>
+              <span className="skill-pill">WhatsApp deep link</span>
+              <span className="skill-pill">Web Share API</span>
+            </div>
           </div>
         </div>
       </section>
