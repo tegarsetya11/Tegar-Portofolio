@@ -542,9 +542,9 @@ export default function Home() {
               <span className="hero-tag">Network & Web</span>
             </div>
             <div className="hero-cta">
+              <a href="/cv" className="btn-cv">Lihat CV 📄</a>
               <a href="#project" className="btn-primary">Lihat Proyek ↓</a>
               <a href="#contact" className="btn-secondary">Hubungi Saya</a>
-              <a href="/cv" className="btn-cv">Lihat CV 📄</a>
             </div>
           </div>
         </div>
