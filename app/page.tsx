@@ -1122,30 +1122,104 @@ export default function Home() {
         </div>
         <div className="projects-grid">
 
-          {/* Praci Siaga */}
+          {/* Praci Siaga — Proyek Unggulan */}
           <div className="project-card reveal">
-            <div className="project-img-wrap">
-              <img className="project-img" src="/assets/logo-praci-siaga.png" alt="Praci Siaga"
-                style={{objectFit:'contain',background:'#0B1B30',padding:'20px'}}/>
+            <div className="project-img-wrap" style={{position:'relative',background:'#000',overflow:'hidden',borderRadius:'16px 16px 0 0'}}>
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/TZM98ft9raw?rel=0"
+                title="PRACI SIAGA | Inovasi Aplikasi Layanan Darurat"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{width:'100%',height:'210px',border:0,display:'block'}}
+              />
             </div>
             <div className="project-body">
+              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'12px'}}>
+                <span style={{
+                  fontSize:'10px',
+                  fontWeight:'700',
+                  letterSpacing:'1.5px',
+                  textTransform:'uppercase',
+                  color:'#55B8FF',
+                  background:'rgba(22,119,255,0.15)',
+                  border:'1px solid rgba(85,184,255,0.3)',
+                  padding:'3px 9px',
+                  borderRadius:'100px'
+                }}>
+                  PROYEK UNGGULAN
+                </span>
+                <span style={{
+                  fontSize:'11px',
+                  fontWeight:'600',
+                  color:'#00ff88',
+                  display:'inline-flex',
+                  alignItems:'center',
+                  gap:'5px'
+                }}>
+                  <span style={{width:'6px',height:'6px',borderRadius:'50%',background:'#00ff88',boxShadow:'0 0 6px #00ff88'}}/>
+                  Live project
+                </span>
+              </div>
+
               <div className="project-logo-row">
                 <img className="project-logo" src="/assets/logo-praci-siaga.png" alt="Praci Siaga"/>
-                <span className="project-name">Praci Siaga</span>
+                <div>
+                  <span className="project-name">Praci Siaga</span>
+                  <div style={{fontSize:'10.5px',color:'var(--blue-cyan)',fontWeight:'600',letterSpacing:'0.5px'}}>
+                    PRACI SIAGA · LAYANAN DARURAT
+                  </div>
+                </div>
               </div>
-              <div className="project-stack">
-                <span className="project-tag">HTML</span>
-                <span className="project-tag">CSS</span>
-                <span className="project-tag">JavaScript</span>
-                <span className="project-tag">PHP</span>
-                <span className="project-tag">MySQL</span>
-              </div>
+
+              <h4 style={{fontSize:'1.05rem',fontWeight:'800',color:'#ffffff',marginBottom:'8px',lineHeight:'1.35'}}>
+                Akses bantuan penting, lebih mudah.
+              </h4>
+
               <p className="project-desc">
-                Website sistem informasi siaga bencana untuk wilayah Pracimantoro. 
-                Menyediakan informasi kebencanaan, peta risiko, dan panduan evakuasi.
+                Portal layanan darurat untuk membantu warga Pracimantoro mengakses kontak instansi penting seperti Kepolisian, Puskesmas, Pemadam Kebakaran, PMI, BPBD, dan SAR.
               </p>
+
+              {/* Fitur Utama dari Dokumen Gambar */}
+              <div style={{
+                display:'flex',
+                flexDirection:'column',
+                gap:'6px',
+                marginBottom:'14px',
+                background:'rgba(8,20,38,0.6)',
+                border:'1px solid rgba(22,119,255,0.15)',
+                borderRadius:'10px',
+                padding:'10px 12px'
+              }}>
+                <div style={{fontSize:'11px',color:'#d2e4ff',display:'flex',alignItems:'flex-start',gap:'6px'}}>
+                  <span style={{color:'#00ff88',lineHeight:'1.4'}}>✓</span>
+                  <span><strong>Akses langsung:</strong> Panggilan & chat via WhatsApp deep link.</span>
+                </div>
+                <div style={{fontSize:'11px',color:'#d2e4ff',display:'flex',alignItems:'flex-start',gap:'6px'}}>
+                  <span style={{color:'#00ff88',lineHeight:'1.4'}}>✓</span>
+                  <span><strong>Pelaporan cepat:</strong> Membantu warga menemukan jalur bantuan.</span>
+                </div>
+                <div style={{fontSize:'11px',color:'#d2e4ff',display:'flex',alignItems:'flex-start',gap:'6px'}}>
+                  <span style={{color:'#00ff88',lineHeight:'1.4'}}>✓</span>
+                  <span><strong>Mudah digunakan:</strong> Tampilan responsif seluruh perangkat.</span>
+                </div>
+              </div>
+
+              <div className="project-stack">
+                <span className="project-tag">JavaScript</span>
+                <span className="project-tag">HTML / CSS</span>
+                <span className="project-tag">WhatsApp API</span>
+                <span className="project-tag">Vercel</span>
+              </div>
               <div className="project-links">
-                <a href="#" className="project-btn primary">Lihat Detail</a>
+                <a
+                  href="https://praci-siaga.vercel.app"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-btn primary"
+                  style={{display:'inline-flex',alignItems:'center',gap:'6px',fontWeight:'700'}}
+                >
+                  Coba Sekarang ↗
+                </a>
               </div>
             </div>
           </div>
@@ -1153,7 +1227,7 @@ export default function Home() {
           {/* E-Lintas */}
           <div className="project-card reveal reveal-delay-1">
             <div className="project-img-wrap">
-              <img className="project-img" src="/assets/e-lintas-screen-1.png" alt="E-Lintas"/>
+              <img className="project-img" src="/assets/e-lintas-screen-home.png" alt="E-Lintas" style={{objectFit:'cover',height:'210px'}}/>
             </div>
             <div className="project-body">
               <div className="project-logo-row">
@@ -1170,7 +1244,7 @@ export default function Home() {
                 dan pencatatan data lalu lintas secara efisien.
               </p>
               <div className="project-links">
-                <a href="#" className="project-btn primary">Lihat Detail</a>
+                <a href="#contact" className="project-btn primary">Lihat Detail</a>
               </div>
             </div>
           </div>
@@ -1178,7 +1252,7 @@ export default function Home() {
           {/* Catat Uangmu */}
           <div className="project-card reveal reveal-delay-2">
             <div className="project-img-wrap">
-              <img className="project-img" src="/assets/catat-uangmu-screen-1.png" alt="Catat Uangmu"/>
+              <img className="project-img" src="/assets/catat-uangmu-screen-dashboard.png" alt="Catat Uangmu" style={{objectFit:'cover',height:'210px'}}/>
             </div>
             <div className="project-body">
               <div className="project-logo-row">
@@ -1195,7 +1269,7 @@ export default function Home() {
                 pengeluaran, dan laporan keuangan bulanan.
               </p>
               <div className="project-links">
-                <a href="#" className="project-btn primary">Lihat Detail</a>
+                <a href="#contact" className="project-btn primary">Lihat Detail</a>
               </div>
             </div>
           </div>
