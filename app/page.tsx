@@ -470,33 +470,12 @@ export default function Home() {
     <>
       {/* ===== LOADING SCREEN ===== */}
       <div id="loading-screen" ref={loadingRef}>
-        {/* Walking man SVG */}
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <style>{`
-            .body-g { animation: walkBody 0.5s ease-in-out infinite; transform-origin: 40px 40px; }
-            .leg1 { animation: swingLeg1 0.5s ease-in-out infinite; transform-origin: 40px 52px; }
-            .leg2 { animation: swingLeg2 0.5s ease-in-out infinite; transform-origin: 40px 52px; }
-            .arm1 { animation: swingArm2 0.5s ease-in-out infinite; transform-origin: 40px 36px; }
-            .arm2 { animation: swingArm1 0.5s ease-in-out infinite; transform-origin: 40px 36px; }
-            @keyframes walkBody{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-            @keyframes swingLeg1{0%,100%{transform:rotate(-20deg)}50%{transform:rotate(20deg)}}
-            @keyframes swingLeg2{0%,100%{transform:rotate(20deg)}50%{transform:rotate(-20deg)}}
-            @keyframes swingArm1{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}
-            @keyframes swingArm2{0%,100%{transform:rotate(18deg)}50%{transform:rotate(-18deg)}}
-          `}</style>
-          <g className="body-g">
-            {/* Head */}
-            <circle cx="40" cy="20" r="8" fill="#1677FF"/>
-            {/* Body */}
-            <rect x="36" y="28" width="8" height="18" rx="4" fill="#1677FF"/>
-            {/* Arms */}
-            <rect className="arm1" x="28" y="30" width="6" height="14" rx="3" fill="#55B8FF"/>
-            <rect className="arm2" x="46" y="30" width="6" height="14" rx="3" fill="#55B8FF"/>
-            {/* Legs */}
-            <rect className="leg1" x="33" y="45" width="6" height="16" rx="3" fill="#1677FF"/>
-            <rect className="leg2" x="41" y="45" width="6" height="16" rx="3" fill="#1677FF"/>
-          </g>
-        </svg>
+        {/* Logo */}
+        <img
+          src="/assets/logo-tegar-loading.jpg"
+          alt="Logo Tegar"
+          className="loader-logo"
+        />
         <span className="loader-percent" ref={percentRef}>0%</span>
         <div className="loader-bar-wrap">
           <div className="loader-bar" ref={barRef} style={{width:'0%'}}/>

@@ -82,17 +82,19 @@ body {
   color: var(--text-secondary);
   text-transform: uppercase;
 }
-/* Walking man SVG animation */
-.walker-wrap {
-  position: relative;
-  width: 80px;
-  height: 80px;
+/* Loading logo animation */
+.loader-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 18px;
+  animation: logoPulse 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 4px 20px rgba(22,119,255,0.5));
 }
-@keyframes walkBody { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
-@keyframes swingLeg1 { 0%,100%{transform:rotate(-25deg)} 50%{transform:rotate(25deg)} }
-@keyframes swingLeg2 { 0%,100%{transform:rotate(25deg)} 50%{transform:rotate(-25deg)} }
-@keyframes swingArm1 { 0%,100%{transform:rotate(-20deg)} 50%{transform:rotate(20deg)} }
-@keyframes swingArm2 { 0%,100%{transform:rotate(20deg)} 50%{transform:rotate(-20deg)} }
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; filter: drop-shadow(0 4px 20px rgba(22,119,255,0.5)); }
+  50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 8px 30px rgba(22,119,255,0.7)); }
+}
 
 /* ===================== FLOATING NAV ===================== */
 .float-nav {
