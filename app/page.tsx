@@ -1439,10 +1439,15 @@ export default function Home() {
                 <span className="timeline-period">2024 · HUT ke-79 RI</span>
                 <span className="timeline-cat-pill pill-paskibra">Paskibra</span>
               </div>
-              <div className="timeline-title">Paskibra 79 Giritontro</div>
-              <div className="timeline-org">Paskibra Tingkat Kecamatan Giritontro</div>
-              <div className="timeline-desc">
-                Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.
+              <div className="timeline-body-flex">
+                <img src="/assets/logo-paskibra.png" alt="Logo Paskibra" className="timeline-activity-logo" />
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">Paskibra 79 Giritontro</div>
+                  <div className="timeline-org">Paskibra Tingkat Kecamatan Giritontro</div>
+                  <div className="timeline-desc">
+                    Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1455,10 +1460,15 @@ export default function Home() {
                 <span className="timeline-period">2025 · HUT ke-80 RI</span>
                 <span className="timeline-cat-pill pill-paskibra">Paskibra</span>
               </div>
-              <div className="timeline-title">Paskibra 80 Pracimantoro</div>
-              <div className="timeline-org">Paskibra Tingkat Kecamatan Pracimantoro</div>
-              <div className="timeline-desc">
-                Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.
+              <div className="timeline-body-flex">
+                <img src="/assets/logo-paskibra.png" alt="Logo Paskibra" className="timeline-activity-logo" />
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">Paskibra 80 Pracimantoro</div>
+                  <div className="timeline-org">Paskibra Tingkat Kecamatan Pracimantoro</div>
+                  <div className="timeline-desc">
+                    Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1488,9 +1498,7 @@ export default function Home() {
                 <span className="timeline-cat-pill pill-penggalang">Pramuka Penggalang</span>
               </div>
               <div className="timeline-body-flex">
-                <div className="timeline-logo-box">
-                  <img src="/assets/logo-dianpinru.png" alt="Logo DIANPINRU Korwil Surakarta" />
-                </div>
+                <img src="/assets/logo-dianpinru.png" alt="Logo DIANPINRU Korwil Surakarta" className="timeline-activity-logo" />
                 <div className="timeline-text-wrap">
                   <div className="timeline-title">DIANPINRU — Korwil Surakarta</div>
                   <div className="timeline-org">Korwil Surakarta · Pelatihan Kepemimpinan Regu</div>
@@ -1510,10 +1518,15 @@ export default function Home() {
                 <span className="timeline-period">2025 · Kegiatan</span>
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
-              <div className="timeline-title">JOTA-JOTI 2025</div>
-              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
-              <div className="timeline-desc">
-                Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
+              <div className="timeline-body-flex">
+                <img src="/assets/logo-jota-joti-2025.png" alt="Logo JOTA-JOTI 2025" className="timeline-activity-logo" />
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">JOTA-JOTI 2025</div>
+                  <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
+                  <div className="timeline-desc">
+                    Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1527,9 +1540,7 @@ export default function Home() {
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-body-flex">
-                <div className="timeline-logo-box">
-                  <img src="/assets/logo-solidaritas-25.png" alt="Logo SOLIDARITAS 25 Kwarcab Demak" />
-                </div>
+                <img src="/assets/logo-solidaritas-25.png" alt="Logo SOLIDARITAS 25 Kwarcab Demak" className="timeline-activity-logo" />
                 <div className="timeline-text-wrap">
                   <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
                   <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
@@ -1550,9 +1561,7 @@ export default function Home() {
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-body-flex">
-                <div className="timeline-logo-box">
-                  <img src="/assets/logo-jota-joti-2024.png" alt="Logo JOTA-JOTI 2024" />
-                </div>
+                <img src="/assets/logo-jota-joti-2024.png" alt="Logo JOTA-JOTI 2024" className="timeline-activity-logo" />
                 <div className="timeline-text-wrap">
                   <div className="timeline-title">JOTA-JOTI 2024</div>
                   <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
