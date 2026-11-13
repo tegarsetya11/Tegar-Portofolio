@@ -127,6 +127,25 @@ export default function Home() {
   const mouseStartXRef = useRef<number | null>(null);
   const isMouseDownRef = useRef<boolean>(false);
 
+  // Projects Screenshot Sliders State
+  const [eLintasSlide, setELintasSlide] = useState<number>(0);
+  const [catatUangmuSlide, setCatatUangmuSlide] = useState<number>(0);
+
+  const eLintasImages = [
+    { src: '/assets/e-lintas-screen-home.png', alt: 'E-Lintas Beranda' },
+    { src: '/assets/e-lintas-screen-quiz-rambu.png', alt: 'E-Lintas Kuis Rambu' },
+    { src: '/assets/e-lintas-screen-quiz-simulasi.png', alt: 'E-Lintas Uji Teori SIM' },
+    { src: '/assets/e-lintas-screen-praktik-sim.png', alt: 'E-Lintas Simulasi Ujian Praktik SIM C' },
+  ];
+
+  const catatUangmuImages = [
+    { src: '/assets/catat-uangmu-screen-onboarding.png', alt: 'Catat Uangmu Onboarding' },
+    { src: '/assets/catat-uangmu-screen-dashboard.png', alt: 'Catat Uangmu Dashboard' },
+    { src: '/assets/catat-uangmu-screen-add-income.png', alt: 'Catat Uangmu Tambah Pemasukan' },
+    { src: '/assets/catat-uangmu-screen-add-expense.png', alt: 'Catat Uangmu Tambah Pengeluaran' },
+    { src: '/assets/catat-uangmu-screen-reports.png', alt: 'Catat Uangmu Laporan' },
+  ];
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -1120,83 +1139,280 @@ export default function Home() {
           <h2 className="section-title">Projects</h2>
           <div className="section-line"/>
         </div>
-        {/* Featured Showcase Project Card (Matches Reference Image) */}
-        <div className="featured-project-card reveal">
-          {/* Decorative subtle background rings */}
-          <div className="featured-decor-ring ring-1" />
-          <div className="featured-decor-ring ring-2" />
+        {/* Featured Showcase Projects List */}
+        <div style={{display:'flex',flexDirection:'column',gap:'40px'}}>
 
-          {/* Top Bar: Proyek Unggulan & Live Project */}
-          <div className="featured-card-topbar">
-            <span className="featured-tag">Proyek Unggulan</span>
-            <span className="featured-live-badge">
-              <span className="live-dot" /> Live project
-            </span>
-          </div>
+          {/* 1. PRACI SIAGA — PROYEK UNGGULAN */}
+          <div className="featured-project-card reveal">
+            {/* Decorative subtle background rings */}
+            <div className="featured-decor-ring ring-1" />
+            <div className="featured-decor-ring ring-2" />
 
-          {/* Header Row: Logo & Descriptions */}
-          <div className="featured-header-row">
-            <div className="featured-logo-box">
-              <img src="/assets/logo-praci-siaga.png" alt="Logo Praci Siaga" />
-            </div>
-            <div>
-              <div className="featured-subhead">PRACI SIAGA · LAYANAN DARURAT</div>
-              <h3 className="featured-title">Akses bantuan penting, lebih mudah.</h3>
-              <p className="featured-desc">
-                Portal layanan darurat untuk membantu warga Pracimantoro mengakses kontak instansi penting seperti Kepolisian, Puskesmas, Pemadam Kebakaran, PMI, BPBD, dan SAR.
-              </p>
-            </div>
-          </div>
-
-          {/* Main Grid: YouTube Video (Left) & 3 Feature Panels (Right) */}
-          <div className="featured-main-grid">
-            {/* Embedded In-Place YouTube Video Player */}
-            <div className="featured-video-wrap">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/TZM98ft9raw?rel=0"
-                title="PRACI SIAGA | Inovasi Aplikasi Layanan Darurat, Kesehatan..."
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="featured-video-iframe"
-              />
+            {/* Top Bar: Proyek Unggulan & Live Project */}
+            <div className="featured-card-topbar">
+              <span className="featured-tag">Proyek Unggulan</span>
+              <span className="featured-live-badge">
+                <span className="live-dot" /> Live project
+              </span>
             </div>
 
-            {/* 3 Stacked Feature Boxes */}
-            <div className="featured-features-column">
-              <div className="featured-feature-box">
-                <div className="featured-feature-title">Akses langsung</div>
-                <div className="featured-feature-desc">Panggilan dan pesan via WhatsApp deep link.</div>
+            {/* Header Row: Logo & Descriptions */}
+            <div className="featured-header-row">
+              <div className="featured-logo-box">
+                <img src="/assets/logo-praci-siaga.png" alt="Logo Praci Siaga" />
               </div>
-              <div className="featured-feature-box">
-                <div className="featured-feature-title">Pelaporan cepat</div>
-                <div className="featured-feature-desc">Membantu warga menemukan jalur bantuan.</div>
-              </div>
-              <div className="featured-feature-box">
-                <div className="featured-feature-title">Mudah digunakan</div>
-                <div className="featured-feature-desc">Tampilan responsif untuk memudahkan warga mengakses informasi.</div>
+              <div>
+                <div className="featured-subhead">PRACI SIAGA · LAYANAN DARURAT</div>
+                <h3 className="featured-title">Akses bantuan penting, lebih mudah.</h3>
+                <p className="featured-desc">
+                  Portal layanan darurat untuk membantu warga Pracimantoro mengakses kontak instansi penting seperti Kepolisian, Puskesmas, Pemadam Kebakaran, PMI, BPBD, dan SAR.
+                </p>
               </div>
             </div>
+
+            {/* Main Grid: YouTube Video (Left) & 3 Feature Panels (Right) */}
+            <div className="featured-main-grid">
+              {/* Embedded In-Place YouTube Video Player */}
+              <div className="featured-video-wrap">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/TZM98ft9raw?rel=0"
+                  title="PRACI SIAGA | Inovasi Aplikasi Layanan Darurat, Kesehatan..."
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="featured-video-iframe"
+                />
+              </div>
+
+              {/* 3 Stacked Feature Boxes */}
+              <div className="featured-features-column">
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Akses langsung</div>
+                  <div className="featured-feature-desc">Panggilan dan pesan via WhatsApp deep link.</div>
+                </div>
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Pelaporan cepat</div>
+                  <div className="featured-feature-desc">Membantu warga menemukan jalur bantuan.</div>
+                </div>
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Mudah digunakan</div>
+                  <div className="featured-feature-desc">Tampilan responsif untuk memudahkan warga mengakses informasi.</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row: Tech Chips & Action Button */}
+            <div className="featured-bottom-row">
+              <div className="featured-tech-chips">
+                <span className="featured-chip">JavaScript</span>
+                <span className="featured-chip">HTML / CSS</span>
+                <span className="featured-chip">WhatsApp API</span>
+                <span className="featured-chip">Vercel</span>
+              </div>
+              <div className="featured-actions">
+                <a
+                  href="https://praci-siaga-official-website.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="featured-cta-btn"
+                >
+                  Coba Sekarang ↗
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Bottom Row: Tech Chips & Action Button */}
-          <div className="featured-bottom-row">
-            <div className="featured-tech-chips">
-              <span className="featured-chip">JavaScript</span>
-              <span className="featured-chip">HTML / CSS</span>
-              <span className="featured-chip">WhatsApp API</span>
-              <span className="featured-chip">Vercel</span>
+          {/* 2. E-LINTAS — PROYEK */}
+          <div className="featured-project-card reveal">
+            <div className="featured-decor-ring ring-1" />
+            <div className="featured-decor-ring ring-2" />
+
+            <div className="featured-card-topbar">
+              <span className="featured-tag">Proyek</span>
+              <span className="featured-live-badge">
+                <span className="live-dot" /> Live project
+              </span>
             </div>
-            <div className="featured-actions">
-              <a
-                href="https://praci-siaga-official-website.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="featured-cta-btn"
-              >
-                Coba Sekarang ↗
-              </a>
+
+            <div className="featured-header-row">
+              <div className="featured-logo-box">
+                <img src="/assets/logo-e-lintas.png" alt="Logo E-Lintas" />
+              </div>
+              <div>
+                <div className="featured-subhead">E-LINTAS · EDUKASI & SIMULASI LALU LINTAS</div>
+                <h3 className="featured-title">Belajar lalu lintas, lebih interaktif.</h3>
+                <p className="featured-desc">
+                  Platform edukasi digital untuk mempelajari rambu dan aturan berkendara melalui kuis interaktif serta simulasi jalur ujian praktik SIM C.
+                </p>
+              </div>
+            </div>
+
+            <div className="featured-main-grid">
+              {/* Interactive Screenshot Slider (Sky Blue Theme) */}
+              <div className="featured-slider-wrap" style={{background:'#38bdf8'}}>
+                <img
+                  src={eLintasImages[eLintasSlide].src}
+                  alt={eLintasImages[eLintasSlide].alt}
+                  className="featured-slider-img"
+                  style={{objectFit:'contain',padding:'12px'}}
+                />
+                <button
+                  type="button"
+                  className="slider-arrow-btn left"
+                  onClick={() => setELintasSlide((prev) => (prev - 1 + eLintasImages.length) % eLintasImages.length)}
+                  aria-label="Previous slide"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className="slider-arrow-btn right"
+                  onClick={() => setELintasSlide((prev) => (prev + 1) % eLintasImages.length)}
+                  aria-label="Next slide"
+                >
+                  ›
+                </button>
+                <div className="slider-dots-row">
+                  {eLintasImages.map((_, sIdx) => (
+                    <button
+                      key={sIdx}
+                      type="button"
+                      className={`slider-dot ${eLintasSlide === sIdx ? 'active' : ''}`}
+                      onClick={() => setELintasSlide(sIdx)}
+                      aria-label={`Slide ${sIdx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="featured-features-column">
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Kuis rambu & aturan</div>
+                  <div className="featured-feature-desc">35 soal untuk menguji pemahaman peraturan lalu lintas dan rambu.</div>
+                </div>
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Simulasi SIM C</div>
+                  <div className="featured-feature-desc">Latihan interaktif mengenal jalur ujian praktik berkendara.</div>
+                </div>
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Belajar keselamatan</div>
+                  <div className="featured-feature-desc">Membantu membangun pemahaman dan keputusan berkendara yang aman.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="featured-bottom-row">
+              <div className="featured-tech-chips">
+                <span className="featured-chip">Edukasi lalu lintas</span>
+                <span className="featured-chip">Kuis interaktif</span>
+                <span className="featured-chip">Simulasi SIM C</span>
+              </div>
+              <div className="featured-actions">
+                <a
+                  href="#contact"
+                  className="featured-cta-btn"
+                >
+                  Coba Sekarang ↗
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* 3. CATAT UANGMU — PROYEK */}
+          <div className="featured-project-card reveal">
+            <div className="featured-decor-ring ring-1" />
+            <div className="featured-decor-ring ring-2" />
+
+            <div className="featured-card-topbar">
+              <span className="featured-tag">Proyek</span>
+              <span className="featured-live-badge">
+                <span className="live-dot" /> Live project
+              </span>
+            </div>
+
+            <div className="featured-header-row">
+              <div className="featured-logo-box">
+                <img src="/assets/logo-catat-uangmu.png" alt="Logo Catat Uangmu" />
+              </div>
+              <div>
+                <div className="featured-subhead">CATAT UANGMU · MANAJEMEN KEUANGAN PERSONAL</div>
+                <h3 className="featured-title">Kelola keuangan harian, lebih teratur.</h3>
+                <p className="featured-desc">
+                  Platform pencatatan keuangan pribadi untuk memantau pemasukan, pengeluaran, serta anggaran harian secara praktis dan terstruktur.
+                </p>
+              </div>
+            </div>
+
+            <div className="featured-main-grid">
+              {/* Interactive Screenshot Slider (Slate Blue Theme) */}
+              <div className="featured-slider-wrap" style={{background:'#1e293b'}}>
+                <img
+                  src={catatUangmuImages[catatUangmuSlide].src}
+                  alt={catatUangmuImages[catatUangmuSlide].alt}
+                  className="featured-slider-img"
+                  style={{objectFit:'contain',padding:'12px'}}
+                />
+                <button
+                  type="button"
+                  className="slider-arrow-btn left"
+                  onClick={() => setCatatUangmuSlide((prev) => (prev - 1 + catatUangmuImages.length) % catatUangmuImages.length)}
+                  aria-label="Previous slide"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className="slider-arrow-btn right"
+                  onClick={() => setCatatUangmuSlide((prev) => (prev + 1) % catatUangmuImages.length)}
+                  aria-label="Next slide"
+                >
+                  ›
+                </button>
+                <div className="slider-dots-row">
+                  {catatUangmuImages.map((_, sIdx) => (
+                    <button
+                      key={sIdx}
+                      type="button"
+                      className={`slider-dot ${catatUangmuSlide === sIdx ? 'active' : ''}`}
+                      onClick={() => setCatatUangmuSlide(sIdx)}
+                      aria-label={`Slide ${sIdx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="featured-features-column">
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Pencatatan Pemasukan & Pengeluaran</div>
+                  <div className="featured-feature-desc">Catat transaksi harian secara cepat dengan kategori yang jelas dan rapi.</div>
+                </div>
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Analisis & Rekap Keuangan</div>
+                  <div className="featured-feature-desc">Pantau alur kas dan ringkasan anggaran untuk mengontrol pengeluaran harian.</div>
+                </div>
+                <div className="featured-feature-box">
+                  <div className="featured-feature-title">Manajemen Anggaran</div>
+                  <div className="featured-feature-desc">Membantu merencanakan target keuangan dan menjaga finansial tetap stabil.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="featured-bottom-row">
+              <div className="featured-tech-chips">
+                <span className="featured-chip">Manajemen Keuangan</span>
+                <span className="featured-chip">Pencatatan Transaksi</span>
+                <span className="featured-chip">Analisis Finansial</span>
+              </div>
+              <div className="featured-actions">
+                <a
+                  href="#contact"
+                  className="featured-cta-btn"
+                >
+                  Coba Sekarang ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

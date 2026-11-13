@@ -1835,6 +1835,106 @@ section {
   gap: 12px;
 }
 
+/* Featured Interactive Screenshot Slider (E-Lintas & Catat Uangmu) */
+.featured-slider-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(85, 184, 255, 0.25);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.featured-slider-img {
+  width: 100%;
+  height: 100%;
+  min-height: 290px;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .featured-slider-wrap {
+    min-height: 220px;
+  }
+  .featured-slider-img {
+    min-height: 220px;
+  }
+}
+
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(8, 20, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.slider-arrow-btn.left {
+  left: 12px;
+}
+
+.slider-arrow-btn.right {
+  right: 12px;
+}
+
+.slider-arrow-btn:hover {
+  background: #1677FF;
+  border-color: #55B8FF;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 14px rgba(22, 119, 255, 0.6);
+}
+
+.slider-dots-row {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+}
+
+.slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.slider-dot.active {
+  background: #ffffff;
+  width: 16px;
+  border-radius: 100px;
+}
+
 .featured-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -2512,6 +2612,106 @@ footer {
 .featured-actions {
   display: flex;
   gap: 12px;
+}
+
+/* Featured Interactive Screenshot Slider (E-Lintas & Catat Uangmu) */
+.featured-slider-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(85, 184, 255, 0.25);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.featured-slider-img {
+  width: 100%;
+  height: 100%;
+  min-height: 290px;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .featured-slider-wrap {
+    min-height: 220px;
+  }
+  .featured-slider-img {
+    min-height: 220px;
+  }
+}
+
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(8, 20, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.slider-arrow-btn.left {
+  left: 12px;
+}
+
+.slider-arrow-btn.right {
+  right: 12px;
+}
+
+.slider-arrow-btn:hover {
+  background: #1677FF;
+  border-color: #55B8FF;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 14px rgba(22, 119, 255, 0.6);
+}
+
+.slider-dots-row {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+}
+
+.slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.slider-dot.active {
+  background: #ffffff;
+  width: 16px;
+  border-radius: 100px;
 }
 
 .featured-cta-btn {
