@@ -1634,17 +1634,29 @@ section {
 
 .featured-decor-logo {
   position: absolute;
-  right: -60px;
-  top: -40px;
-  width: 280px;
-  height: auto;
-  opacity: 0.06;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: right center;
+  opacity: 0.18;
   pointer-events: none;
-  filter: brightness(2) saturate(0);
-  transition: opacity 0.4s ease;
+  z-index: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .featured-project-card:hover .featured-decor-logo {
-  opacity: 0.10;
+  opacity: 0.28;
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .featured-decor-logo {
+    opacity: 0.12;
+    right: -40px;
+  }
 }
 
 .featured-card-topbar {

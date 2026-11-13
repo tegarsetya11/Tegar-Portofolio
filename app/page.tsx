@@ -1125,7 +1125,7 @@ export default function Home() {
           {/* 1. PRACI SIAGA — PROYEK UNGGULAN */}
           <div className="featured-project-card reveal">
             {/* Decorative subtle background rings */}
-            <img src="/assets/logo-t-silhouette.png" alt="" className="featured-decor-logo" />
+            <img src="/assets/logo-t-silhouette.png?v=2" alt="" className="featured-decor-logo" />
 
             {/* Top Bar: Proyek Unggulan & Live Project */}
             <div className="featured-card-topbar">
@@ -1202,7 +1202,7 @@ export default function Home() {
 
           {/* 2. E-LINTAS — PROYEK */}
           <div className="featured-project-card reveal">
-            <img src="/assets/logo-t-silhouette.png" alt="" className="featured-decor-logo" />
+            <img src="/assets/logo-t-silhouette.png?v=2" alt="" className="featured-decor-logo" />
 
             <div className="featured-card-topbar">
               <span className="featured-tag">Proyek</span>
@@ -1298,7 +1298,7 @@ export default function Home() {
 
           {/* 3. CATAT UANGMU — PROYEK */}
           <div className="featured-project-card reveal">
-            <img src="/assets/logo-t-silhouette.png" alt="" className="featured-decor-logo" />
+            <img src="/assets/logo-t-silhouette.png?v=2" alt="" className="featured-decor-logo" />
 
             <div className="featured-card-topbar">
               <span className="featured-tag">Proyek</span>
