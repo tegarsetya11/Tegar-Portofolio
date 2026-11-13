@@ -952,7 +952,7 @@ export default function Home() {
           <div className="aura-carousel-sec reveal">
             <div className="skills-subhead-label">Professional Soft Skills</div>
 
-            {/* Carousel Header & Controls */}
+            {/* Carousel Header */}
             <div className="aura-carousel-header">
               <div className="aura-title-wrap">
                 <h3 className="aura-sec-title">3D Perspective Competency Deck</h3>
@@ -960,102 +960,106 @@ export default function Home() {
                   Gulir atau klik kartu di sekitarnya untuk memutar perspektif 3D, atau klik kartu depan untuk membaca evaluasi analitik mendalam.
                 </p>
               </div>
-
-              {/* Aura Style Circular Navigation Controls */}
-              <div className="aura-controls">
-                <button
-                  type="button"
-                  className="aura-nav-btn"
-                  onClick={handlePrevSoft}
-                  aria-label="Previous soft skill"
-                  title="Kartu Sebelumnya"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
-                </button>
-                <div className="aura-counter">
-                  <span className="aura-counter-current">{String(activeSoftIdx + 1).padStart(2, '0')}</span>
-                  <span className="aura-counter-divider">/</span>
-                  <span className="aura-counter-total">{String(softSkillsList.length).padStart(2, '0')}</span>
-                </div>
-                <button
-                  type="button"
-                  className="aura-nav-btn"
-                  onClick={handleNextSoft}
-                  aria-label="Next soft skill"
-                  title="Kartu Selanjutnya"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </button>
-              </div>
             </div>
 
-            {/* 3D Perspective Stage */}
-            <div
-              className="aura-stage-container"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-            >
-              {softSkillsList.map((item, idx) => {
-                const style = getCard3DStyle(idx);
-                const isActive = activeSoftIdx === idx;
+            {/* 3D Stage Wrapper with Simple Side Navigation (< and >) */}
+            <div className="aura-stage-wrap">
+              {/* Left Navigation Button (<) */}
+              <button
+                type="button"
+                className="aura-side-nav-btn left"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrevSoft();
+                }}
+                aria-label="Previous soft skill"
+                title="Kartu Sebelumnya"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
 
-                return (
-                  <div
-                    key={idx}
-                    className={`aura-card-3d theme-card ${item.theme} ${isActive ? 'active-center' : ''}`}
-                    style={style}
-                    onClick={() => {
-                      if (!isActive) {
-                        setActiveSoftIdx(idx);
-                      } else {
-                        setSelectedSoftSkill(item);
-                      }
-                    }}
-                  >
-                    {/* Top Bar */}
-                    <div className="aura-card-topbar">
-                      <span className="aura-category-badge">{item.tag}</span>
-                      <span className="aura-card-num">#{String(idx + 1).padStart(2, '0')}</span>
+              {/* 3D Perspective Stage */}
+              <div
+                className="aura-stage-container"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+              >
+                {softSkillsList.map((item, idx) => {
+                  const style = getCard3DStyle(idx);
+                  const isActive = activeSoftIdx === idx;
+
+                  return (
+                    <div
+                      key={idx}
+                      className={`aura-card-3d theme-card ${item.theme} ${isActive ? 'active-center' : ''}`}
+                      style={style}
+                      onClick={() => {
+                        if (!isActive) {
+                          setActiveSoftIdx(idx);
+                        } else {
+                          setSelectedSoftSkill(item);
+                        }
+                      }}
+                    >
+                      {/* Top Bar */}
+                      <div className="aura-card-topbar">
+                        <span className="aura-category-badge">{item.tag}</span>
+                        <span className="aura-card-num">#{String(idx + 1).padStart(2, '0')}</span>
+                      </div>
+
+                      {/* Glowing Icon */}
+                      <div className="aura-card-icon-wrap">
+                        <span>{item.icon}</span>
+                      </div>
+
+                      {/* Title & Desc */}
+                      <h4 className="aura-card-title">{item.name}</h4>
+                      <p className="aura-card-desc">{item.desc}</p>
+
+                      {/* Mini Highlight Badges */}
+                      <div className="aura-card-points">
+                        {item.points.slice(0, 2).map((pt, pidx) => (
+                          <div key={pidx} className="aura-card-point">
+                            <span className="aura-point-bullet" />
+                            <span>{pt}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Footer Action */}
+                      <div className="aura-card-footer">
+                        <span className="aura-action-link">
+                          Detail Insight →
+                        </span>
+                        <span className="aura-status-pill">
+                          {isActive ? '● Active View' : 'Click to Focus'}
+                        </span>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    {/* Glowing Icon */}
-                    <div className="aura-card-icon-wrap">
-                      <span>{item.icon}</span>
-                    </div>
-
-                    {/* Title & Desc */}
-                    <h4 className="aura-card-title">{item.name}</h4>
-                    <p className="aura-card-desc">{item.desc}</p>
-
-                    {/* Mini Highlight Badges */}
-                    <div className="aura-card-points">
-                      {item.points.slice(0, 2).map((pt, pidx) => (
-                        <div key={pidx} className="aura-card-point">
-                          <span className="aura-point-bullet" />
-                          <span>{pt}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Footer Action */}
-                    <div className="aura-card-footer">
-                      <span className="aura-action-link">
-                        Detail Insight →
-                      </span>
-                      <span className="aura-status-pill">
-                        {isActive ? '● Active View' : 'Click to Focus'}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+              {/* Right Navigation Button (>) */}
+              <button
+                type="button"
+                className="aura-side-nav-btn right"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNextSoft();
+                }}
+                aria-label="Next soft skill"
+                title="Kartu Selanjutnya"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
             </div>
 
             {/* Aura Dots Pagination */}

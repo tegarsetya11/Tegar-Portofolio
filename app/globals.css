@@ -1168,62 +1168,67 @@ section {
   line-height: 1.6;
 }
 
-.aura-controls {
+/* 3D Carousel Stage Wrapper with Side Navigation */
+.aura-stage-wrap {
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(8, 20, 38, 0.75);
-  border: 1px solid rgba(85, 184, 255, 0.25);
-  border-radius: 100px;
-  padding: 6px 14px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  justify-content: center;
 }
 
-.aura-nav-btn {
-  width: 38px;
-  height: 38px;
+/* Simple Side Navigation Buttons (< and >) */
+.aura-side-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 1px solid rgba(85, 184, 255, 0.28);
-  background: rgba(14, 34, 62, 0.75);
+  background: rgba(8, 22, 46, 0.78);
+  border: 1px solid rgba(85, 184, 255, 0.35);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s ease;
+  backdrop-filter: blur(14px);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.25, 1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
-.aura-nav-btn:hover {
+.aura-side-nav-btn.left {
+  left: 12px;
+}
+
+.aura-side-nav-btn.right {
+  right: 12px;
+}
+
+.aura-side-nav-btn:hover {
   background: #1677FF;
-  border-color: #55B8FF;
+  border-color: #00f0ff;
   color: #ffffff;
-  transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(22, 119, 255, 0.6);
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 0 22px rgba(0, 240, 255, 0.65), 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
-.aura-counter {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: monospace;
-  font-size: 13px;
-  padding: 0 6px;
+.aura-side-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
-.aura-counter-current {
-  color: #00f0ff;
-  font-weight: 800;
-  font-size: 15px;
-}
-
-.aura-counter-divider {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.aura-counter-total {
-  color: var(--text-secondary);
-  font-weight: 600;
+@media (max-width: 768px) {
+  .aura-side-nav-btn {
+    width: 42px;
+    height: 42px;
+  }
+  .aura-side-nav-btn.left {
+    left: 4px;
+  }
+  .aura-side-nav-btn.right {
+    right: 4px;
+  }
 }
 
 /* 3D Perspective Stage */
