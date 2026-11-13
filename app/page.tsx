@@ -955,9 +955,9 @@ export default function Home() {
             {/* Carousel Header */}
             <div className="aura-carousel-header">
               <div className="aura-title-wrap">
-                <h3 className="aura-sec-title">3D Perspective Competency Deck</h3>
+                <h3 className="aura-sec-title">Personal & Professional Skills</h3>
                 <p className="aura-sec-desc">
-                  Gulir atau klik kartu di sekitarnya untuk memutar perspektif 3D, atau klik kartu depan untuk membaca evaluasi analitik mendalam.
+                  Kenali kemampuan interpersonal dan karakter kerja saya dalam berkomunikasi, bekerja sama, beradaptasi, serta menyelesaikan berbagai tantangan.
                 </p>
               </div>
             </div>
