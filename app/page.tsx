@@ -518,6 +518,13 @@ export default function Home() {
           <App />
           {/* Hero Text Overlay */}
           <div className="home-hero-text">
+            <div className="hero-logo-wrap">
+              <img
+                src="/assets/logo-tegar-hero.png"
+                alt="Logo Tegar"
+                className="hero-brand-logo"
+              />
+            </div>
             <div className="hero-badge">
               <span/>
               Available for Projects
