@@ -1307,7 +1307,9 @@ export default function Home() {
               </div>
               <div className="featured-actions">
                 <a
-                  href="#contact"
+                  href="https://e-lintas.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="featured-cta-btn"
                 >
                   Coba Sekarang ↗
@@ -1402,7 +1404,9 @@ export default function Home() {
               </div>
               <div className="featured-actions">
                 <a
-                  href="#contact"
+                  href="https://catat-uangmu.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="featured-cta-btn"
                 >
                   Coba Sekarang ↗
@@ -1481,10 +1485,15 @@ export default function Home() {
                 <span className="timeline-period">2022 — 2023</span>
                 <span className="timeline-cat-pill pill-osis">Organisasi Sekolah</span>
               </div>
-              <div className="timeline-title">Ketua OSIS SMP</div>
-              <div className="timeline-org">Organisasi Siswa Intra Sekolah (OSIS)</div>
-              <div className="timeline-desc">
-                Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.
+              <div className="timeline-body-flex">
+                <img src="/assets/logo-osis.png" alt="Logo OSIS" className="timeline-activity-logo" />
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">Ketua OSIS SMP</div>
+                  <div className="timeline-org">Organisasi Siswa Intra Sekolah (OSIS)</div>
+                  <div className="timeline-desc">
+                    Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
