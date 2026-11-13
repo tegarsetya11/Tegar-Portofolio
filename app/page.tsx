@@ -1120,160 +1120,83 @@ export default function Home() {
           <h2 className="section-title">Projects</h2>
           <div className="section-line"/>
         </div>
-        <div className="projects-grid">
+        {/* Featured Showcase Project Card (Matches Reference Image) */}
+        <div className="featured-project-card reveal">
+          {/* Decorative subtle background rings */}
+          <div className="featured-decor-ring ring-1" />
+          <div className="featured-decor-ring ring-2" />
 
-          {/* Praci Siaga — Proyek Unggulan */}
-          <div className="project-card reveal">
-            <div className="project-img-wrap" style={{position:'relative',background:'#000',overflow:'hidden',borderRadius:'16px 16px 0 0'}}>
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/TZM98ft9raw?rel=0"
-                title="PRACI SIAGA | Inovasi Aplikasi Layanan Darurat"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                style={{width:'100%',height:'210px',border:0,display:'block'}}
-              />
+          {/* Top Bar: Proyek Unggulan & Live Project */}
+          <div className="featured-card-topbar">
+            <span className="featured-tag">Proyek Unggulan</span>
+            <span className="featured-live-badge">
+              <span className="live-dot" /> Live project
+            </span>
+          </div>
+
+          {/* Header Row: Logo & Descriptions */}
+          <div className="featured-header-row">
+            <div className="featured-logo-box">
+              <img src="/assets/logo-praci-siaga.png" alt="Logo Praci Siaga" />
             </div>
-            <div className="project-body">
-              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'12px'}}>
-                <span style={{
-                  fontSize:'10px',
-                  fontWeight:'700',
-                  letterSpacing:'1.5px',
-                  textTransform:'uppercase',
-                  color:'#55B8FF',
-                  background:'rgba(22,119,255,0.15)',
-                  border:'1px solid rgba(85,184,255,0.3)',
-                  padding:'3px 9px',
-                  borderRadius:'100px'
-                }}>
-                  PROYEK UNGGULAN
-                </span>
-                <span style={{
-                  fontSize:'11px',
-                  fontWeight:'600',
-                  color:'#00ff88',
-                  display:'inline-flex',
-                  alignItems:'center',
-                  gap:'5px'
-                }}>
-                  <span style={{width:'6px',height:'6px',borderRadius:'50%',background:'#00ff88',boxShadow:'0 0 6px #00ff88'}}/>
-                  Live project
-                </span>
-              </div>
-
-              <div className="project-logo-row">
-                <img className="project-logo" src="/assets/logo-praci-siaga.png" alt="Praci Siaga"/>
-                <div>
-                  <span className="project-name">Praci Siaga</span>
-                  <div style={{fontSize:'10.5px',color:'var(--blue-cyan)',fontWeight:'600',letterSpacing:'0.5px'}}>
-                    PRACI SIAGA · LAYANAN DARURAT
-                  </div>
-                </div>
-              </div>
-
-              <h4 style={{fontSize:'1.05rem',fontWeight:'800',color:'#ffffff',marginBottom:'8px',lineHeight:'1.35'}}>
-                Akses bantuan penting, lebih mudah.
-              </h4>
-
-              <p className="project-desc">
+            <div>
+              <div className="featured-subhead">PRACI SIAGA · LAYANAN DARURAT</div>
+              <h3 className="featured-title">Akses bantuan penting, lebih mudah.</h3>
+              <p className="featured-desc">
                 Portal layanan darurat untuk membantu warga Pracimantoro mengakses kontak instansi penting seperti Kepolisian, Puskesmas, Pemadam Kebakaran, PMI, BPBD, dan SAR.
               </p>
+            </div>
+          </div>
 
-              {/* Fitur Utama dari Dokumen Gambar */}
-              <div style={{
-                display:'flex',
-                flexDirection:'column',
-                gap:'6px',
-                marginBottom:'14px',
-                background:'rgba(8,20,38,0.6)',
-                border:'1px solid rgba(22,119,255,0.15)',
-                borderRadius:'10px',
-                padding:'10px 12px'
-              }}>
-                <div style={{fontSize:'11px',color:'#d2e4ff',display:'flex',alignItems:'flex-start',gap:'6px'}}>
-                  <span style={{color:'#00ff88',lineHeight:'1.4'}}>✓</span>
-                  <span><strong>Akses langsung:</strong> Panggilan & chat via WhatsApp deep link.</span>
-                </div>
-                <div style={{fontSize:'11px',color:'#d2e4ff',display:'flex',alignItems:'flex-start',gap:'6px'}}>
-                  <span style={{color:'#00ff88',lineHeight:'1.4'}}>✓</span>
-                  <span><strong>Pelaporan cepat:</strong> Membantu warga menemukan jalur bantuan.</span>
-                </div>
-                <div style={{fontSize:'11px',color:'#d2e4ff',display:'flex',alignItems:'flex-start',gap:'6px'}}>
-                  <span style={{color:'#00ff88',lineHeight:'1.4'}}>✓</span>
-                  <span><strong>Mudah digunakan:</strong> Tampilan responsif seluruh perangkat.</span>
-                </div>
-              </div>
+          {/* Main Grid: YouTube Video (Left) & 3 Feature Panels (Right) */}
+          <div className="featured-main-grid">
+            {/* Embedded In-Place YouTube Video Player */}
+            <div className="featured-video-wrap">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/TZM98ft9raw?rel=0"
+                title="PRACI SIAGA | Inovasi Aplikasi Layanan Darurat, Kesehatan..."
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="featured-video-iframe"
+              />
+            </div>
 
-              <div className="project-stack">
-                <span className="project-tag">JavaScript</span>
-                <span className="project-tag">HTML / CSS</span>
-                <span className="project-tag">WhatsApp API</span>
-                <span className="project-tag">Vercel</span>
+            {/* 3 Stacked Feature Boxes */}
+            <div className="featured-features-column">
+              <div className="featured-feature-box">
+                <div className="featured-feature-title">Akses langsung</div>
+                <div className="featured-feature-desc">Panggilan dan pesan via WhatsApp deep link.</div>
               </div>
-              <div className="project-links">
-                <a
-                  href="https://praci-siaga.vercel.app"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-btn primary"
-                  style={{display:'inline-flex',alignItems:'center',gap:'6px',fontWeight:'700'}}
-                >
-                  Coba Sekarang ↗
-                </a>
+              <div className="featured-feature-box">
+                <div className="featured-feature-title">Pelaporan cepat</div>
+                <div className="featured-feature-desc">Membantu warga menemukan jalur bantuan.</div>
+              </div>
+              <div className="featured-feature-box">
+                <div className="featured-feature-title">Mudah digunakan</div>
+                <div className="featured-feature-desc">Tampilan responsif untuk memudahkan warga mengakses informasi.</div>
               </div>
             </div>
           </div>
 
-          {/* E-Lintas */}
-          <div className="project-card reveal reveal-delay-1">
-            <div className="project-img-wrap">
-              <img className="project-img" src="/assets/e-lintas-screen-home.png" alt="E-Lintas" style={{objectFit:'cover',height:'210px'}}/>
+          {/* Bottom Row: Tech Chips & Action Button */}
+          <div className="featured-bottom-row">
+            <div className="featured-tech-chips">
+              <span className="featured-chip">JavaScript</span>
+              <span className="featured-chip">HTML / CSS</span>
+              <span className="featured-chip">WhatsApp API</span>
+              <span className="featured-chip">Vercel</span>
             </div>
-            <div className="project-body">
-              <div className="project-logo-row">
-                <img className="project-logo" src="/assets/logo-e-lintas.png" alt="E-Lintas"/>
-                <span className="project-name">E-Lintas</span>
-              </div>
-              <div className="project-stack">
-                <span className="project-tag">PHP</span>
-                <span className="project-tag">MySQL</span>
-                <span className="project-tag">Bootstrap</span>
-              </div>
-              <p className="project-desc">
-                Sistem informasi manajemen lalu lintas digital. Membantu monitoring 
-                dan pencatatan data lalu lintas secara efisien.
-              </p>
-              <div className="project-links">
-                <a href="#contact" className="project-btn primary">Lihat Detail</a>
-              </div>
+            <div className="featured-actions">
+              <a
+                href="https://praci-siaga-official-website.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="featured-cta-btn"
+              >
+                Coba Sekarang ↗
+              </a>
             </div>
           </div>
-
-          {/* Catat Uangmu */}
-          <div className="project-card reveal reveal-delay-2">
-            <div className="project-img-wrap">
-              <img className="project-img" src="/assets/catat-uangmu-screen-dashboard.png" alt="Catat Uangmu" style={{objectFit:'cover',height:'210px'}}/>
-            </div>
-            <div className="project-body">
-              <div className="project-logo-row">
-                <img className="project-logo" src="/assets/logo-catat-uangmu.png" alt="Catat Uangmu"/>
-                <span className="project-name">Catat Uangmu</span>
-              </div>
-              <div className="project-stack">
-                <span className="project-tag">React</span>
-                <span className="project-tag">Next.js</span>
-                <span className="project-tag">Tailwind</span>
-              </div>
-              <p className="project-desc">
-                Aplikasi pencatat keuangan pribadi berbasis web. Fitur input pemasukan, 
-                pengeluaran, dan laporan keuangan bulanan.
-              </p>
-              <div className="project-links">
-                <a href="#contact" className="project-btn primary">Lihat Detail</a>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
