@@ -15,6 +15,17 @@ export default function Home() {
   const [typedRole, setTypedRole] = useState('');
   const fullRole = 'Junior Technical Support · Network · Web Specialist';
 
+  // Skills Dashboard State
+  const [skillsFilter, setSkillsFilter] = useState<'all' | 'hard' | 'soft'>('all');
+  const [activeRadarAxis, setActiveRadarAxis] = useState<number>(0);
+  const [selectedSoftSkill, setSelectedSoftSkill] = useState<{
+    name: string;
+    icon: string;
+    desc: string;
+    detail: string;
+    points: string[];
+  } | null>(null);
+
   useEffect(() => {
     let index = 0;
     const startTimeout = setTimeout(() => {
@@ -365,81 +376,516 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SKILLS ===== */}
+      {/* ===== SKILLS DASHBOARD & ANALYTICS ===== */}
       <section id="skills">
+        {/* Main Header */}
         <div className="skills-hero-header reveal">
-          <span className="skills-badge">SKILLS</span>
-          <h2 className="skills-title">Fondasi teknis, siap terus berkembang.</h2>
+          <div className="skills-module-tag">
+            <span/>
+            SYSTEM MODULE // SKILLS
+          </div>
+          <h2 className="skills-title">My Skills & Expertise</h2>
           <p className="skills-subtitle">
-            Kombinasi keterampilan untuk merawat infrastruktur dan membangun pengalaman digital.
+            Dashboard analitik keahlian teknis dan profesional, dirancang untuk merawat infrastruktur handal, 
+            memberikan dukungan teknis terverifikasi, dan membangun pengalaman antarmuka digital modern.
           </p>
-        </div>
 
-        <div className="skills-cards-grid">
-          {/* Card 1: Jaringan & Hardware */}
-          <div className="skill-feature-card reveal">
-            <div className="skill-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <h3 className="skill-card-title">Jaringan & Hardware</h3>
-            <p className="skill-card-desc">
-              Menjaga perangkat dan jaringan tetap siap digunakan.
-            </p>
-            <div className="skill-pills">
-              <span className="skill-pill">Konfigurasi jaringan</span>
-              <span className="skill-pill">Troubleshooting</span>
-              <span className="skill-pill">Maintenance sistem</span>
-            </div>
-          </div>
-
-          {/* Card 2: Web Development */}
-          <div className="skill-feature-card reveal reveal-delay-1">
-            <div className="skill-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-              </svg>
-            </div>
-            <h3 className="skill-card-title">Web Development</h3>
-            <p className="skill-card-desc">
-              Menyusun antarmuka web dan menghubungkannya dengan layanan digital.
-            </p>
-            <div className="skill-pills">
-              <span className="skill-pill">HTML5</span>
-              <span className="skill-pill">CSS3</span>
-              <span className="skill-pill">JavaScript</span>
-              <span className="skill-pill">Tailwind CSS</span>
-              <span className="skill-pill">REST API</span>
-            </div>
-          </div>
-
-          {/* Card 3: Deployment & Tools */}
-          <div className="skill-feature-card reveal reveal-delay-2">
-            <div className="skill-icon-box" style={{color:'#a78bfa', background:'rgba(167, 139, 250, 0.15)', borderColor:'rgba(167, 139, 250, 0.3)'}}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="2" x2="12" y2="22"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
-                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/>
-              </svg>
-            </div>
-            <h3 className="skill-card-title">Deployment & Tools</h3>
-            <p className="skill-card-desc">
-              Menerapkan proyek dan mempermudah akses dari berbagai perangkat.
-            </p>
-            <div className="skill-pills">
-              <span className="skill-pill">Vercel</span>
-              <span className="skill-pill">Git & GitHub</span>
-              <span className="skill-pill">WhatsApp deep link</span>
-              <span className="skill-pill">Web Share API</span>
-            </div>
+          {/* Interactive Filter Bar */}
+          <div className="skills-filter-bar">
+            <button
+              className={`skills-filter-btn ${skillsFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setSkillsFilter('all')}
+            >
+              All Skills
+            </button>
+            <button
+              className={`skills-filter-btn ${skillsFilter === 'hard' ? 'active' : ''}`}
+              onClick={() => setSkillsFilter('hard')}
+            >
+              Hard Skills
+            </button>
+            <button
+              className={`skills-filter-btn ${skillsFilter === 'soft' ? 'active' : ''}`}
+              onClick={() => setSkillsFilter('soft')}
+            >
+              Soft Skills
+            </button>
           </div>
         </div>
+
+        {/* 1. CORE EXPERTISE HIGHLIGHT (Visible on 'all' and 'hard') */}
+        {(skillsFilter === 'all' || skillsFilter === 'hard') && (
+          <div className="core-expertise-sec reveal">
+            <div className="skills-subhead-label">Core Specialization Focus</div>
+            <div className="core-expertise-grid">
+              {/* Networking Specialist */}
+              <div className="core-expert-card">
+                <div className="core-card-header">
+                  <div className="core-icon-box">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="2"/>
+                      <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
+                    </svg>
+                  </div>
+                  <span className="core-tag">Core Focus 01</span>
+                </div>
+                <h3 className="core-title">NETWORKING SPECIALIST</h3>
+                <p className="core-desc">
+                  Arsitektur topologi jaringan, protokol perutean (routing), manajemen bandwidth MikroTik, serta instalasi kabel transmisi fiber optik dan UTP.
+                </p>
+                <div className="core-highlights">
+                  <span className="core-pill">MikroTik RouterOS</span>
+                  <span className="core-pill">TCP/IP & Subnetting</span>
+                  <span className="core-pill">Fiber & UTP Cabling</span>
+                </div>
+              </div>
+
+              {/* Technical Support */}
+              <div className="core-expert-card">
+                <div className="core-card-header">
+                  <div className="core-icon-box" style={{color:'#00f0ff', background:'rgba(0,240,255,0.12)', borderColor:'rgba(0,240,255,0.3)'}}>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                      <line x1="8" y1="21" x2="16" y2="21"/>
+                      <line x1="12" y1="17" x2="12" y2="21"/>
+                      <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+                  </div>
+                  <span className="core-tag" style={{color:'#00f0ff', borderColor:'rgba(0,240,255,0.3)'}}>Core Focus 02</span>
+                </div>
+                <h3 className="core-title">TECHNICAL SUPPORT</h3>
+                <p className="core-desc">
+                  Kompetensi tersertifikasi BNSP dalam perakitan PC, diagnosa komprehensif hardware dan software, konfigurasi sistem operasi Windows, dan maintenance berkala.
+                </p>
+                <div className="core-highlights">
+                  <span className="core-pill">BNSP Certified</span>
+                  <span className="core-pill">PC Assembly & OS</span>
+                  <span className="core-pill">Hardware Troubleshooting</span>
+                </div>
+              </div>
+
+              {/* Web Development */}
+              <div className="core-expert-card">
+                <div className="core-card-header">
+                  <div className="core-icon-box" style={{color:'#a78bfa', background:'rgba(167,139,250,0.12)', borderColor:'rgba(167,139,250,0.3)'}}>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="16 18 22 12 16 6"/>
+                      <polyline points="8 6 2 12 8 18"/>
+                      <line x1="14" y1="4" x2="10" y2="20"/>
+                    </svg>
+                  </div>
+                  <span className="core-tag" style={{color:'#a78bfa', borderColor:'rgba(167,139,250,0.3)'}}>Core Focus 03</span>
+                </div>
+                <h3 className="core-title">WEB DEVELOPMENT</h3>
+                <p className="core-desc">
+                  Penyusunan kode antarmuka web modern responsif, integrasi REST API yang cepat, sistem manajemen versi Git, serta perancangan visual CorelDRAW & Photoshop.
+                </p>
+                <div className="core-highlights">
+                  <span className="core-pill">Modern JavaScript</span>
+                  <span className="core-pill">Responsive Web Design</span>
+                  <span className="core-pill">REST API & Git</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* 2. SKILL OVERVIEW — INTERACTIVE RADAR CHART */}
+        <div className="radar-overview-sec reveal">
+          <div className="skills-subhead-label">Skill Overview & Analytics Radar</div>
+          <div className="radar-panel-card">
+            {/* SVG Spider / Radar Chart */}
+            <div className="radar-chart-wrap">
+              <svg viewBox="0 0 350 310" className="radar-chart-svg">
+                {/* Concentric Web Polygons */}
+                {[0.25, 0.5, 0.75, 1.0].map((lvl, lidx) => {
+                  const pts = [
+                    { score: lvl, a: -90 },
+                    { score: lvl, a: -30 },
+                    { score: lvl, a: 30 },
+                    { score: lvl, a: 90 },
+                    { score: lvl, a: 150 },
+                    { score: lvl, a: 210 },
+                  ].map((p) => {
+                    const rad = p.a * (Math.PI / 180);
+                    const x = 175 + 100 * p.score * Math.cos(rad);
+                    const y = 155 + 100 * p.score * Math.sin(rad);
+                    return `${x.toFixed(1)},${y.toFixed(1)}`;
+                  }).join(' ');
+
+                  return (
+                    <polygon
+                      key={lidx}
+                      points={pts}
+                      fill={lidx === 3 ? "rgba(22, 119, 255, 0.05)" : "none"}
+                      stroke="rgba(85, 184, 255, 0.2)"
+                      strokeWidth={lidx === 3 ? "1.5" : "1"}
+                      strokeDasharray={lidx < 3 ? "3 3" : "none"}
+                    />
+                  );
+                })}
+
+                {/* Axes Lines */}
+                {[
+                  { a: -90 },
+                  { a: -30 },
+                  { a: 30 },
+                  { a: 90 },
+                  { a: 150 },
+                  { a: 210 },
+                ].map((axis, i) => {
+                  const rad = axis.a * (Math.PI / 180);
+                  const x = 175 + 100 * Math.cos(rad);
+                  const y = 155 + 100 * Math.sin(rad);
+                  const isAct = activeRadarAxis === i;
+                  return (
+                    <line
+                      key={i}
+                      x1={175}
+                      y1={155}
+                      x2={x}
+                      y2={y}
+                      stroke={isAct ? "#00f0ff" : "rgba(85, 184, 255, 0.25)"}
+                      strokeWidth={isAct ? "2" : "1"}
+                    />
+                  );
+                })}
+
+                {/* Data Polygon */}
+                <polygon
+                  points={[
+                    { s: 0.92, a: -90 },
+                    { s: 0.94, a: -30 },
+                    { s: 0.88, a: 30 },
+                    { s: 0.90, a: 90 },
+                    { s: 0.86, a: 150 },
+                    { s: 0.88, a: 210 },
+                  ].map((p) => {
+                    const rad = p.a * (Math.PI / 180);
+                    const x = 175 + 100 * p.s * Math.cos(rad);
+                    const y = 155 + 100 * p.s * Math.sin(rad);
+                    return `${x.toFixed(1)},${y.toFixed(1)}`;
+                  }).join(' ')}
+                  fill="rgba(0, 240, 255, 0.2)"
+                  stroke="#55B8FF"
+                  strokeWidth="2.5"
+                  style={{ filter: "drop-shadow(0 0 8px rgba(0, 240, 255, 0.5))" }}
+                />
+
+                {/* Vertices */}
+                {[
+                  { s: 0.92, a: -90 },
+                  { s: 0.94, a: -30 },
+                  { s: 0.88, a: 30 },
+                  { s: 0.90, a: 90 },
+                  { s: 0.86, a: 150 },
+                  { s: 0.88, a: 210 },
+                ].map((p, i) => {
+                  const rad = p.a * (Math.PI / 180);
+                  const x = 175 + 100 * p.s * Math.cos(rad);
+                  const y = 155 + 100 * p.s * Math.sin(rad);
+                  const isAct = activeRadarAxis === i;
+                  return (
+                    <circle
+                      key={i}
+                      cx={x}
+                      cy={y}
+                      r={isAct ? 6.5 : 4.5}
+                      fill={isAct ? "#00f0ff" : "#1677FF"}
+                      stroke="#ffffff"
+                      strokeWidth="1.5"
+                      style={{ cursor: "pointer", transition: "all 0.2s ease" }}
+                      onMouseEnter={() => setActiveRadarAxis(i)}
+                    />
+                  );
+                })}
+
+                {/* Axis Labels */}
+                {[
+                  { name: "Networking", a: -90 },
+                  { name: "Tech Support", a: -30 },
+                  { name: "Web Dev", a: 30 },
+                  { name: "Problem Solving", a: 90 },
+                  { name: "Communication", a: 150 },
+                  { name: "Leadership", a: 210 },
+                ].map((item, i) => {
+                  const rad = item.a * (Math.PI / 180);
+                  const lx = 175 + 124 * Math.cos(rad);
+                  const ly = 155 + 114 * Math.sin(rad);
+                  const cosVal = Math.cos(rad);
+                  const anchor = cosVal > 0.3 ? "start" : cosVal < -0.3 ? "end" : "middle";
+                  const isAct = activeRadarAxis === i;
+                  return (
+                    <text
+                      key={i}
+                      x={lx}
+                      y={ly}
+                      textAnchor={anchor}
+                      dominantBaseline="central"
+                      fill={isAct ? "#00f0ff" : "#d2e4ff"}
+                      fontSize="9.5"
+                      fontWeight={isAct ? "700" : "600"}
+                      style={{ cursor: "pointer", transition: "all 0.2s ease" }}
+                      onMouseEnter={() => setActiveRadarAxis(i)}
+                    >
+                      {item.name}
+                    </text>
+                  );
+                })}
+              </svg>
+            </div>
+
+            {/* Radar Information Side */}
+            <div className="radar-info-side">
+              <div>
+                <div className="radar-badge-title">
+                  <span style={{width:'6px', height:'6px', borderRadius:'50%', background:'#00f0ff'}}/>
+                  Holistic Skill Distribution
+                </div>
+                <h3 className="radar-main-title">Multi-Discipline Synergy</h3>
+                <p className="radar-main-desc">
+                  Kombinasi berimbang antara ketrampilan keras (infrastruktur & web) dengan ketrampilan lunak (analisis logis & kepemimpinan). Sentuh atau arahkan kursor pada simpul radar untuk melihat fokus kemampuan.
+                </p>
+              </div>
+
+              {/* Dynamic Axis Readout List */}
+              <div className="radar-axes-list">
+                {[
+                  { name: 'Networking & Infra', scope: 'MikroTik, TCP/IP, Routing & Kabel' },
+                  { name: 'Technical Support', scope: 'PC Assembly, OS & BNSP Certified' },
+                  { name: 'Web Development', scope: 'HTML, CSS, JavaScript & REST API' },
+                  { name: 'Problem Solving', scope: 'Diagnostik akar masalah terstruktur' },
+                  { name: 'Communication', scope: 'Koordinasi teknis & dokumentasi SOP' },
+                  { name: 'Leadership', scope: 'Kepemimpinan regu & organisasi sekolah' },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className={`radar-axis-item ${activeRadarAxis === idx ? 'active' : ''}`}
+                    onMouseEnter={() => setActiveRadarAxis(idx)}
+                  >
+                    <span className="radar-axis-name">{item.name}</span>
+                    <span className="radar-axis-scope">{item.scope}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. HARD SKILLS DASHBOARD (Visible on 'all' and 'hard') */}
+        {(skillsFilter === 'all' || skillsFilter === 'hard') && (
+          <div className="hard-skills-sec reveal">
+            <div className="skills-subhead-label">Hard Skills Dashboard</div>
+            <div className="hard-skills-grid">
+              {/* Panel A: NETWORKING & INFRASTRUCTURE */}
+              <div className="hard-skill-panel">
+                <div className="hard-panel-top">
+                  <div className="hard-icon-badge">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="6" height="6" rx="1"/>
+                      <rect x="16" y="2" width="6" height="6" rx="1"/>
+                      <rect x="9" y="16" width="6" height="6" rx="1"/>
+                      <path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/>
+                      <path d="M12 12v4"/>
+                    </svg>
+                  </div>
+                  <span className="hard-count-pill">12 Competencies</span>
+                </div>
+                <h3 className="hard-panel-title">NETWORKING & INFRASTRUCTURE</h3>
+                <p className="hard-panel-desc">
+                  Arsitektur topologi jaringan, perutean protokol, alokasi IP, dan infrastruktur transmisi data fisik & nirkabel.
+                </p>
+                <div className="hard-chips-container">
+                  {[
+                    'Computer Networking', 'TCP/IP', 'IP Addressing', 'Subnetting',
+                    'Routing', 'MikroTik', 'DHCP', 'NAT',
+                    'Firewall', 'Fiber Optic', 'UTP Cabling', 'Cisco Packet Tracer'
+                  ].map((sk, idx) => (
+                    <span key={idx} className="hard-chip">{sk}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Panel B: TECHNICAL SUPPORT */}
+              <div className="hard-skill-panel">
+                <div className="hard-panel-top">
+                  <div className="hard-icon-badge" style={{color:'#00f0ff', borderColor:'rgba(0,240,255,0.3)', background:'rgba(0,240,255,0.12)'}}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2"/>
+                      <line x1="8" y1="21" x2="16" y2="21"/>
+                      <line x1="12" y1="17" x2="12" y2="21"/>
+                      <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+                  </div>
+                  <span className="hard-count-pill" style={{color:'#00f0ff', borderColor:'rgba(0,240,255,0.3)'}}>6 Competencies</span>
+                </div>
+                <h3 className="hard-panel-title">TECHNICAL SUPPORT</h3>
+                <p className="hard-panel-desc">
+                  Penanganan langsung perangkat keras, perakitan, pemeliharaan preventif, dan diagnosis software sistem.
+                </p>
+                <div className="hard-chips-container">
+                  {[
+                    'PC Assembly', 'Hardware Troubleshooting', 'Software Troubleshooting',
+                    'Operating System Installation', 'Windows Configuration', 'Hardware Maintenance'
+                  ].map((sk, idx) => (
+                    <span key={idx} className="hard-chip">{sk}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Panel C: WEB DEVELOPMENT & DESIGN */}
+              <div className="hard-skill-panel">
+                <div className="hard-panel-top">
+                  <div className="hard-icon-badge" style={{color:'#a78bfa', borderColor:'rgba(167,139,250,0.3)', background:'rgba(167,139,250,0.12)'}}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="16 18 22 12 16 6"/>
+                      <polyline points="8 6 2 12 8 18"/>
+                      <line x1="14" y1="4" x2="10" y2="20"/>
+                    </svg>
+                  </div>
+                  <span className="hard-count-pill" style={{color:'#a78bfa', borderColor:'rgba(167,139,250,0.3)'}}>8 Competencies</span>
+                </div>
+                <h3 className="hard-panel-title">WEB DEVELOPMENT & DESIGN</h3>
+                <p className="hard-panel-desc">
+                  Penyusunan kode frontend modern, pengelolaan versi proyek, serta perancangan aset grafis kreatif.
+                </p>
+                <div className="hard-chips-container">
+                  {[
+                    'HTML5', 'CSS3', 'JavaScript', 'Responsive Web Design',
+                    'Git & GitHub', 'Visual Studio Code', 'CorelDRAW', 'Adobe Photoshop'
+                  ].map((sk, idx) => (
+                    <span key={idx} className="hard-chip">{sk}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* 4. SOFT SKILLS DASHBOARD (Visible on 'all' and 'soft') */}
+        {(skillsFilter === 'all' || skillsFilter === 'soft') && (
+          <div className="soft-skills-sec reveal">
+            <div className="skills-subhead-label">Professional Soft Skills</div>
+            <div className="soft-skills-grid">
+              {[
+                {
+                  name: 'Problem Solving',
+                  icon: '🎯',
+                  desc: 'Identifikasi akar masalah teknis & solusi logis.',
+                  detail: 'Mampu membedah insiden teknis (jaringan maupun hardware) secara bertahap, menemukan sumber gangguan dengan efisien, dan merumuskan perbaikan yang tahan lama.',
+                  points: ['Metodologi isolasi masalah (layer-by-layer)', 'Penanganan insiden downtime sistem', 'Pencegahan masalah berulang']
+                },
+                {
+                  name: 'Critical Thinking',
+                  icon: '🧠',
+                  desc: 'Analisis objektif sistem & keputusan tepat.',
+                  detail: 'Menilai konfigurasi arsitektur jaringan dan spesifikasi perangkat secara analitis sebelum melakukan implementasi atau perubahan konfigurasi penting.',
+                  points: ['Evaluasi performa infrastruktur', 'Analisis risiko perubahan sistem', 'Pengambilan keputusan berbasis data']
+                },
+                {
+                  name: 'Communication',
+                  icon: '💬',
+                  desc: 'Penyampaian teknis lugas ke tim & pengguna.',
+                  detail: 'Mampu menjelaskan kendala teknis dan alur perbaikan dalam bahasa yang mudah dimengerti oleh pengguna non-teknis serta membuat dokumentasi yang jelas.',
+                  points: ['Pelaporan status teknis terstruktur', 'Interaksi empatik dengan pengguna', 'Dokumentasi SOP perbaikan']
+                },
+                {
+                  name: 'Teamwork',
+                  icon: '🤝',
+                  desc: 'Kolaborasi aktif menyelesaikan proyek bersama.',
+                  detail: 'Berpartisipasi aktif dalam pembagian peran tim, saling mendukung dalam penarikan kabel, konfigurasi bersama, dan integrasi modul aplikasi.',
+                  points: ['Kolaborasi lintas disiplin', 'Sinergi pengerjaan proyek', 'Kesiapan mendukung anggota tim']
+                },
+                {
+                  name: 'Leadership',
+                  icon: '👑',
+                  desc: 'Pengalaman memimpin organisasi & kepanduan.',
+                  detail: 'Terbukti sebagai Ketua OSIS SMP dan pimpinan regu DIANPINRU yang mampu mengarahkan tim, menjaga semangat kelompok, dan mengawal kegiatan hingga sukses.',
+                  points: ['Manajemen koordinasi regu/organisasi', 'Delegasi tugas yang jelas', 'Integritas dan keteladanan']
+                },
+                {
+                  name: 'Discipline',
+                  icon: '🛡️',
+                  desc: 'Konsistensi tinggi terhadap SOP & waktu.',
+                  detail: 'Menjaga kepatuhan ketat terhadap prosedur operasional standar, standar keselamatan kerja kelistrikan/jaringan, dan ketepatan waktu tugas.',
+                  points: ['Kepatuhan SOP keselamatan kerja', 'Ketepatan jadwal pemeliharaan', 'Ketelitian dalam perakitan & konfigurasi']
+                },
+                {
+                  name: 'Responsibility',
+                  icon: '🧭',
+                  desc: 'Integritas penuh terhadap amanah perangkat & data.',
+                  detail: 'Bertanggung jawab atas keamanan data pengguna, ketersediaan perangkat operasional, serta menjaga kerahasiaan kredensial sistem.',
+                  points: ['Integritas terhadap aset perangkat', 'Akuntabilitas tugas penugasan', 'Perlindungan privasi data']
+                },
+                {
+                  name: 'Adaptability',
+                  icon: '⚡',
+                  desc: 'Cepat mempelajari teknologi & protokol baru.',
+                  detail: 'Cepat menyesuaikan diri dengan perangkat keras generasi baru, distro sistem operasi berbeda, maupun framework web modern yang berkembang pesat.',
+                  points: ['Belajar mandiri (self-learning) cepat', 'Fleksibel menghadapi perubahan situasi', 'Antusias mengadopsi standar teknologi baru']
+                },
+                {
+                  name: 'Time Management',
+                  icon: '⏱️',
+                  desc: 'Pengelolaan prioritas insiden & efisiensi kerja.',
+                  detail: 'Menetapkan prioritas penanganan tiket masalah secara teratur sehingga masalah kritis dapat diselesaikan sesegera mungkin tanpa mengabaikan tugas rutin.',
+                  points: ['Penentuan prioritas urgensi insiden', 'Penyelesaian proyek tepat waktu', 'Efisiensi waktu troubleshooting']
+                },
+                {
+                  name: 'Initiative',
+                  icon: '🚀',
+                  desc: 'Proaktif pemeliharaan preventif & improvisasi.',
+                  detail: 'Tidak hanya menunggu laporan kendala, melainkan proaktif melakukan pengecekan kesehatan kabel, monitoring log jaringan, dan merapikan manajemen kabel.',
+                  points: ['Pemeliharaan berkala preventif', 'Pemberian usulan perbaikan sistem', 'Inisiatif optimasi performa']
+                }
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="soft-skill-card"
+                  onClick={() => setSelectedSoftSkill(item)}
+                >
+                  <div className="soft-card-icon">{item.icon}</div>
+                  <h4 className="soft-card-name">{item.name}</h4>
+                  <p className="soft-card-desc">{item.desc}</p>
+                  <span className="soft-card-action">
+                    Detail Insight →
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Soft Skill Expandable Insight Modal */}
+        {selectedSoftSkill && (
+          <div className="soft-modal-backdrop" onClick={() => setSelectedSoftSkill(null)}>
+            <div className="soft-modal-card" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="soft-modal-close"
+                onClick={() => setSelectedSoftSkill(null)}
+                aria-label="Tutup"
+              >
+                ✕
+              </button>
+              <div className="soft-modal-header">
+                <div className="soft-modal-icon">{selectedSoftSkill.icon}</div>
+                <div>
+                  <h3 className="soft-modal-title">{selectedSoftSkill.name}</h3>
+                  <div className="soft-modal-category">Professional Competency</div>
+                </div>
+              </div>
+              <p className="soft-modal-body">{selectedSoftSkill.detail}</p>
+              <div className="soft-modal-points">
+                {selectedSoftSkill.points.map((pt, pidx) => (
+                  <div key={pidx} className="soft-modal-point-item">
+                    <span/>
+                    <div>{pt}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ===== PROJECTS ===== */}
