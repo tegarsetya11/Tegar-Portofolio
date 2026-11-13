@@ -1076,7 +1076,7 @@ export default function Home() {
               ))}
             </div>
             <div className="aura-swipe-hint">
-              💡 Geser (swipe) / klik kartu samping untuk memutar 3D deck · Klik kartu tengah untuk detail analitik
+              Geser atau klik kartu samping untuk navigasi · Klik kartu tengah untuk detail.
             </div>
           </div>
         )}
