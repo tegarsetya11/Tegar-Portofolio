@@ -2159,6 +2159,55 @@ section {
   line-height: 1.6;
 }
 
+.timeline-body-flex {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+.timeline-logo-box {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: rgba(14, 34, 64, 0.75);
+  border: 1px solid rgba(85, 184, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover .timeline-logo-box {
+  transform: scale(1.06);
+  border-color: rgba(85, 184, 255, 0.55);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(22, 119, 255, 0.35);
+}
+
+.timeline-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.timeline-text-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .timeline-logo-box {
+    width: 52px;
+    height: 52px;
+    padding: 4px;
+  }
+}
+
 /* ===================== CONTACT ===================== */
 #contact {
   background: rgba(0, 40, 87, 0.5);

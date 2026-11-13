@@ -1479,10 +1479,17 @@ export default function Home() {
                 <span className="timeline-period">Kepemimpinan</span>
                 <span className="timeline-cat-pill pill-penggalang">Pramuka Penggalang</span>
               </div>
-              <div className="timeline-title">DIANPINRU — Korwil Surakarta</div>
-              <div className="timeline-org">Korwil Surakarta · Pelatihan Kepemimpinan Regu</div>
-              <div className="timeline-desc">
-                Mengikuti pelatihan kepemimpinan regu untuk mengembangkan jiwa kepemimpinan, kedisiplinan, dan karakter.
+              <div className="timeline-body-flex">
+                <div className="timeline-logo-box">
+                  <img src="/assets/logo-dianpinru.png" alt="Logo DIANPINRU Korwil Surakarta" />
+                </div>
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">DIANPINRU — Korwil Surakarta</div>
+                  <div className="timeline-org">Korwil Surakarta · Pelatihan Kepemimpinan Regu</div>
+                  <div className="timeline-desc">
+                    Mengikuti pelatihan kepemimpinan regu untuk mengembangkan jiwa kepemimpinan, kedisiplinan, dan karakter.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1511,10 +1518,17 @@ export default function Home() {
                 <span className="timeline-period">2025 · Kegiatan</span>
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
-              <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
-              <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
-              <div className="timeline-desc">
-                Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.
+              <div className="timeline-body-flex">
+                <div className="timeline-logo-box">
+                  <img src="/assets/logo-solidaritas-25.png" alt="Logo SOLIDARITAS 25 Kwarcab Demak" />
+                </div>
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
+                  <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
+                  <div className="timeline-desc">
+                    Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1527,10 +1541,17 @@ export default function Home() {
                 <span className="timeline-period">2024 · Kegiatan</span>
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
-              <div className="timeline-title">JOTA-JOTI 2024</div>
-              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
-              <div className="timeline-desc">
-                Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
+              <div className="timeline-body-flex">
+                <div className="timeline-logo-box">
+                  <img src="/assets/logo-jota-joti-2024.png" alt="Logo JOTA-JOTI 2024" />
+                </div>
+                <div className="timeline-text-wrap">
+                  <div className="timeline-title">JOTA-JOTI 2024</div>
+                  <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
+                  <div className="timeline-desc">
+                    Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
