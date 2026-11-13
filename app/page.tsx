@@ -1248,12 +1248,11 @@ export default function Home() {
 
             <div className="featured-main-grid">
               {/* Interactive Screenshot Slider (Sky Blue Theme) */}
-              <div className="featured-slider-wrap" style={{background:'#38bdf8'}}>
+              <div className="featured-slider-wrap elintas-slider">
                 <img
                   src={eLintasImages[eLintasSlide].src}
                   alt={eLintasImages[eLintasSlide].alt}
                   className="featured-slider-img"
-                  style={{objectFit:'contain',padding:'12px'}}
                 />
                 <button
                   type="button"
@@ -1344,12 +1343,11 @@ export default function Home() {
 
             <div className="featured-main-grid">
               {/* Interactive Screenshot Slider (Slate Blue Theme) */}
-              <div className="featured-slider-wrap" style={{background:'#1e293b'}}>
+              <div className="featured-slider-wrap catatuangmu-slider">
                 <img
                   src={catatUangmuImages[catatUangmuSlide].src}
                   alt={catatUangmuImages[catatUangmuSlide].alt}
                   className="featured-slider-img"
-                  style={{objectFit:'contain',padding:'12px'}}
                 />
                 <button
                   type="button"
