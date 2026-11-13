@@ -1519,21 +1519,21 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 5. JOTA-JOTI 2025 */}
+          {/* 5. JOTA-JOTI 2024 */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
               <div className="timeline-badge-row">
-                <span className="timeline-period">2025 · Kegiatan</span>
+                <span className="timeline-period">2024 · Kegiatan</span>
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-body-flex">
-                <img src="/assets/logo-jota-joti-2025.png" alt="Logo JOTA-JOTI 2025" className="timeline-activity-logo" />
+                <img src="/assets/logo-jota-joti-2024.png" alt="Logo JOTA-JOTI 2024" className="timeline-activity-logo" />
                 <div className="timeline-text-wrap">
-                  <div className="timeline-title">JOTA-JOTI 2025</div>
+                  <div className="timeline-title">JOTA-JOTI 2024</div>
                   <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
                   <div className="timeline-desc">
-                    Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
+                    Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
                   </div>
                 </div>
               </div>
@@ -1561,21 +1561,21 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 7. JOTA-JOTI 2024 */}
+          {/* 7. JOTA-JOTI 2025 */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
               <div className="timeline-badge-row">
-                <span className="timeline-period">2024 · Kegiatan</span>
+                <span className="timeline-period">2025 · Kegiatan</span>
                 <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-body-flex">
-                <img src="/assets/logo-jota-joti-2024.png" alt="Logo JOTA-JOTI 2024" className="timeline-activity-logo" />
+                <img src="/assets/logo-jota-joti-2025.png" alt="Logo JOTA-JOTI 2025" className="timeline-activity-logo" />
                 <div className="timeline-text-wrap">
-                  <div className="timeline-title">JOTA-JOTI 2024</div>
+                  <div className="timeline-title">JOTA-JOTI 2025</div>
                   <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
                   <div className="timeline-desc">
-                    Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
+                    Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
                   </div>
                 </div>
               </div>
