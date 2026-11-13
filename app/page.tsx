@@ -1421,6 +1421,14 @@ export default function Home() {
           <h2 className="section-title">Experience</h2>
           <div className="section-line"/>
         </div>
+        <div className="reveal" style={{ marginTop: '-28px', marginBottom: '38px', maxWidth: '720px' }}>
+          <p style={{ fontSize: '1rem', fontWeight: 600, color: '#e0f2fe', marginBottom: '4px' }}>
+            Bertumbuh lewat tanggung jawab dan kerja sama.
+          </p>
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            Pengalaman organisasi membentuk disiplin, kepemimpinan, dan kemampuan bekerja bersama.
+          </p>
+        </div>
         <div className="timeline">
 
           {/* 1. Paskibra 79 Giritontro */}
