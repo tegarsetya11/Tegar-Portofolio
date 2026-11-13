@@ -565,6 +565,7 @@ export default function Home() {
             <div className="hero-cta">
               <a href="#project" className="btn-primary">Lihat Proyek ↓</a>
               <a href="#contact" className="btn-secondary">Hubungi Saya</a>
+              <a href="/cv" className="btn-cv">Lihat CV 📄</a>
             </div>
           </div>
         </div>

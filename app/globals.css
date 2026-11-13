@@ -376,6 +376,29 @@ section {
 }
 .btn-secondary:hover { background: rgba(22,119,255,0.1); transform: translateY(-2px); }
 
+.btn-cv {
+  background: rgba(255,255,255,0.07);
+  color: #e0f2fe;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  padding: 13px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(6px);
+}
+.btn-cv:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
 /* ===================== SECTION HEADER ===================== */
 .section-header {
   display: flex;
