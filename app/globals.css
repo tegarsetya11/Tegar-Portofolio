@@ -197,19 +197,27 @@ section {
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(22,119,255,0.1);
-  border: 1px solid rgba(22,119,255,0.3);
+  gap: 8px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.35);
   border-radius: 100px;
   padding: 6px 16px;
   font-size: 12px;
   letter-spacing: 2px;
-  color: var(--blue-cyan);
+  color: #00ff88;
   text-transform: uppercase;
   margin-bottom: 20px;
   animation: fadeUp 0.6s ease 0.3s both;
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.15);
 }
-.hero-badge span { width: 7px; height: 7px; background: var(--blue-cyan); border-radius: 50%; animation: pulse 2s infinite; }
+.hero-badge span { 
+  width: 7px; 
+  height: 7px; 
+  background: #00ff88; 
+  border-radius: 50%; 
+  animation: pulse 2s infinite; 
+  box-shadow: 0 0 8px #00ff88;
+}
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 

@@ -1355,7 +1355,7 @@ export default function Home() {
               boxShadow:'0 0 8px #00ff88',
               animation:'pulse 2s infinite'
             }}/>
-            <span style={{fontSize:'12px',fontWeight:'700',color:'#55B8FF',letterSpacing:'1px',textTransform:'uppercase'}}>
+            <span style={{fontSize:'12px',fontWeight:'700',color:'#00ff88',letterSpacing:'1px',textTransform:'uppercase'}}>
               Available for Projects
             </span>
           </div>
