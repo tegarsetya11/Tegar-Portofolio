@@ -1244,55 +1244,23 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 3. JOTA-JOTI 2025 */}
+          {/* 3. Ketua OSIS SMP */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
               <div className="timeline-badge-row">
-                <span className="timeline-period">2025 · Kegiatan</span>
-                <span className="timeline-cat-pill">Pramuka Penegak</span>
+                <span className="timeline-period">2022 — 2023</span>
+                <span className="timeline-cat-pill" style={{color:'#34d399', borderColor:'rgba(52,211,153,0.3)', background:'rgba(52,211,153,0.12)'}}>Organisasi Sekolah</span>
               </div>
-              <div className="timeline-title">JOTA-JOTI 2025</div>
-              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
+              <div className="timeline-title">Ketua OSIS SMP</div>
+              <div className="timeline-org">Organisasi Siswa Intra Sekolah (OSIS)</div>
               <div className="timeline-desc">
-                Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
+                Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.
               </div>
             </div>
           </div>
 
-          {/* 4. SOLIDARITAS 25 */}
-          <div className="timeline-item">
-            <div className="timeline-dot"/>
-            <div className="timeline-card">
-              <div className="timeline-badge-row">
-                <span className="timeline-period">2025 · Kegiatan</span>
-                <span className="timeline-cat-pill">Pramuka Penegak</span>
-              </div>
-              <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
-              <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
-              <div className="timeline-desc">
-                Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.
-              </div>
-            </div>
-          </div>
-
-          {/* 5. JOTA-JOTI 2024 */}
-          <div className="timeline-item">
-            <div className="timeline-dot"/>
-            <div className="timeline-card">
-              <div className="timeline-badge-row">
-                <span className="timeline-period">2024 · Kegiatan</span>
-                <span className="timeline-cat-pill">Pramuka Penegak</span>
-              </div>
-              <div className="timeline-title">JOTA-JOTI 2024</div>
-              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
-              <div className="timeline-desc">
-                Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
-              </div>
-            </div>
-          </div>
-
-          {/* 6. DIANPINRU */}
+          {/* 4. DIANPINRU */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
@@ -1308,18 +1276,50 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 7. Ketua OSIS SMP */}
+          {/* 5. JOTA-JOTI 2025 */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
               <div className="timeline-badge-row">
-                <span className="timeline-period">2022 — 2023</span>
-                <span className="timeline-cat-pill" style={{color:'#34d399', borderColor:'rgba(52,211,153,0.3)', background:'rgba(52,211,153,0.12)'}}>Organisasi Sekolah</span>
+                <span className="timeline-period">2025 · Kegiatan</span>
+                <span className="timeline-cat-pill">Pramuka Penegak</span>
               </div>
-              <div className="timeline-title">Ketua OSIS SMP</div>
-              <div className="timeline-org">Organisasi Siswa Intra Sekolah (OSIS)</div>
+              <div className="timeline-title">JOTA-JOTI 2025</div>
+              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
               <div className="timeline-desc">
-                Belajar memimpin, mengelola organisasi, dan berkolaborasi dalam kegiatan sekolah.
+                Melanjutkan pengalaman berkomunikasi dan berkolaborasi dengan Pramuka melalui radio dan internet.
+              </div>
+            </div>
+          </div>
+
+          {/* 6. SOLIDARITAS 25 */}
+          <div className="timeline-item">
+            <div className="timeline-dot"/>
+            <div className="timeline-card">
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2025 · Kegiatan</span>
+                <span className="timeline-cat-pill">Pramuka Penegak</span>
+              </div>
+              <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
+              <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
+              <div className="timeline-desc">
+                Mengikuti kegiatan Pramuka yang mempererat solidaritas, kebersamaan, dan kerja sama antarpeserta.
+              </div>
+            </div>
+          </div>
+
+          {/* 7. JOTA-JOTI 2024 */}
+          <div className="timeline-item">
+            <div className="timeline-dot"/>
+            <div className="timeline-card">
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2024 · Kegiatan</span>
+                <span className="timeline-cat-pill">Pramuka Penegak</span>
+              </div>
+              <div className="timeline-title">JOTA-JOTI 2024</div>
+              <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
+              <div className="timeline-desc">
+                Mengikuti kegiatan kepanduan melalui komunikasi radio dan internet serta berkenalan dengan Pramuka dari berbagai daerah.
               </div>
             </div>
           </div>
