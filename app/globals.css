@@ -1746,6 +1746,26 @@ section {
   padding: 3px 10px;
   border-radius: 100px;
 }
+.timeline-cat-pill.pill-paskibra {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.4);
+  background: rgba(248, 113, 113, 0.12);
+}
+.timeline-cat-pill.pill-osis {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.12);
+}
+.timeline-cat-pill.pill-penggalang {
+  color: #d4a373;
+  border-color: rgba(212, 163, 115, 0.4);
+  background: rgba(212, 163, 115, 0.12);
+}
+.timeline-cat-pill.pill-penegak {
+  color: #facc15;
+  border-color: rgba(250, 204, 21, 0.4);
+  background: rgba(250, 204, 21, 0.12);
+}
 .timeline-period {
   font-size: 11px;
   letter-spacing: 1.5px;

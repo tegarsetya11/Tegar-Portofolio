@@ -1218,7 +1218,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">2025 · HUT ke-80 RI</span>
-                <span className="timeline-cat-pill">Paskibra</span>
+                <span className="timeline-cat-pill pill-paskibra">Paskibra</span>
               </div>
               <div className="timeline-title">Paskibra 80 Pracimantoro</div>
               <div className="timeline-org">Paskibra Tingkat Kecamatan Pracimantoro</div>
@@ -1234,7 +1234,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">2024 · HUT ke-79 RI</span>
-                <span className="timeline-cat-pill">Paskibra</span>
+                <span className="timeline-cat-pill pill-paskibra">Paskibra</span>
               </div>
               <div className="timeline-title">Paskibra 79 Giritontro</div>
               <div className="timeline-org">Paskibra Tingkat Kecamatan Giritontro</div>
@@ -1250,7 +1250,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">2022 — 2023</span>
-                <span className="timeline-cat-pill" style={{color:'#34d399', borderColor:'rgba(52,211,153,0.3)', background:'rgba(52,211,153,0.12)'}}>Organisasi Sekolah</span>
+                <span className="timeline-cat-pill pill-osis">Organisasi Sekolah</span>
               </div>
               <div className="timeline-title">Ketua OSIS SMP</div>
               <div className="timeline-org">Organisasi Siswa Intra Sekolah (OSIS)</div>
@@ -1266,7 +1266,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">Kepemimpinan</span>
-                <span className="timeline-cat-pill" style={{color:'#c084fc', borderColor:'rgba(192,132,252,0.3)', background:'rgba(192,132,252,0.12)'}}>Pramuka Penggalang</span>
+                <span className="timeline-cat-pill pill-penggalang">Pramuka Penggalang</span>
               </div>
               <div className="timeline-title">DIANPINRU — Korwil Surakarta</div>
               <div className="timeline-org">Korwil Surakarta · Pelatihan Kepemimpinan Regu</div>
@@ -1282,7 +1282,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">2025 · Kegiatan</span>
-                <span className="timeline-cat-pill">Pramuka Penegak</span>
+                <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-title">JOTA-JOTI 2025</div>
               <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
@@ -1298,7 +1298,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">2025 · Kegiatan</span>
-                <span className="timeline-cat-pill">Pramuka Penegak</span>
+                <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-title">SOLIDARITAS 25 — Kwarcab Demak</div>
               <div className="timeline-org">Kwarcab Demak · Pramuka Penegak</div>
@@ -1314,7 +1314,7 @@ export default function Home() {
             <div className="timeline-card">
               <div className="timeline-badge-row">
                 <span className="timeline-period">2024 · Kegiatan</span>
-                <span className="timeline-cat-pill">Pramuka Penegak</span>
+                <span className="timeline-cat-pill pill-penegak">Pramuka Penegak</span>
               </div>
               <div className="timeline-title">JOTA-JOTI 2024</div>
               <div className="timeline-org">Pramuka Penegak · Komunikasi Radio & Internet</div>
