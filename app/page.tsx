@@ -1423,23 +1423,7 @@ export default function Home() {
         </div>
         <div className="timeline">
 
-          {/* 1. Paskibra 80 Pracimantoro */}
-          <div className="timeline-item">
-            <div className="timeline-dot"/>
-            <div className="timeline-card">
-              <div className="timeline-badge-row">
-                <span className="timeline-period">2025 · HUT ke-80 RI</span>
-                <span className="timeline-cat-pill pill-paskibra">Paskibra</span>
-              </div>
-              <div className="timeline-title">Paskibra 80 Pracimantoro</div>
-              <div className="timeline-org">Paskibra Tingkat Kecamatan Pracimantoro</div>
-              <div className="timeline-desc">
-                Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.
-              </div>
-            </div>
-          </div>
-
-          {/* 2. Paskibra 79 Giritontro */}
+          {/* 1. Paskibra 79 Giritontro */}
           <div className="timeline-item">
             <div className="timeline-dot"/>
             <div className="timeline-card">
@@ -1451,6 +1435,22 @@ export default function Home() {
               <div className="timeline-org">Paskibra Tingkat Kecamatan Giritontro</div>
               <div className="timeline-desc">
                 Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-79 RI tingkat Kecamatan Giritontro.
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Paskibra 80 Pracimantoro */}
+          <div className="timeline-item">
+            <div className="timeline-dot"/>
+            <div className="timeline-card">
+              <div className="timeline-badge-row">
+                <span className="timeline-period">2025 · HUT ke-80 RI</span>
+                <span className="timeline-cat-pill pill-paskibra">Paskibra</span>
+              </div>
+              <div className="timeline-title">Paskibra 80 Pracimantoro</div>
+              <div className="timeline-org">Paskibra Tingkat Kecamatan Pracimantoro</div>
+              <div className="timeline-desc">
+                Bertugas sebagai pasukan pengibar bendera pada peringatan HUT ke-80 RI tingkat Kecamatan Pracimantoro.
               </div>
             </div>
           </div>
