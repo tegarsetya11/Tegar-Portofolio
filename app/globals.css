@@ -1135,82 +1135,334 @@ section {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* Professional Soft Skills */
-.soft-skills-sec {
-  margin-top: 24px;
-}
-.soft-skills-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
-@media (max-width: 1100px) {
-  .soft-skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 700px) {
-  .soft-skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 440px) {
-  .soft-skills-grid {
-    grid-template-columns: 1fr;
-  }
+/* Professional Soft Skills — Aura 3D Perspective Stacked Carousel */
+.aura-carousel-sec {
+  margin-top: 36px;
+  position: relative;
 }
 
-.soft-skill-card {
-  background: linear-gradient(150deg, rgba(11, 28, 52, 0.7), rgba(6, 16, 32, 0.8));
-  border: 1px solid var(--accent-border, rgba(22, 119, 255, 0.18));
-  border-radius: 16px;
-  padding: 22px 18px;
+.aura-carousel-header {
   display: flex;
-  flex-direction: column;
-  transition: all 0.25s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.soft-skill-card:hover {
-  border-color: var(--accent-color, #55B8FF);
-  background: rgba(18, 42, 74, 0.85);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 16px var(--accent-bg, rgba(22, 119, 255, 0.2));
+
+.aura-title-wrap {
+  max-width: 680px;
 }
-.soft-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--accent-bg, rgba(22, 119, 255, 0.15));
-  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.3));
+
+.aura-sec-title {
+  font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.4px;
+}
+
+.aura-sec-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.aura-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(8, 20, 38, 0.75);
+  border: 1px solid rgba(85, 184, 255, 0.25);
+  border-radius: 100px;
+  padding: 6px 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.aura-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(85, 184, 255, 0.28);
+  background: rgba(14, 34, 62, 0.75);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.aura-nav-btn:hover {
+  background: #1677FF;
+  border-color: #55B8FF;
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(22, 119, 255, 0.6);
+}
+
+.aura-counter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 0 6px;
+}
+
+.aura-counter-current {
+  color: #00f0ff;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.aura-counter-divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.aura-counter-total {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* 3D Perspective Stage */
+.aura-stage-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+}
+
+.aura-stage-container:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+  .aura-stage-container {
+    height: 440px;
+    perspective: 900px;
+  }
+}
+
+/* Individual 3D Stacked Card */
+.aura-card-3d {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 410px;
+  margin-left: -160px;
+  margin-top: -205px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.2, 0.85, 0.25, 1), 
+              opacity 0.45s ease, 
+              filter 0.45s ease, 
+              box-shadow 0.45s ease,
+              border-color 0.45s ease;
+  border-radius: 24px;
+  background: linear-gradient(155deg, rgba(12, 28, 54, 0.9), rgba(5, 14, 28, 0.95));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.25));
+  backdrop-filter: blur(16px);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 768px) {
+  .aura-card-3d {
+    width: 275px;
+    height: 380px;
+    margin-left: -137.5px;
+    margin-top: -190px;
+    padding: 22px 18px;
+  }
+}
+
+.aura-card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color, #1677FF), var(--accent-border, #00f0ff));
+  opacity: 0.9;
+  border-radius: 24px 24px 0 0;
+}
+
+.aura-card-3d.active-center {
+  border-color: var(--accent-color, #00f0ff);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px var(--accent-bg, rgba(22, 119, 255, 0.35));
+}
+
+.aura-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.aura-category-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   color: var(--accent-color, #55B8FF);
+  background: var(--accent-bg, rgba(22, 119, 255, 0.15));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.3));
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.aura-card-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: monospace;
+}
+
+.aura-card-icon-wrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: var(--accent-bg, rgba(22, 119, 255, 0.15));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.35));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--accent-color, #55B8FF);
+  margin-bottom: 16px;
+  box-shadow: 0 6px 18px var(--accent-bg, rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.aura-card-3d:hover .aura-card-icon-wrap {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.aura-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.aura-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
   margin-bottom: 14px;
 }
-.soft-card-name {
-  font-size: 1rem;
+
+.aura-card-points {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
+.aura-card-point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #d0e4ff;
+  background: rgba(6, 16, 32, 0.55);
+  padding: 5px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(85, 184, 255, 0.12);
+}
+
+.aura-point-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-color, #00f0ff);
+  flex-shrink: 0;
+}
+
+.aura-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(85, 184, 255, 0.15);
+}
+
+.aura-action-link {
+  font-size: 11px;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-.soft-card-desc {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-.soft-card-action {
-  font-size: 10px;
   color: var(--accent-color, #55B8FF);
-  font-weight: 600;
-  letter-spacing: 0.5px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-top: auto;
+  transition: all 0.2s ease;
+}
+
+.aura-card-3d:hover .aura-action-link {
+  transform: translateX(3px);
+  color: #ffffff;
+}
+
+.aura-status-pill {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* Dots Pagination */
+.aura-dots-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.aura-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(85, 184, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.25, 1);
+  padding: 0;
+}
+
+.aura-dot:hover {
+  background: rgba(85, 184, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.aura-dot.active {
+  width: 28px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #1677FF, #00d2ff);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+.aura-swipe-hint {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(180, 210, 255, 0.5);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
 }
 
 /* Soft Skill Modal / Popover */

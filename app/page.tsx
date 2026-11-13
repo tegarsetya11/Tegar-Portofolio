@@ -2,6 +2,99 @@
 import App from '@/components/band/App';
 import { useEffect, useRef, useState } from 'react';
 
+const softSkillsList = [
+  {
+    name: 'Problem Solving',
+    theme: 'theme-amber',
+    icon: '🎯',
+    tag: 'ANALYTICAL',
+    desc: 'Identifikasi akar masalah teknis & perumusan solusi logis terstruktur.',
+    detail: 'Mampu membedah insiden teknis (jaringan maupun hardware) secara bertahap, menemukan sumber gangguan dengan efisien, dan merumuskan perbaikan yang tahan lama.',
+    points: ['Metodologi isolasi layer-by-layer', 'Penanganan insiden downtime sistem', 'Pencegahan masalah berulang']
+  },
+  {
+    name: 'Critical Thinking',
+    theme: 'theme-purple',
+    icon: '🧠',
+    tag: 'DIAGNOSTIC',
+    desc: 'Analisis objektif arsitektur sistem & pengambilan keputusan berbasis data.',
+    detail: 'Menilai konfigurasi arsitektur jaringan dan spesifikasi perangkat secara analitis sebelum melakukan implementasi atau perubahan konfigurasi penting.',
+    points: ['Evaluasi performa infrastruktur', 'Analisis risiko perubahan sistem', 'Pengambilan keputusan berbasis data']
+  },
+  {
+    name: 'Communication',
+    theme: 'theme-blue',
+    icon: '💬',
+    tag: 'COMMUNICATION',
+    desc: 'Penyampaian teknis lugas ke tim, dokumentasi SOP & koordinasi pengguna.',
+    detail: 'Mampu menjelaskan kendala teknis dan alur perbaikan dalam bahasa yang mudah dimengerti oleh pengguna non-teknis serta membuat dokumentasi yang jelas.',
+    points: ['Pelaporan status teknis terstruktur', 'Interaksi empatik dengan pengguna', 'Dokumentasi SOP perbaikan']
+  },
+  {
+    name: 'Teamwork',
+    theme: 'theme-green',
+    icon: '🤝',
+    tag: 'COLLABORATION',
+    desc: 'Kolaborasi aktif menyelesaikan proyek bersama & sinergi antarperan.',
+    detail: 'Berpartisipasi aktif dalam pembagian peran tim, saling mendukung dalam penarikan kabel, konfigurasi bersama, dan integrasi modul aplikasi.',
+    points: ['Kolaborasi lintas disiplin', 'Sinergi pengerjaan proyek', 'Kesiapan mendukung anggota tim']
+  },
+  {
+    name: 'Leadership',
+    theme: 'theme-gold',
+    icon: '👑',
+    tag: 'LEADERSHIP',
+    desc: 'Pengalaman memimpin organisasi sekolah & kepanduan tingkat regional.',
+    detail: 'Terbukti sebagai Ketua OSIS SMP dan pimpinan regu DIANPINRU yang mampu mengarahkan tim, menjaga semangat kelompok, dan mengawal kegiatan hingga sukses.',
+    points: ['Manajemen koordinasi organisasi', 'Delegasi tugas yang jelas', 'Integritas dan keteladanan']
+  },
+  {
+    name: 'Discipline',
+    theme: 'theme-rose',
+    icon: '🛡️',
+    tag: 'INTEGRITY',
+    desc: 'Konsistensi tinggi terhadap SOP keselamatan kerja & ketepatan waktu.',
+    detail: 'Menjaga kepatuhan ketat terhadap prosedur operasional standar, standar keselamatan kerja kelistrikan/jaringan, dan ketepatan waktu tugas.',
+    points: ['Kepatuhan SOP keselamatan kerja', 'Ketepatan jadwal pemeliharaan', 'Ketelitian dalam perakitan & konfigurasi']
+  },
+  {
+    name: 'Responsibility',
+    theme: 'theme-teal',
+    icon: '🧭',
+    tag: 'ACCOUNTABILITY',
+    desc: 'Integritas penuh terhadap amanah perangkat keras, kerahasiaan & data.',
+    detail: 'Bertanggung jawab atas keamanan data pengguna, ketersediaan perangkat operasional, serta menjaga kerahasiaan kredensial sistem.',
+    points: ['Integritas terhadap aset perangkat', 'Akuntabilitas tugas penugasan', 'Perlindungan privasi data']
+  },
+  {
+    name: 'Adaptability',
+    theme: 'theme-indigo',
+    icon: '⚡',
+    tag: 'AGILITY',
+    desc: 'Cepat mempelajari teknologi, distro OS & protokol jaringan baru.',
+    detail: 'Cepat menyesuaikan diri dengan perangkat keras generasi baru, distro sistem operasi berbeda, maupun framework web modern yang berkembang pesat.',
+    points: ['Belajar mandiri (self-learning) cepat', 'Fleksibel menghadapi dinamika', 'Antusias mengadopsi standar teknologi baru']
+  },
+  {
+    name: 'Time Management',
+    theme: 'theme-orange',
+    icon: '⏱️',
+    tag: 'EFFICIENCY',
+    desc: 'Pengelolaan prioritas tiket insiden & efisiensi alur troubleshooting.',
+    detail: 'Menetapkan prioritas penanganan tiket masalah secara teratur sehingga masalah kritis dapat diselesaikan sesegera mungkin tanpa mengabaikan tugas rutin.',
+    points: ['Penentuan prioritas urgensi insiden', 'Penyelesaian proyek tepat waktu', 'Efisiensi waktu troubleshooting']
+  },
+  {
+    name: 'Initiative',
+    theme: 'theme-fuchsia',
+    icon: '🚀',
+    tag: 'PROACTIVITY',
+    desc: 'Proaktif dalam pemeliharaan preventif, manajemen kabel & improvisasi.',
+    detail: 'Tidak hanya menunggu laporan kendala, melainkan proaktif melakukan pengecekan kesehatan kabel, monitoring log jaringan, dan merapikan manajemen kabel.',
+    points: ['Pemeliharaan berkala preventif', 'Pemberian usulan perbaikan sistem', 'Inisiatif optimasi performa']
+  }
+];
+
 export default function Home() {
   const percentRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
@@ -24,7 +117,176 @@ export default function Home() {
     desc: string;
     detail: string;
     points: string[];
+    theme?: string;
   } | null>(null);
+
+  // Aura 3D Perspective Stacked Carousel State
+  const [activeSoftIdx, setActiveSoftIdx] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const touchStartXRef = useRef<number | null>(null);
+  const mouseStartXRef = useRef<number | null>(null);
+  const isMouseDownRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handlePrevSoft = () => {
+    setActiveSoftIdx((prev) => (prev - 1 + softSkillsList.length) % softSkillsList.length);
+  };
+
+  const handleNextSoft = () => {
+    setActiveSoftIdx((prev) => (prev + 1) % softSkillsList.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartXRef.current;
+    if (delta > 45) {
+      handlePrevSoft();
+    } else if (delta < -45) {
+      handleNextSoft();
+    }
+    touchStartXRef.current = null;
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isMouseDownRef.current = true;
+    mouseStartXRef.current = e.clientX;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isMouseDownRef.current || mouseStartXRef.current === null) return;
+    const delta = e.clientX - mouseStartXRef.current;
+    if (delta > 45) {
+      handlePrevSoft();
+    } else if (delta < -45) {
+      handleNextSoft();
+    }
+    isMouseDownRef.current = false;
+    mouseStartXRef.current = null;
+  };
+
+  const handleMouseLeave = () => {
+    isMouseDownRef.current = false;
+    mouseStartXRef.current = null;
+  };
+
+  const getCard3DStyle = (idx: number) => {
+    const n = softSkillsList.length;
+    let offset = idx - activeSoftIdx;
+    while (offset > n / 2) offset -= n;
+    while (offset < -n / 2) offset += n;
+
+    const absOffset = Math.abs(offset);
+    const sign = offset < 0 ? -1 : 1;
+
+    if (absOffset > 3) {
+      return {
+        transform: `translateX(${sign * (isMobile ? 260 : 640)}px) translateZ(-460px) scale(0.35)`,
+        opacity: 0,
+        visibility: 'hidden' as const,
+        zIndex: 0,
+        pointerEvents: 'none' as const,
+      };
+    }
+
+    let tx = 0;
+    let tz = 0;
+    let ry = 0;
+    let scale = 1;
+    let opacity = 1;
+    let zIndex = 12;
+    let blur = 0;
+
+    if (!isMobile) {
+      if (absOffset === 0) {
+        tx = 0;
+        tz = 0;
+        ry = 0;
+        scale = 1;
+        opacity = 1;
+        zIndex = 14;
+        blur = 0;
+      } else if (absOffset === 1) {
+        tx = sign * 230;
+        tz = -120;
+        ry = -sign * 24;
+        scale = 0.88;
+        opacity = 0.86;
+        zIndex = 10;
+        blur = 0;
+      } else if (absOffset === 2) {
+        tx = sign * 420;
+        tz = -240;
+        ry = -sign * 34;
+        scale = 0.74;
+        opacity = 0.55;
+        zIndex = 7;
+        blur = 1.2;
+      } else if (absOffset === 3) {
+        tx = sign * 560;
+        tz = -360;
+        ry = -sign * 42;
+        scale = 0.6;
+        opacity = 0.22;
+        zIndex = 4;
+        blur = 2.5;
+      }
+    } else {
+      // Mobile responsive spacing
+      if (absOffset === 0) {
+        tx = 0;
+        tz = 0;
+        ry = 0;
+        scale = 1;
+        opacity = 1;
+        zIndex = 14;
+        blur = 0;
+      } else if (absOffset === 1) {
+        tx = sign * 120;
+        tz = -90;
+        ry = -sign * 20;
+        scale = 0.86;
+        opacity = 0.76;
+        zIndex = 10;
+        blur = 0;
+      } else if (absOffset === 2) {
+        tx = sign * 200;
+        tz = -180;
+        ry = -sign * 28;
+        scale = 0.7;
+        opacity = 0.38;
+        zIndex = 7;
+        blur = 1;
+      } else if (absOffset === 3) {
+        tx = sign * 260;
+        tz = -260;
+        ry = -sign * 35;
+        scale = 0.55;
+        opacity = 0.12;
+        zIndex = 4;
+        blur = 2;
+      }
+    }
+
+    return {
+      transform: `translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${scale})`,
+      opacity,
+      zIndex,
+      filter: blur > 0 ? `blur(${blur}px)` : 'none',
+      pointerEvents: 'auto' as const,
+    };
+  };
 
   useEffect(() => {
     let index = 0;
@@ -685,106 +947,132 @@ export default function Home() {
           </div>
         )}
 
-        {/* 4. SOFT SKILLS DASHBOARD (Visible on 'all' and 'soft') */}
+        {/* 4. PROFESSIONAL SOFT SKILLS (Aura-style 3D Perspective Stacked Carousel) */}
         {(skillsFilter === 'all' || skillsFilter === 'soft') && (
-          <div className="soft-skills-sec reveal">
+          <div className="aura-carousel-sec reveal">
             <div className="skills-subhead-label">Professional Soft Skills</div>
-            <div className="soft-skills-grid">
-              {[
-                {
-                  name: 'Problem Solving',
-                  theme: 'theme-amber',
-                  icon: '🎯',
-                  desc: 'Identifikasi akar masalah teknis & solusi logis.',
-                  detail: 'Mampu membedah insiden teknis (jaringan maupun hardware) secara bertahap, menemukan sumber gangguan dengan efisien, dan merumuskan perbaikan yang tahan lama.',
-                  points: ['Metodologi isolasi masalah (layer-by-layer)', 'Penanganan insiden downtime sistem', 'Pencegahan masalah berulang']
-                },
-                {
-                  name: 'Critical Thinking',
-                  theme: 'theme-purple',
-                  icon: '🧠',
-                  desc: 'Analisis objektif sistem & keputusan tepat.',
-                  detail: 'Menilai konfigurasi arsitektur jaringan dan spesifikasi perangkat secara analitis sebelum melakukan implementasi atau perubahan konfigurasi penting.',
-                  points: ['Evaluasi performa infrastruktur', 'Analisis risiko perubahan sistem', 'Pengambilan keputusan berbasis data']
-                },
-                {
-                  name: 'Communication',
-                  theme: 'theme-blue',
-                  icon: '💬',
-                  desc: 'Penyampaian teknis lugas ke tim & pengguna.',
-                  detail: 'Mampu menjelaskan kendala teknis dan alur perbaikan dalam bahasa yang mudah dimengerti oleh pengguna non-teknis serta membuat dokumentasi yang jelas.',
-                  points: ['Pelaporan status teknis terstruktur', 'Interaksi empatik dengan pengguna', 'Dokumentasi SOP perbaikan']
-                },
-                {
-                  name: 'Teamwork',
-                  theme: 'theme-green',
-                  icon: '🤝',
-                  desc: 'Kolaborasi aktif menyelesaikan proyek bersama.',
-                  detail: 'Berpartisipasi aktif dalam pembagian peran tim, saling mendukung dalam penarikan kabel, konfigurasi bersama, dan integrasi modul aplikasi.',
-                  points: ['Kolaborasi lintas disiplin', 'Sinergi pengerjaan proyek', 'Kesiapan mendukung anggota tim']
-                },
-                {
-                  name: 'Leadership',
-                  theme: 'theme-gold',
-                  icon: '👑',
-                  desc: 'Pengalaman memimpin organisasi & kepanduan.',
-                  detail: 'Terbukti sebagai Ketua OSIS SMP dan pimpinan regu DIANPINRU yang mampu mengarahkan tim, menjaga semangat kelompok, dan mengawal kegiatan hingga sukses.',
-                  points: ['Manajemen koordinasi regu/organisasi', 'Delegasi tugas yang jelas', 'Integritas dan keteladanan']
-                },
-                {
-                  name: 'Discipline',
-                  theme: 'theme-rose',
-                  icon: '🛡️',
-                  desc: 'Konsistensi tinggi terhadap SOP & waktu.',
-                  detail: 'Menjaga kepatuhan ketat terhadap prosedur operasional standar, standar keselamatan kerja kelistrikan/jaringan, dan ketepatan waktu tugas.',
-                  points: ['Kepatuhan SOP keselamatan kerja', 'Ketepatan jadwal pemeliharaan', 'Ketelitian dalam perakitan & konfigurasi']
-                },
-                {
-                  name: 'Responsibility',
-                  theme: 'theme-teal',
-                  icon: '🧭',
-                  desc: 'Integritas penuh terhadap amanah perangkat & data.',
-                  detail: 'Bertanggung jawab atas keamanan data pengguna, ketersediaan perangkat operasional, serta menjaga kerahasiaan kredensial sistem.',
-                  points: ['Integritas terhadap aset perangkat', 'Akuntabilitas tugas penugasan', 'Perlindungan privasi data']
-                },
-                {
-                  name: 'Adaptability',
-                  theme: 'theme-indigo',
-                  icon: '⚡',
-                  desc: 'Cepat mempelajari teknologi & protokol baru.',
-                  detail: 'Cepat menyesuaikan diri dengan perangkat keras generasi baru, distro sistem operasi berbeda, maupun framework web modern yang berkembang pesat.',
-                  points: ['Belajar mandiri (self-learning) cepat', 'Fleksibel menghadapi perubahan situasi', 'Antusias mengadopsi standar teknologi baru']
-                },
-                {
-                  name: 'Time Management',
-                  theme: 'theme-orange',
-                  icon: '⏱️',
-                  desc: 'Pengelolaan prioritas insiden & efisiensi kerja.',
-                  detail: 'Menetapkan prioritas penanganan tiket masalah secara teratur sehingga masalah kritis dapat diselesaikan sesegera mungkin tanpa mengabaikan tugas rutin.',
-                  points: ['Penentuan prioritas urgensi insiden', 'Penyelesaian proyek tepat waktu', 'Efisiensi waktu troubleshooting']
-                },
-                {
-                  name: 'Initiative',
-                  theme: 'theme-fuchsia',
-                  icon: '🚀',
-                  desc: 'Proaktif pemeliharaan preventif & improvisasi.',
-                  detail: 'Tidak hanya menunggu laporan kendala, melainkan proaktif melakukan pengecekan kesehatan kabel, monitoring log jaringan, dan merapikan manajemen kabel.',
-                  points: ['Pemeliharaan berkala preventif', 'Pemberian usulan perbaikan sistem', 'Inisiatif optimasi performa']
-                }
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`soft-skill-card theme-card ${item.theme}`}
-                  onClick={() => setSelectedSoftSkill(item as any)}
+
+            {/* Carousel Header & Controls */}
+            <div className="aura-carousel-header">
+              <div className="aura-title-wrap">
+                <h3 className="aura-sec-title">3D Perspective Competency Deck</h3>
+                <p className="aura-sec-desc">
+                  Gulir atau klik kartu di sekitarnya untuk memutar perspektif 3D, atau klik kartu depan untuk membaca evaluasi analitik mendalam.
+                </p>
+              </div>
+
+              {/* Aura Style Circular Navigation Controls */}
+              <div className="aura-controls">
+                <button
+                  type="button"
+                  className="aura-nav-btn"
+                  onClick={handlePrevSoft}
+                  aria-label="Previous soft skill"
+                  title="Kartu Sebelumnya"
                 >
-                  <div className="soft-card-icon">{item.icon}</div>
-                  <h4 className="soft-card-name">{item.name}</h4>
-                  <p className="soft-card-desc">{item.desc}</p>
-                  <span className="soft-card-action">
-                    Detail Insight →
-                  </span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <div className="aura-counter">
+                  <span className="aura-counter-current">{String(activeSoftIdx + 1).padStart(2, '0')}</span>
+                  <span className="aura-counter-divider">/</span>
+                  <span className="aura-counter-total">{String(softSkillsList.length).padStart(2, '0')}</span>
                 </div>
+                <button
+                  type="button"
+                  className="aura-nav-btn"
+                  onClick={handleNextSoft}
+                  aria-label="Next soft skill"
+                  title="Kartu Selanjutnya"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* 3D Perspective Stage */}
+            <div
+              className="aura-stage-container"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+            >
+              {softSkillsList.map((item, idx) => {
+                const style = getCard3DStyle(idx);
+                const isActive = activeSoftIdx === idx;
+
+                return (
+                  <div
+                    key={idx}
+                    className={`aura-card-3d theme-card ${item.theme} ${isActive ? 'active-center' : ''}`}
+                    style={style}
+                    onClick={() => {
+                      if (!isActive) {
+                        setActiveSoftIdx(idx);
+                      } else {
+                        setSelectedSoftSkill(item);
+                      }
+                    }}
+                  >
+                    {/* Top Bar */}
+                    <div className="aura-card-topbar">
+                      <span className="aura-category-badge">{item.tag}</span>
+                      <span className="aura-card-num">#{String(idx + 1).padStart(2, '0')}</span>
+                    </div>
+
+                    {/* Glowing Icon */}
+                    <div className="aura-card-icon-wrap">
+                      <span>{item.icon}</span>
+                    </div>
+
+                    {/* Title & Desc */}
+                    <h4 className="aura-card-title">{item.name}</h4>
+                    <p className="aura-card-desc">{item.desc}</p>
+
+                    {/* Mini Highlight Badges */}
+                    <div className="aura-card-points">
+                      {item.points.slice(0, 2).map((pt, pidx) => (
+                        <div key={pidx} className="aura-card-point">
+                          <span className="aura-point-bullet" />
+                          <span>{pt}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Footer Action */}
+                    <div className="aura-card-footer">
+                      <span className="aura-action-link">
+                        Detail Insight →
+                      </span>
+                      <span className="aura-status-pill">
+                        {isActive ? '● Active View' : 'Click to Focus'}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Aura Dots Pagination */}
+            <div className="aura-dots-bar">
+              {softSkillsList.map((item, dIdx) => (
+                <button
+                  key={dIdx}
+                  type="button"
+                  className={`aura-dot ${activeSoftIdx === dIdx ? 'active' : ''}`}
+                  onClick={() => setActiveSoftIdx(dIdx)}
+                  aria-label={`Pilih skill ${dIdx + 1}: ${item.name}`}
+                  title={item.name}
+                />
               ))}
+            </div>
+            <div className="aura-swipe-hint">
+              💡 Geser (swipe) / klik kartu samping untuk memutar 3D deck · Klik kartu tengah untuk detail analitik
             </div>
           </div>
         )}
