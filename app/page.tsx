@@ -419,7 +419,7 @@ export default function Home() {
             <div className="skills-subhead-label">Core Specialization Focus</div>
             <div className="core-expertise-grid">
               {/* Networking Specialist */}
-              <div className="core-expert-card">
+              <div className="core-expert-card theme-card theme-blue">
                 <div className="core-card-header">
                   <div className="core-icon-box">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -441,9 +441,9 @@ export default function Home() {
               </div>
 
               {/* Technical Support */}
-              <div className="core-expert-card">
+              <div className="core-expert-card theme-card theme-green">
                 <div className="core-card-header">
-                  <div className="core-icon-box" style={{color:'#00f0ff', background:'rgba(0,240,255,0.12)', borderColor:'rgba(0,240,255,0.3)'}}>
+                  <div className="core-icon-box">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                       <line x1="8" y1="21" x2="16" y2="21"/>
@@ -451,7 +451,7 @@ export default function Home() {
                       <circle cx="12" cy="10" r="2.5"/>
                     </svg>
                   </div>
-                  <span className="core-tag" style={{color:'#00f0ff', borderColor:'rgba(0,240,255,0.3)'}}>Core Focus 02</span>
+                  <span className="core-tag">Core Focus 02</span>
                 </div>
                 <h3 className="core-title">TECHNICAL SUPPORT</h3>
                 <p className="core-desc">
@@ -465,16 +465,16 @@ export default function Home() {
               </div>
 
               {/* Web Development */}
-              <div className="core-expert-card">
+              <div className="core-expert-card theme-card theme-purple">
                 <div className="core-card-header">
-                  <div className="core-icon-box" style={{color:'#a78bfa', background:'rgba(167,139,250,0.12)', borderColor:'rgba(167,139,250,0.3)'}}>
+                  <div className="core-icon-box">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="16 18 22 12 16 6"/>
                       <polyline points="8 6 2 12 8 18"/>
                       <line x1="14" y1="4" x2="10" y2="20"/>
                     </svg>
                   </div>
-                  <span className="core-tag" style={{color:'#a78bfa', borderColor:'rgba(167,139,250,0.3)'}}>Core Focus 03</span>
+                  <span className="core-tag">Core Focus 03</span>
                 </div>
                 <h3 className="core-title">WEB DEVELOPMENT</h3>
                 <p className="core-desc">
@@ -678,7 +678,7 @@ export default function Home() {
             <div className="skills-subhead-label">Hard Skills Dashboard</div>
             <div className="hard-skills-grid">
               {/* Panel A: NETWORKING & INFRASTRUCTURE */}
-              <div className="hard-skill-panel">
+              <div className="hard-skill-panel theme-card theme-blue">
                 <div className="hard-panel-top">
                   <div className="hard-icon-badge">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -707,9 +707,9 @@ export default function Home() {
               </div>
 
               {/* Panel B: TECHNICAL SUPPORT */}
-              <div className="hard-skill-panel">
+              <div className="hard-skill-panel theme-card theme-green">
                 <div className="hard-panel-top">
-                  <div className="hard-icon-badge" style={{color:'#00f0ff', borderColor:'rgba(0,240,255,0.3)', background:'rgba(0,240,255,0.12)'}}>
+                  <div className="hard-icon-badge">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="3" width="20" height="14" rx="2"/>
                       <line x1="8" y1="21" x2="16" y2="21"/>
@@ -717,7 +717,7 @@ export default function Home() {
                       <circle cx="12" cy="10" r="2.5"/>
                     </svg>
                   </div>
-                  <span className="hard-count-pill" style={{color:'#00f0ff', borderColor:'rgba(0,240,255,0.3)'}}>6 Competencies</span>
+                  <span className="hard-count-pill">6 Competencies</span>
                 </div>
                 <h3 className="hard-panel-title">TECHNICAL SUPPORT</h3>
                 <p className="hard-panel-desc">
@@ -734,16 +734,16 @@ export default function Home() {
               </div>
 
               {/* Panel C: WEB DEVELOPMENT & DESIGN */}
-              <div className="hard-skill-panel">
+              <div className="hard-skill-panel theme-card theme-purple">
                 <div className="hard-panel-top">
-                  <div className="hard-icon-badge" style={{color:'#a78bfa', borderColor:'rgba(167,139,250,0.3)', background:'rgba(167,139,250,0.12)'}}>
+                  <div className="hard-icon-badge">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="16 18 22 12 16 6"/>
                       <polyline points="8 6 2 12 8 18"/>
                       <line x1="14" y1="4" x2="10" y2="20"/>
                     </svg>
                   </div>
-                  <span className="hard-count-pill" style={{color:'#a78bfa', borderColor:'rgba(167,139,250,0.3)'}}>8 Competencies</span>
+                  <span className="hard-count-pill">8 Competencies</span>
                 </div>
                 <h3 className="hard-panel-title">WEB DEVELOPMENT & DESIGN</h3>
                 <p className="hard-panel-desc">
@@ -770,6 +770,7 @@ export default function Home() {
               {[
                 {
                   name: 'Problem Solving',
+                  theme: 'theme-amber',
                   icon: '🎯',
                   desc: 'Identifikasi akar masalah teknis & solusi logis.',
                   detail: 'Mampu membedah insiden teknis (jaringan maupun hardware) secara bertahap, menemukan sumber gangguan dengan efisien, dan merumuskan perbaikan yang tahan lama.',
@@ -777,6 +778,7 @@ export default function Home() {
                 },
                 {
                   name: 'Critical Thinking',
+                  theme: 'theme-purple',
                   icon: '🧠',
                   desc: 'Analisis objektif sistem & keputusan tepat.',
                   detail: 'Menilai konfigurasi arsitektur jaringan dan spesifikasi perangkat secara analitis sebelum melakukan implementasi atau perubahan konfigurasi penting.',
@@ -784,6 +786,7 @@ export default function Home() {
                 },
                 {
                   name: 'Communication',
+                  theme: 'theme-blue',
                   icon: '💬',
                   desc: 'Penyampaian teknis lugas ke tim & pengguna.',
                   detail: 'Mampu menjelaskan kendala teknis dan alur perbaikan dalam bahasa yang mudah dimengerti oleh pengguna non-teknis serta membuat dokumentasi yang jelas.',
@@ -791,6 +794,7 @@ export default function Home() {
                 },
                 {
                   name: 'Teamwork',
+                  theme: 'theme-green',
                   icon: '🤝',
                   desc: 'Kolaborasi aktif menyelesaikan proyek bersama.',
                   detail: 'Berpartisipasi aktif dalam pembagian peran tim, saling mendukung dalam penarikan kabel, konfigurasi bersama, dan integrasi modul aplikasi.',
@@ -798,6 +802,7 @@ export default function Home() {
                 },
                 {
                   name: 'Leadership',
+                  theme: 'theme-gold',
                   icon: '👑',
                   desc: 'Pengalaman memimpin organisasi & kepanduan.',
                   detail: 'Terbukti sebagai Ketua OSIS SMP dan pimpinan regu DIANPINRU yang mampu mengarahkan tim, menjaga semangat kelompok, dan mengawal kegiatan hingga sukses.',
@@ -805,6 +810,7 @@ export default function Home() {
                 },
                 {
                   name: 'Discipline',
+                  theme: 'theme-rose',
                   icon: '🛡️',
                   desc: 'Konsistensi tinggi terhadap SOP & waktu.',
                   detail: 'Menjaga kepatuhan ketat terhadap prosedur operasional standar, standar keselamatan kerja kelistrikan/jaringan, dan ketepatan waktu tugas.',
@@ -812,6 +818,7 @@ export default function Home() {
                 },
                 {
                   name: 'Responsibility',
+                  theme: 'theme-teal',
                   icon: '🧭',
                   desc: 'Integritas penuh terhadap amanah perangkat & data.',
                   detail: 'Bertanggung jawab atas keamanan data pengguna, ketersediaan perangkat operasional, serta menjaga kerahasiaan kredensial sistem.',
@@ -819,6 +826,7 @@ export default function Home() {
                 },
                 {
                   name: 'Adaptability',
+                  theme: 'theme-indigo',
                   icon: '⚡',
                   desc: 'Cepat mempelajari teknologi & protokol baru.',
                   detail: 'Cepat menyesuaikan diri dengan perangkat keras generasi baru, distro sistem operasi berbeda, maupun framework web modern yang berkembang pesat.',
@@ -826,6 +834,7 @@ export default function Home() {
                 },
                 {
                   name: 'Time Management',
+                  theme: 'theme-orange',
                   icon: '⏱️',
                   desc: 'Pengelolaan prioritas insiden & efisiensi kerja.',
                   detail: 'Menetapkan prioritas penanganan tiket masalah secara teratur sehingga masalah kritis dapat diselesaikan sesegera mungkin tanpa mengabaikan tugas rutin.',
@@ -833,6 +842,7 @@ export default function Home() {
                 },
                 {
                   name: 'Initiative',
+                  theme: 'theme-fuchsia',
                   icon: '🚀',
                   desc: 'Proaktif pemeliharaan preventif & improvisasi.',
                   detail: 'Tidak hanya menunggu laporan kendala, melainkan proaktif melakukan pengecekan kesehatan kabel, monitoring log jaringan, dan merapikan manajemen kabel.',
@@ -841,8 +851,8 @@ export default function Home() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="soft-skill-card"
-                  onClick={() => setSelectedSoftSkill(item)}
+                  className={`soft-skill-card theme-card ${item.theme}`}
+                  onClick={() => setSelectedSoftSkill(item as any)}
                 >
                   <div className="soft-card-icon">{item.icon}</div>
                   <h4 className="soft-card-name">{item.name}</h4>
@@ -859,7 +869,7 @@ export default function Home() {
         {/* Soft Skill Expandable Insight Modal */}
         {selectedSoftSkill && (
           <div className="soft-modal-backdrop" onClick={() => setSelectedSoftSkill(null)}>
-            <div className="soft-modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className={`soft-modal-card theme-card ${(selectedSoftSkill as any).theme || 'theme-blue'}`} onClick={(e) => e.stopPropagation()}>
               <button
                 className="soft-modal-close"
                 onClick={() => setSelectedSoftSkill(null)}

@@ -647,7 +647,176 @@ section {
   box-shadow: 0 4px 14px rgba(22, 119, 255, 0.4);
 }
 
-/* Core Expertise Grid */
+/* ===================== THEME VARIATIONS (Dribbble Multi-Color Style) ===================== */
+.theme-card {
+  position: relative;
+  overflow: hidden;
+}
+.theme-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: var(--card-glow);
+  pointer-events: none;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+.theme-card:hover::after {
+  opacity: 1;
+}
+
+/* 1. Blue / Cyan Theme */
+.theme-blue {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.25) 0%, transparent 75%);
+  --accent-color: #38bdf8;
+  --accent-bg: rgba(56, 189, 248, 0.12);
+  --accent-border: rgba(56, 189, 248, 0.3);
+}
+.theme-blue::before {
+  background: linear-gradient(90deg, #1677FF, #38bdf8) !important;
+}
+.theme-blue:hover {
+  border-color: rgba(56, 189, 248, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(56, 189, 248, 0.22) !important;
+}
+
+/* 2. Emerald Green Theme */
+.theme-green {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.25) 0%, transparent 75%);
+  --accent-color: #10b981;
+  --accent-bg: rgba(16, 185, 129, 0.12);
+  --accent-border: rgba(16, 185, 129, 0.3);
+}
+.theme-green::before {
+  background: linear-gradient(90deg, #059669, #10b981) !important;
+}
+.theme-green:hover {
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(16, 185, 129, 0.22) !important;
+}
+
+/* 3. Purple / Violet Theme */
+.theme-purple {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.25) 0%, transparent 75%);
+  --accent-color: #c084fc;
+  --accent-bg: rgba(168, 85, 247, 0.12);
+  --accent-border: rgba(168, 85, 247, 0.3);
+}
+.theme-purple::before {
+  background: linear-gradient(90deg, #7c3aed, #a855f7) !important;
+}
+.theme-purple:hover {
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(168, 85, 247, 0.22) !important;
+}
+
+/* 4. Amber / Gold Theme */
+.theme-amber {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.25) 0%, transparent 75%);
+  --accent-color: #fbbf24;
+  --accent-bg: rgba(245, 158, 11, 0.12);
+  --accent-border: rgba(245, 158, 11, 0.3);
+}
+.theme-amber::before {
+  background: linear-gradient(90deg, #d97706, #f59e0b) !important;
+}
+.theme-amber:hover {
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(245, 158, 11, 0.22) !important;
+}
+
+/* 5. Rose Theme */
+.theme-rose {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(244, 63, 94, 0.25) 0%, transparent 75%);
+  --accent-color: #fb7185;
+  --accent-bg: rgba(244, 63, 94, 0.12);
+  --accent-border: rgba(244, 63, 94, 0.3);
+}
+.theme-rose::before {
+  background: linear-gradient(90deg, #e11d48, #f43f5e) !important;
+}
+.theme-rose:hover {
+  border-color: rgba(244, 63, 94, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(244, 63, 94, 0.22) !important;
+}
+
+/* 6. Teal Theme */
+.theme-teal {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(20, 184, 166, 0.25) 0%, transparent 75%);
+  --accent-color: #2dd4bf;
+  --accent-bg: rgba(20, 184, 166, 0.12);
+  --accent-border: rgba(20, 184, 166, 0.3);
+}
+.theme-teal::before {
+  background: linear-gradient(90deg, #0d9488, #14b8a6) !important;
+}
+.theme-teal:hover {
+  border-color: rgba(20, 184, 166, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(20, 184, 166, 0.22) !important;
+}
+
+/* 7. Orange Theme */
+.theme-orange {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(249, 115, 22, 0.25) 0%, transparent 75%);
+  --accent-color: #fb923c;
+  --accent-bg: rgba(249, 115, 22, 0.12);
+  --accent-border: rgba(249, 115, 22, 0.3);
+}
+.theme-orange::before {
+  background: linear-gradient(90deg, #ea580c, #f97316) !important;
+}
+.theme-orange:hover {
+  border-color: rgba(249, 115, 22, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(249, 115, 22, 0.22) !important;
+}
+
+/* 8. Indigo Theme */
+.theme-indigo {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.25) 0%, transparent 75%);
+  --accent-color: #818cf8;
+  --accent-bg: rgba(99, 102, 241, 0.12);
+  --accent-border: rgba(99, 102, 241, 0.3);
+}
+.theme-indigo::before {
+  background: linear-gradient(90deg, #4f46e5, #6366f1) !important;
+}
+.theme-indigo:hover {
+  border-color: rgba(99, 102, 241, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(99, 102, 241, 0.22) !important;
+}
+
+/* 9. Fuchsia Theme */
+.theme-fuchsia {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(217, 70, 239, 0.25) 0%, transparent 75%);
+  --accent-color: #e879f9;
+  --accent-bg: rgba(217, 70, 239, 0.12);
+  --accent-border: rgba(217, 70, 239, 0.3);
+}
+.theme-fuchsia::before {
+  background: linear-gradient(90deg, #c026d3, #d946ef) !important;
+}
+.theme-fuchsia:hover {
+  border-color: rgba(217, 70, 239, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(217, 70, 239, 0.22) !important;
+}
+
+/* 10. Gold Sunburst Theme */
+.theme-gold {
+  --card-glow: radial-gradient(ellipse at 50% 0%, rgba(234, 179, 8, 0.25) 0%, transparent 75%);
+  --accent-color: #fde047;
+  --accent-bg: rgba(234, 179, 8, 0.12);
+  --accent-border: rgba(234, 179, 8, 0.3);
+}
+.theme-gold::before {
+  background: linear-gradient(90deg, #ca8a04, #eab308) !important;
+}
+.theme-gold:hover {
+  border-color: rgba(234, 179, 8, 0.6) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(234, 179, 8, 0.22) !important;
+}
 .core-expertise-sec {
   margin-bottom: 48px;
 }
@@ -700,12 +869,12 @@ section {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #1677FF, #00f0ff);
-  opacity: 0.8;
+  background: linear-gradient(90deg, var(--accent-color, #1677FF), var(--accent-border, #00f0ff));
+  opacity: 0.9;
 }
 .core-expert-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(85, 184, 255, 0.6);
+  border-color: var(--accent-border, rgba(85, 184, 255, 0.6));
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(22, 119, 255, 0.25);
 }
 
@@ -719,21 +888,21 @@ section {
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: rgba(22, 119, 255, 0.15);
-  border: 1px solid rgba(85, 184, 255, 0.35);
+  background: var(--accent-bg, rgba(22, 119, 255, 0.15));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.35));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #55B8FF;
+  color: var(--accent-color, #55B8FF);
 }
 .core-tag {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--blue-cyan);
-  background: rgba(85, 184, 255, 0.1);
-  border: 1px solid rgba(85, 184, 255, 0.25);
+  color: var(--accent-color, var(--blue-cyan));
+  background: var(--accent-bg, rgba(85, 184, 255, 0.1));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.25));
   padding: 4px 10px;
   border-radius: 100px;
 }
@@ -876,7 +1045,7 @@ section {
 
 .hard-skill-panel {
   background: linear-gradient(150deg, rgba(11, 28, 52, 0.75), rgba(6, 16, 32, 0.85));
-  border: 1px solid rgba(85, 184, 255, 0.2);
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.2));
   border-radius: 20px;
   padding: 32px 26px;
   display: flex;
@@ -884,10 +1053,21 @@ section {
   transition: all 0.3s ease;
   position: relative;
   backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+.hard-skill-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color, #1677FF), var(--accent-border, transparent));
+  opacity: 0.9;
 }
 .hard-skill-panel:hover {
   transform: translateY(-5px);
-  border-color: rgba(85, 184, 255, 0.5);
+  border-color: var(--accent-border, rgba(85, 184, 255, 0.5));
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(22, 119, 255, 0.18);
 }
 .hard-panel-top {
@@ -900,20 +1080,20 @@ section {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(22, 119, 255, 0.15);
-  border: 1px solid rgba(85, 184, 255, 0.3);
+  background: var(--accent-bg, rgba(22, 119, 255, 0.15));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.3));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #55B8FF;
+  color: var(--accent-color, #55B8FF);
 }
 .hard-count-pill {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #00f0ff;
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: var(--accent-color, #00f0ff);
+  background: var(--accent-bg, rgba(0, 240, 255, 0.1));
+  border: 1px solid var(--accent-border, rgba(0, 240, 255, 0.25));
   padding: 4px 10px;
   border-radius: 100px;
 }
@@ -982,7 +1162,7 @@ section {
 
 .soft-skill-card {
   background: linear-gradient(150deg, rgba(11, 28, 52, 0.7), rgba(6, 16, 32, 0.8));
-  border: 1px solid rgba(22, 119, 255, 0.18);
+  border: 1px solid var(--accent-border, rgba(22, 119, 255, 0.18));
   border-radius: 16px;
   padding: 22px 18px;
   display: flex;
@@ -993,21 +1173,21 @@ section {
   overflow: hidden;
 }
 .soft-skill-card:hover {
-  border-color: #55B8FF;
+  border-color: var(--accent-color, #55B8FF);
   background: rgba(18, 42, 74, 0.85);
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 16px rgba(22, 119, 255, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 16px var(--accent-bg, rgba(22, 119, 255, 0.2));
 }
 .soft-card-icon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(22, 119, 255, 0.15);
-  border: 1px solid rgba(85, 184, 255, 0.3);
+  background: var(--accent-bg, rgba(22, 119, 255, 0.15));
+  border: 1px solid var(--accent-border, rgba(85, 184, 255, 0.3));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #55B8FF;
+  color: var(--accent-color, #55B8FF);
   margin-bottom: 14px;
 }
 .soft-card-name {
@@ -1024,7 +1204,7 @@ section {
 }
 .soft-card-action {
   font-size: 10px;
-  color: #55B8FF;
+  color: var(--accent-color, #55B8FF);
   font-weight: 600;
   letter-spacing: 0.5px;
   display: inline-flex;
