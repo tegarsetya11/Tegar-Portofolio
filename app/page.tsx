@@ -1159,7 +1159,7 @@ export default function Home() {
             {/* Header Row: Logo & Descriptions */}
             <div className="featured-header-row">
               <div className="featured-logo-box">
-                <img src="/assets/logo-praci-siaga.png" alt="Logo Praci Siaga" />
+                <img src="/assets/logo-praci-siaga.png?v=2" alt="Logo Praci Siaga" />
               </div>
               <div>
                 <div className="featured-subhead">PRACI SIAGA · LAYANAN DARURAT</div>
