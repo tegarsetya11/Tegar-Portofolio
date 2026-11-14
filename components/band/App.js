@@ -3,7 +3,10 @@ import './index.css';
 import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber';
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei/core/Gltf.js';
+import { useTexture } from '@react-three/drei/core/Texture.js';
+import { Environment } from '@react-three/drei/core/Environment.js';
+import { Lightformer } from '@react-three/drei/core/Lightformer.js';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
