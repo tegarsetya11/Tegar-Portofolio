@@ -520,7 +520,7 @@ export default function Home() {
           <div className="home-hero-text">
             <div className="hero-logo-wrap">
               <img
-                src="/assets/logo-tegar-hero.png"
+                src="/assets/logo-tegar-hero.png?v=3"
                 alt="Logo Tegar"
                 className="hero-brand-logo"
               />
