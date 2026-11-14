@@ -107,6 +107,7 @@ export default function Home() {
   const f1AudioRef = useRef<HTMLAudioElement | null>(null);
   const lastF1PlayedRef = useRef<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Typewriter & Glitch Effect for Role
   const [typedRole, setTypedRole] = useState('');
@@ -402,7 +403,8 @@ export default function Home() {
     try {
       if (typeof window !== 'undefined' && sessionStorage.getItem('loaded')) {
         if (loadingRef.current) loadingRef.current.style.display = 'none';
-        return;
+        const t = setTimeout(() => setIsLoaded(true), 200);
+        return () => clearTimeout(t);
       }
     } catch {}
 
@@ -422,6 +424,7 @@ export default function Home() {
             if (loadingRef.current) loadingRef.current.style.display = 'none';
           }, 600);
         }
+        setIsLoaded(true);
         try {
           sessionStorage.setItem('loaded', '1');
         } catch {}
@@ -599,7 +602,7 @@ export default function Home() {
       <section id="home">
         <div className="home-canvas-wrap">
           {/* 3D Canvas */}
-          <App />
+          <App isLoaded={isLoaded} />
           {/* Hero Text Overlay */}
           <div className="home-hero-text">
             <div className="hero-logo-wrap">

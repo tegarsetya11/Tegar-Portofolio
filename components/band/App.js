@@ -20,7 +20,7 @@ useGLTF.preload(GLTF_PATH);
 useTexture.preload(TEXTURE_PATH);
 useTexture.preload(CARD_TEXTURE_PATH);
 
-export default function App() {
+export default function App({ isLoaded = true }) {
   return (
     <div className="responsive-wrapper">
       <Canvas
@@ -34,8 +34,13 @@ export default function App() {
       >
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
-          <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-            <Band />
+          <Physics
+            paused={!isLoaded}
+            interpolate
+            gravity={[0, -40, 0]}
+            timeStep={1 / 60}
+          >
+            <Band isLoaded={isLoaded} />
           </Physics>
           <Environment blur={0.75}>
             <Lightformer intensity={2} color="#55B8FF" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
@@ -49,7 +54,7 @@ export default function App() {
   );
 }
 
-function Band({ maxSpeed = 50, minSpeed = 10 }) {
+function Band({ maxSpeed = 50, minSpeed = 10, isLoaded = true }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef(); // prettier-ignore
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3(); // prettier-ignore
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
@@ -66,8 +71,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const isMobile = width < 768;
 
   // Posisi anchor (titik gantung) di dunia 3D
+  // Posisi awal HORIZONTAL (ke samping) agar kartu jatuh+mengayun saat physics aktif
   const groupX = isMobile ? 0 : 1.75;
-  const groupY = 4; // Selalu di atas viewport (y_max ~2.9), band terlihat dari "langit-langit"
+  const groupY = 4;
 
   const [curve] = useState(() => new THREE.CatmullRomCurve3([
     new THREE.Vector3(),
@@ -92,49 +98,47 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     }
   }, [hovered, dragged]);
 
-  // Efek animasi mantul dari atas ke bawah saat web terbuka / masuk beranda
+  // Saat loading selesai (isLoaded jadi true), bangunkan semua rigid body
+  // supaya kartu jatuh & mengayun seperti di video
   useEffect(() => {
-    let isFirstLoad = true;
-    try {
-      isFirstLoad = typeof window !== 'undefined' && !sessionStorage.getItem('loaded');
-    } catch {}
-    const delay = isFirstLoad ? 1400 : 400;
+    if (!isLoaded) return;
 
-    const timer1 = setTimeout(() => {
+    // Delay kecil agar physics sudah siap setelah unpause
+    const timer = setTimeout(() => {
       try {
+        [card, j1, j2, j3].forEach((ref) => {
+          if (ref.current && typeof ref.current.wakeUp === 'function') {
+            ref.current.wakeUp();
+          }
+        });
+        // Dorong kartu ke bawah + sedikit ke sisi agar terlihat mengayun/mantul alami
         if (card.current && typeof card.current.applyImpulse === 'function') {
-          [card, j1, j2, j3].forEach((ref) => {
-            if (ref.current && typeof ref.current.wakeUp === 'function') {
-              ref.current.wakeUp();
-            }
-          });
-          // Tarikan ke bawah dan dorongan 3D agar kartu memantul naik-turun secara interaktif
-          card.current.applyImpulse({ x: 0.6, y: -24, z: 4.5 }, true);
+          card.current.applyImpulse({ x: 0.5, y: -18, z: 3 }, true);
           if (typeof card.current.applyTorqueImpulse === 'function') {
-            card.current.applyTorqueImpulse({ x: 0.2, y: 1.1, z: 0.3 }, true);
+            card.current.applyTorqueImpulse({ x: 0.3, y: 0.8, z: 0.2 }, true);
           }
         }
       } catch (err) {
-        console.warn('Physics bounce error:', err);
+        console.warn('Physics entrance error:', err);
       }
-    }, delay);
+    }, 350);
 
-    // Pantulan susulan agar getaran elastis lebih terasa hidup
+    // Pantulan susulan
     const timer2 = setTimeout(() => {
       try {
         if (card.current && typeof card.current.applyImpulse === 'function') {
-          card.current.applyImpulse({ x: -0.3, y: 14, z: -2 }, true);
+          card.current.applyImpulse({ x: -0.3, y: 10, z: -2 }, true);
         }
       } catch (err) {
         console.warn('Physics bounce error:', err);
       }
-    }, delay + 420);
+    }, 800);
 
     return () => {
-      clearTimeout(timer1);
+      clearTimeout(timer);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [isLoaded]);
 
   useFrame((state, delta) => {
     if (dragged) {
@@ -170,44 +174,43 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   return (
     <>
       {/*
-        SEMUA elemen (fixed, j1, j2, j3, card) dalam SATU group di titik yang sama.
-        Posisi awal VERTIKAL (hanging down) = posisi kesetimbangan alami.
-        Ini mencegah band terlihat horizontal / tidak sinkron pada frame pertama.
+        Layout posisi awal HORIZONTAL agar kartu langsung jatuh mengayun
+        ketika physics diaktifkan (paused=false setelah loading selesai).
+        Ini mirip seperti di video contoh — kartu "terlempar" dari posisi samping.
 
-        Layout vertikal:
+        Posisi horizontal:
           fixed  → (0,  0, 0) = groupY=4  → titik gantung di langit-langit
-          j1     → (0, -1, 0) = groupY=3  → 1 unit di bawah fixed
-          j2     → (0, -2, 0) = groupY=2  → 1 unit di bawah j1
-          j3     → (0, -3, 0) = groupY=1  → 1 unit di bawah j2 (ujung tali)
-          card   → (0, -4.45,0)= groupY≈-0.45 → kartu: j3 menyambung ke card-top [0,1.45,0]
-                                              card-top = -4.45+1.45 = -3 ≡ j3 ✓
+          j1     → (0.5, 0, 0)           → 0.5 unit ke kanan dari fixed
+          j2     → (1,   0, 0)           → 1 unit ke kanan dari fixed
+          j3     → (1.5, 0, 0)           → 1.5 unit ke kanan dari fixed
+          card   → (2,   0, 0)           → 2 unit ke kanan (mulai jatuh ke bawah)
       */}
       <group position={[groupX, groupY, 0]}>
         {/* Titik gantung tetap — tidak bergerak */}
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
 
-        {/* Segmen tali 1 */}
-        <RigidBody position={[0, -1, 0]} ref={j1} {...segmentProps}>
+        {/* Segmen tali 1 — mulai horizontal */}
+        <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
         {/* Segmen tali 2 */}
-        <RigidBody position={[0, -2, 0]} ref={j2} {...segmentProps}>
+        <RigidBody position={[1, 0, 0]} ref={j2} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
-        {/* Segmen tali 3 — ujung bawah tali, terhubung ke kartu */}
-        <RigidBody position={[0, -3, 0]} ref={j3} {...segmentProps}>
+        {/* Segmen tali 3 — ujung tali */}
+        <RigidBody position={[1.5, 0, 0]} ref={j3} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
-        {/* ID Card — menggantung di bawah ujung tali */}
+        {/* ID Card — mulai di posisi horizontal, lalu jatuh mengayun */}
         <RigidBody
-          position={[0, -4.45, 0]}
+          position={[2, 0, 0]}
           ref={card}
           {...segmentProps}
-          linearDamping={2.2}
-          angularDamping={2.5}
+          linearDamping={2.0}
+          angularDamping={2.0}
           type={dragged ? 'kinematicPosition' : 'dynamic'}
         >
           <CuboidCollider args={[0.66, 1.18, 0.01]} />
