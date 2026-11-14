@@ -106,7 +106,7 @@ export default function Home() {
 
   // Typewriter & Glitch Effect for Role
   const [typedRole, setTypedRole] = useState('');
-  const fullRole = 'Junior Technical Support · Network · Web Specialist';
+  const fullRole = 'Junior Technical Support 2026 · Network · Web Specialist';
 
   // Skills Dashboard State
   const [skillsFilter, setSkillsFilter] = useState<'all' | 'hard' | 'soft'>('all');
@@ -682,7 +682,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="f1-panel-value" style={{fontSize:'0.9rem'}}>BNSP Certified</div>
-                    <div style={{fontSize:'0.75rem',color:'var(--blue-cyan)'}}>Junior Technical Support</div>
+                    <div style={{fontSize:'0.75rem',color:'var(--blue-cyan)'}}>Junior Technical Support · 2026</div>
                   </div>
                 </div>
               </div>
@@ -691,7 +691,7 @@ export default function Home() {
             {/* Description */}
             <div className="about-desc reveal reveal-delay-2">
               Saya adalah siswa aktif SMK Negeri 1 Pracimantoro yang mendalami dunia teknologi jaringan dan web. 
-              Dengan sertifikasi BNSP sebagai Junior Technical Support, saya memiliki kompetensi terverifikasi 
+              Dengan sertifikasi BNSP sebagai Junior Technical Support 2026, saya memiliki kompetensi terverifikasi 
               dalam troubleshooting jaringan komputer, dukungan teknis, dan pengembangan website. 
               Saya berkomitmen untuk terus belajar dan berkontribusi di dunia teknologi informasi.
             </div>
