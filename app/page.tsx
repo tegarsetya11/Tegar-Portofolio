@@ -422,35 +422,89 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // ----- Floating Nav active state -----
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.float-nav a');
+    // ----- Floating Nav active state & scroll-spy -----
+    const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
+    const navLinks = Array.from(document.querySelectorAll('.float-nav a')) as HTMLAnchorElement[];
     const backTop = document.getElementById('back-top');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const active = document.querySelector(`.float-nav a[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
+    let isManualClick = false;
+    let manualTimeout: NodeJS.Timeout;
 
-          if (entry.target.id === 'about') {
-            playF1Radio();
-          }
+    const setActiveLink = (sectionId: string) => {
+      navLinks.forEach((link) => {
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
         }
       });
-    }, { threshold: 0.4 });
+    };
 
-    sections.forEach(s => observer.observe(s));
+    // Immediate active highlight when a nav link is clicked
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const targetId = link.getAttribute('href')?.replace('#', '');
+        if (targetId) {
+          isManualClick = true;
+          clearTimeout(manualTimeout);
+          setActiveLink(targetId);
+          manualTimeout = setTimeout(() => {
+            isManualClick = false;
+          }, 800);
+        }
+      });
+    });
 
-    // Back to top visibility
+    const updateActiveNav = () => {
+      if (isManualClick) return;
+
+      let currentSectionId = '';
+      const viewThreshold = 260;
+
+      sections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= viewThreshold && rect.bottom > viewThreshold) {
+          currentSectionId = sec.id;
+        }
+      });
+
+      if (window.scrollY < 120) {
+        currentSectionId = 'home';
+      } else if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        const last = sections[sections.length - 1];
+        if (last) currentSectionId = last.id;
+      }
+
+      if (currentSectionId) {
+        setActiveLink(currentSectionId);
+      }
+    };
+
+    // Sound trigger when about section appears
+    const aboutSection = document.getElementById('about');
+    let aboutObs: IntersectionObserver | null = null;
+    if (aboutSection) {
+      aboutObs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            playF1Radio();
+          }
+        });
+      }, { threshold: 0.3 });
+      aboutObs.observe(aboutSection);
+    }
+
+    // Handle scroll for nav & back-to-top button
     const handleScroll = () => {
+      updateActiveNav();
       if (backTop) {
         if (window.scrollY > 400) backTop.classList.add('visible');
         else backTop.classList.remove('visible');
       }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateActiveNav();
 
     // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal, .timeline-item');
@@ -460,9 +514,10 @@ export default function Home() {
     reveals.forEach(r => revealObs.observe(r));
 
     return () => {
-      observer.disconnect();
+      if (aboutObs) aboutObs.disconnect();
       revealObs.disconnect();
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(manualTimeout);
     };
   }, []);
 
