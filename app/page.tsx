@@ -1,6 +1,10 @@
 'use client';
-import App from '@/components/band/App';
+import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
+
+const App = dynamic(() => import('@/components/band/App'), {
+  ssr: false,
+});
 
 const softSkillsList = [
   {
@@ -395,30 +399,55 @@ export default function Home() {
 
   useEffect(() => {
     // ----- Loading Screen -----
-    if (sessionStorage.getItem('loaded')) {
-      if (loadingRef.current) loadingRef.current.style.display = 'none';
-      return;
-    }
+    try {
+      if (typeof window !== 'undefined' && sessionStorage.getItem('loaded')) {
+        if (loadingRef.current) loadingRef.current.style.display = 'none';
+        return;
+      }
+    } catch {}
+
     let p = 0;
-    const duration = 1600;
+    const duration = 1400;
     const interval = 20;
     const steps = duration / interval;
     const inc = 100 / steps;
+
+    const finishLoading = () => {
+      if (percentRef.current) percentRef.current.textContent = '100%';
+      if (barRef.current) barRef.current.style.width = '100%';
+      setTimeout(() => {
+        if (loadingRef.current) {
+          loadingRef.current.classList.add('hidden');
+          setTimeout(() => {
+            if (loadingRef.current) loadingRef.current.style.display = 'none';
+          }, 600);
+        }
+        try {
+          sessionStorage.setItem('loaded', '1');
+        } catch {}
+      }, 300);
+    };
+
     const timer = setInterval(() => {
       p = Math.min(100, p + inc + (Math.random() * 2 - 1));
       if (percentRef.current) percentRef.current.textContent = Math.floor(p) + '%';
       if (barRef.current) barRef.current.style.width = Math.floor(p) + '%';
       if (p >= 100) {
         clearInterval(timer);
-        if (percentRef.current) percentRef.current.textContent = '100%';
-        if (barRef.current) barRef.current.style.width = '100%';
-        setTimeout(() => {
-          if (loadingRef.current) loadingRef.current.classList.add('hidden');
-          sessionStorage.setItem('loaded', '1');
-        }, 400);
+        finishLoading();
       }
     }, interval);
-    return () => clearInterval(timer);
+
+    // Fallback maksimal 2 detik agar tidak pernah stuck
+    const fallbackTimer = setTimeout(() => {
+      clearInterval(timer);
+      finishLoading();
+    }, 2000);
+
+    return () => {
+      clearInterval(timer);
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   useEffect(() => {
