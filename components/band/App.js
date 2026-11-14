@@ -71,7 +71,6 @@ function Band({ maxSpeed = 50, minSpeed = 10, isLoaded = true }) {
   const isMobile = width < 768;
 
   // Posisi anchor (titik gantung) di dunia 3D
-  // Posisi awal HORIZONTAL (ke samping) agar kartu jatuh+mengayun saat physics aktif
   const groupX = isMobile ? 0 : 1.75;
   const groupY = 4;
 
@@ -99,7 +98,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, isLoaded = true }) {
   }, [hovered, dragged]);
 
   // Saat loading selesai (isLoaded jadi true), bangunkan semua rigid body
-  // supaya kartu jatuh & mengayun seperti di video
+  // supaya kartu jatuh & mengayun pelan lembut
   useEffect(() => {
     if (!isLoaded) return;
 
@@ -111,11 +110,11 @@ function Band({ maxSpeed = 50, minSpeed = 10, isLoaded = true }) {
             ref.current.wakeUp();
           }
         });
-        // Dorong kartu ke bawah + sedikit ke sisi agar terlihat mengayun/mantul alami
+        // Impuls lembut — cukup untuk memulai ayunan alami, tidak terlalu keras
         if (card.current && typeof card.current.applyImpulse === 'function') {
-          card.current.applyImpulse({ x: 0.5, y: -18, z: 3 }, true);
+          card.current.applyImpulse({ x: 0.1, y: -4, z: 0.5 }, true);
           if (typeof card.current.applyTorqueImpulse === 'function') {
-            card.current.applyTorqueImpulse({ x: 0.3, y: 0.8, z: 0.2 }, true);
+            card.current.applyTorqueImpulse({ x: 0.05, y: 0.15, z: 0.05 }, true);
           }
         }
       } catch (err) {
@@ -123,21 +122,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, isLoaded = true }) {
       }
     }, 350);
 
-    // Pantulan susulan
-    const timer2 = setTimeout(() => {
-      try {
-        if (card.current && typeof card.current.applyImpulse === 'function') {
-          card.current.applyImpulse({ x: -0.3, y: 10, z: -2 }, true);
-        }
-      } catch (err) {
-        console.warn('Physics bounce error:', err);
-      }
-    }, 800);
-
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(timer2);
-    };
+    return () => clearTimeout(timer);
   }, [isLoaded]);
 
   useFrame((state, delta) => {
@@ -174,43 +159,35 @@ function Band({ maxSpeed = 50, minSpeed = 10, isLoaded = true }) {
   return (
     <>
       {/*
-        Layout posisi awal HORIZONTAL agar kartu langsung jatuh mengayun
-        ketika physics diaktifkan (paused=false setelah loading selesai).
-        Ini mirip seperti di video contoh — kartu "terlempar" dari posisi samping.
-
-        Posisi horizontal:
-          fixed  → (0,  0, 0) = groupY=4  → titik gantung di langit-langit
-          j1     → (0.5, 0, 0)           → 0.5 unit ke kanan dari fixed
-          j2     → (1,   0, 0)           → 1 unit ke kanan dari fixed
-          j3     → (1.5, 0, 0)           → 1.5 unit ke kanan dari fixed
-          card   → (2,   0, 0)           → 2 unit ke kanan (mulai jatuh ke bawah)
+        Layout posisi awal SEDIKIT ke samping agar kartu jatuh & mengayun lembut pelan.
+        Tidak terlalu jauh horizontal supaya ayunannya halus, tidak kasar.
       */}
       <group position={[groupX, groupY, 0]}>
         {/* Titik gantung tetap — tidak bergerak */}
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
 
-        {/* Segmen tali 1 — mulai horizontal */}
-        <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
+        {/* Segmen tali 1 — sedikit ke samping */}
+        <RigidBody position={[0.3, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
         {/* Segmen tali 2 */}
-        <RigidBody position={[1, 0, 0]} ref={j2} {...segmentProps}>
+        <RigidBody position={[0.6, 0, 0]} ref={j2} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
         {/* Segmen tali 3 — ujung tali */}
-        <RigidBody position={[1.5, 0, 0]} ref={j3} {...segmentProps}>
+        <RigidBody position={[0.9, 0, 0]} ref={j3} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
-        {/* ID Card — mulai di posisi horizontal, lalu jatuh mengayun */}
+        {/* ID Card — mulai di posisi horizontal, lalu jatuh mengayun lembut */}
         <RigidBody
-          position={[2, 0, 0]}
+          position={[1.5, 0, 0]}
           ref={card}
           {...segmentProps}
-          linearDamping={2.0}
-          angularDamping={2.0}
+          linearDamping={3.5}
+          angularDamping={3.5}
           type={dragged ? 'kinematicPosition' : 'dynamic'}
         >
           <CuboidCollider args={[0.66, 1.18, 0.01]} />
