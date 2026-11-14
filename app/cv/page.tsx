@@ -48,31 +48,64 @@ export default function CVPage() {
           ← Kembali ke Portofolio
         </Link>
 
-        <span style={{
-          color: 'rgba(224,242,254,0.5)',
-          fontSize: '0.85rem',
-          fontFamily: 'monospace',
-          letterSpacing: '0.05em',
-        }}>
-          CV · Tegar Setya Andiputra
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <a
+            href="/assets/cv-tegar-hd.png"
+            download="CV-Tegar-Setya-Andiputra.png"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'rgba(37,99,235,0.2)',
+              border: '1px solid rgba(85,184,255,0.4)',
+              color: '#93c5fd',
+              padding: '10px 18px',
+              borderRadius: '50px',
+              fontWeight: 600,
+              fontSize: '0.88rem',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(37,99,235,0.35)';
+              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(37,99,235,0.2)';
+              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
+            }}
+          >
+            Unduh Versi HD 📥
+          </a>
+
+          <span style={{
+            color: 'rgba(224,242,254,0.5)',
+            fontSize: '0.85rem',
+            fontFamily: 'monospace',
+            letterSpacing: '0.05em',
+          }}>
+            CV · Tegar Setya Andiputra
+          </span>
+        </div>
       </div>
 
       {/* CV Image */}
       <div style={{
         width: '100%',
-        maxWidth: '900px',
+        maxWidth: '820px',
         borderRadius: '16px',
         overflow: 'hidden',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.1)',
+        background: '#fff',
       }}>
         <img
-          src="/assets/cv-tegar.jpg"
+          src="/assets/cv-tegar-hd.png"
           alt="CV Tegar Setya Andiputra"
           style={{
             width: '100%',
             height: 'auto',
             display: 'block',
+            imageRendering: '-webkit-optimize-contrast',
           }}
         />
       </div>
