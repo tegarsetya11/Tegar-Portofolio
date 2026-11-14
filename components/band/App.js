@@ -90,6 +90,33 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     }
   }, [hovered, dragged]);
 
+  // Efek animasi mantul dari atas ke bawah saat web terbuka / masuk beranda
+  useEffect(() => {
+    const isFirstLoad = typeof window !== 'undefined' && !sessionStorage.getItem('loaded');
+    const delay = isFirstLoad ? 1600 : 400;
+
+    const timer1 = setTimeout(() => {
+      if (card.current) {
+        [card, j1, j2, j3].forEach((ref) => ref.current?.wakeUp());
+        // Tarikan ke bawah dan dorongan 3D agar kartu memantul naik-turun secara interaktif
+        card.current.applyImpulse({ x: 0.6, y: -24, z: 4.5 }, true);
+        card.current.applyTorqueImpulse({ x: 0.2, y: 1.1, z: 0.3 }, true);
+      }
+    }, delay);
+
+    // Pantulan susulan agar getaran elastis lebih terasa hidup
+    const timer2 = setTimeout(() => {
+      if (card.current) {
+        card.current.applyImpulse({ x: -0.3, y: 14, z: -2 }, true);
+      }
+    }, delay + 420);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
   useFrame((state, delta) => {
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
@@ -160,6 +187,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           position={[0, -4.45, 0]}
           ref={card}
           {...segmentProps}
+          linearDamping={2.2}
+          angularDamping={2.5}
           type={dragged ? 'kinematicPosition' : 'dynamic'}
         >
           <CuboidCollider args={[0.66, 1.18, 0.01]} />
