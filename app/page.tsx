@@ -104,6 +104,7 @@ export default function Home() {
   const barRef = useRef<HTMLDivElement>(null);
   const loadingRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioGestureCleanupRef = useRef<(() => void) | null>(null);
   const f1AudioRef = useRef<HTMLAudioElement | null>(null);
   const lastF1PlayedRef = useRef<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -352,44 +353,46 @@ export default function Home() {
     audio.volume = 0.25; // Suara lembut, tidak terlalu keras (25%)
     audioRef.current = audio;
 
+    const removeGestureListeners = () => {
+      window.removeEventListener('click', handleFirstGesture);
+      window.removeEventListener('touchstart', handleFirstGesture);
+      window.removeEventListener('keydown', handleFirstGesture);
+      audioGestureCleanupRef.current = null;
+    };
+
     const playAudio = () => {
       audio.play().then(() => {
         setIsPlaying(true);
+        removeGestureListeners();
       }).catch(() => {
         // Autoplay policy prevented immediate playback
       });
     };
 
-    // Coba autoplay langsung
-    playAudio();
-
-    // Jika diblokir oleh browser, putar otomatis pada interaksi pertama user (klik/scroll/sentuh)
-    const handleFirstGesture = () => {
-      audio.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {});
-      window.removeEventListener('click', handleFirstGesture);
-      window.removeEventListener('scroll', handleFirstGesture);
-      window.removeEventListener('touchstart', handleFirstGesture);
-      window.removeEventListener('keydown', handleFirstGesture);
+    const handleFirstGesture = (event: Event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest('#music-toggle')) return;
+      playAudio();
     };
 
+    audioGestureCleanupRef.current = removeGestureListeners;
+
+    // Try autoplay; browsers may require a user gesture first.
+    playAudio();
+
     window.addEventListener('click', handleFirstGesture);
-    window.addEventListener('scroll', handleFirstGesture);
     window.addEventListener('touchstart', handleFirstGesture);
     window.addEventListener('keydown', handleFirstGesture);
 
     return () => {
       audio.pause();
-      window.removeEventListener('click', handleFirstGesture);
-      window.removeEventListener('scroll', handleFirstGesture);
-      window.removeEventListener('touchstart', handleFirstGesture);
-      window.removeEventListener('keydown', handleFirstGesture);
+      removeGestureListeners();
     };
   }, []);
 
   const toggleAudio = () => {
     if (!audioRef.current) return;
+    audioGestureCleanupRef.current?.();
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);

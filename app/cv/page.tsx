@@ -49,35 +49,6 @@ export default function CVPage() {
         </Link>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <a
-            href="/assets/cv-tegar-hd.png"
-            download="CV-Tegar-Setya-Andiputra.png"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              background: 'rgba(37,99,235,0.2)',
-              border: '1px solid rgba(85,184,255,0.4)',
-              color: '#93c5fd',
-              padding: '10px 18px',
-              borderRadius: '50px',
-              fontWeight: 600,
-              fontSize: '0.88rem',
-              textDecoration: 'none',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(37,99,235,0.35)';
-              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(37,99,235,0.2)';
-              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
-            }}
-          >
-            Unduh Versi HD 📥
-          </a>
-
           <span style={{
             color: 'rgba(224,242,254,0.5)',
             fontSize: '0.85rem',
