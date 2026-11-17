@@ -60,7 +60,7 @@ export default function CVPage() {
         </div>
       </div>
 
-      {/* CV Image */}
+      {/* CV PDF */}
       <div style={{
         width: '100%',
         maxWidth: '820px',
@@ -69,14 +69,14 @@ export default function CVPage() {
         boxShadow: '0 20px 60px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.1)',
         background: '#fff',
       }}>
-        <img
-          src="/assets/cv-tegar-hd.png"
-          alt="CV Tegar Setya Andiputra"
+        <iframe
+          src="/assets/cv-tegar.pdf#page=1&zoom=77&navpanes=0"
+          title="CV Tegar Setya Andiputra"
           style={{
             width: '100%',
-            height: 'auto',
+            height: '1100px',
             display: 'block',
-            imageRendering: '-webkit-optimize-contrast',
+            border: 0,
           }}
         />
       </div>
